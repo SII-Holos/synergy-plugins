@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "bun test scripts/*.test.ts",
     "validate": "bun run scripts/validate-registry.ts",
     "validate:entry": "bun run scripts/validate-plugin-entry.ts",
     "build-registry": "bun run scripts/build-registry.ts"

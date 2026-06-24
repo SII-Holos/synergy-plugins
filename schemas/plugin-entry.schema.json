@@ -85,6 +85,7 @@
         "version",
         "downloadUrl",
         "signatureUrl",
+        "signature",
         "integrity",
         "manifestHash",
         "permissionsHash",
@@ -99,6 +100,7 @@
         "version": { "type": "string", "minLength": 1 },
         "downloadUrl": { "type": "string", "format": "uri" },
         "signatureUrl": { "type": "string", "format": "uri" },
+        "signature": { "$ref": "#/$defs/signature" },
         "integrity": { "type": "string", "pattern": "^sha256-[a-f0-9]{64}$" },
         "manifestHash": { "type": "string", "minLength": 1 },
         "permissionsHash": { "type": "string", "minLength": 1 },
@@ -120,6 +122,15 @@
         },
         "publishedAt": { "type": "string", "format": "date-time" },
         "changelog": { "type": "string" }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "signer"],
+      "properties": {
+        "algorithm": { "const": "ed25519" },
+        "signer": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
       }
     }
   }

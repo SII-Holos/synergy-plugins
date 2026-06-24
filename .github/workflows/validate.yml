@@ -15,5 +15,6 @@ jobs:
         with:
           bun-version: latest
       - run: bun install
+      - run: bun test
       - run: bun run validate
       - run: bun run build-registry --check

@@ -1,0 +1,26 @@
+# Synergy Plugin Market Registry
+
+> This repository is the official GitHub-backed Synergy Plugin Market index. It is for registering reviewed plugin release artifacts, not for developing Synergy core.
+
+## If You Are Publishing A Plugin
+
+- Read [README.md](README.md) for the registry model and artifact requirements.
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) for the PR workflow and review criteria.
+- Prefer running this from the plugin repository:
+
+```bash
+synergy-plugin publish-market --repo https://github.com/owner/my-plugin
+```
+
+The command prepares the GitHub Release assets, writes `plugins/<plugin-id>.json`, regenerates `registry.json`, validates this registry, and opens or prepares a pull request.
+
+## Registry Requirements
+
+- `plugins/<plugin-id>.json` is the source of truth for a plugin detail entry.
+- `registry.json` is generated from `plugins/*.json`; do not hand-edit it except through `bun run build-registry`.
+- Every version must point to an installable `.synergy-plugin.tgz`, a matching `.sig`, a `sha256-...` integrity value, and `signature.signer`.
+- CI verifies the artifact, manifest identity, permission hashes, and Ed25519 signature using the registry-reviewed signer.
+
+## Not For Synergy Source Development
+
+Do not use this repository's docs as Synergy source-development instructions. To change Synergy itself, use the main Synergy repository and its `AGENTS.md`.

@@ -20,15 +20,26 @@ examples/*.plugin.json        # Example detail entries, not published to the reg
 
 ## Publishing Flow
 
+The recommended path is:
+
+```bash
+synergy-plugin publish-market --repo https://github.com/owner/my-plugin
+```
+
+The command validates, builds, packs, signs, uploads GitHub Release assets when possible, writes the registry entry, regenerates `registry.json`, validates this registry, and opens or prepares a pull request.
+
+Manual publishing is also supported:
+
 1. Build, pack, and sign the plugin in the plugin's own repository.
 2. Create a GitHub Release and upload:
    - `<id>-<version>.synergy-plugin.tgz`
    - `<id>-<version>.synergy-plugin.tgz.sig`
-3. Add or update `plugins/<plugin-id>.json` in this repository.
+3. Add or update `plugins/<plugin-id>.json` in this repository. Each version must include `signature.algorithm: "ed25519"` and `signature.signer` from the `.sig` file.
 4. Run:
 
 ```bash
 bun install
+bun run build-registry
 bun run validate
 bun run build-registry --check
 ```
@@ -46,4 +57,4 @@ integrity.json
 permissions.summary.json
 ```
 
-The entry must include a `sha256-...` integrity string and a signature metadata file. CI verifies the downloaded artifact hash, the required package files, the manifest name/version, and the signature payload hashes.
+The entry must include a `sha256-...` integrity string, a signature metadata URL, and the signer public key. CI verifies the downloaded artifact hash, the required package files, the manifest name/version, signature payload hashes, and the Ed25519 signature using the registry-reviewed signer.

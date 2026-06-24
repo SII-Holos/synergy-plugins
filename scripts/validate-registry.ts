@@ -1,6 +1,6 @@
 import Ajv2020 from "ajv/dist/2020"
 import addFormats from "ajv-formats"
-import crypto from "node:crypto"
+import crypto, { subtle } from "node:crypto"
 import fs from "node:fs/promises"
 import os from "node:os"
 import path from "node:path"
@@ -61,7 +61,23 @@ async function readJson(filepath: string) {
   return JSON.parse(await fs.readFile(filepath, "utf8"))
 }
 
-async function validateArtifact(entry: any, version: any) {
+async function verifyEd25519(input: { publicKeyHex: string; signatureHex: string; payload: unknown }) {
+  const publicKey = await subtle.importKey(
+    "raw",
+    Buffer.from(input.publicKeyHex, "hex"),
+    "Ed25519" as any,
+    false,
+    ["verify"],
+  )
+  return subtle.verify(
+    "Ed25519" as any,
+    publicKey,
+    Buffer.from(input.signatureHex, "hex"),
+    new TextEncoder().encode(JSON.stringify(input.payload)),
+  )
+}
+
+export async function validateArtifact(entry: any, version: any) {
   const artifact = await download(version.downloadUrl)
   const hash = sha256(artifact)
   if (version.integrity !== `sha256-${hash}`) {
@@ -84,6 +100,9 @@ async function validateArtifact(entry: any, version: any) {
 
   const signatureRaw = await download(version.signatureUrl)
   const signature = JSON.parse(signatureRaw.toString("utf8"))
+  if (version.signature?.algorithm !== "ed25519") throw new Error(`${entry.id}@${version.version}: unsupported signature algorithm`)
+  if (version.signature?.signer !== signature.signer) throw new Error(`${entry.id}@${version.version}: signature signer mismatch`)
+  if (signature.algorithm !== "ed25519") throw new Error(`${entry.id}@${version.version}: signature metadata algorithm mismatch`)
   if (signature.pluginId !== entry.id) throw new Error(`${entry.id}@${version.version}: signature pluginId mismatch`)
   if (signature.version !== version.version) throw new Error(`${entry.id}@${version.version}: signature version mismatch`)
   if (signature.payload?.tarballHash !== hash) throw new Error(`${entry.id}@${version.version}: signature tarball hash mismatch`)
@@ -93,6 +112,12 @@ async function validateArtifact(entry: any, version: any) {
   if (signature.payload?.permissionsHash !== version.permissionsHash) {
     throw new Error(`${entry.id}@${version.version}: signature permissions hash mismatch`)
   }
+  const valid = await verifyEd25519({
+    publicKeyHex: version.signature.signer,
+    signatureHex: signature.signature,
+    payload: signature.payload,
+  })
+  if (!valid) throw new Error(`${entry.id}@${version.version}: signature verification failed`)
 }
 
 async function validatePluginEntries() {
@@ -123,4 +148,4 @@ async function main() {
   console.log(`OK registry.json (${entries.length} plugin entries)`)
 }
 
-await main()
+if (import.meta.main) await main()
