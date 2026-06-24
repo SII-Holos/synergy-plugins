@@ -3,10 +3,10 @@
 # These owners are responsible for registry trust decisions. A CODEOWNERS
 # approval is required before changes can merge into main.
 
-* @EricSanchezok @MatZaharia @SII-jake @yuzhustudio
+* @SII-Holos/plugin-market-maintainers
 
-/.github/ @EricSanchezok @MatZaharia @SII-jake @yuzhustudio
-/schemas/ @EricSanchezok @MatZaharia @SII-jake @yuzhustudio
-/scripts/ @EricSanchezok @MatZaharia @SII-jake @yuzhustudio
-/registry.json @EricSanchezok @MatZaharia @SII-jake @yuzhustudio
-/plugins/ @EricSanchezok @MatZaharia @SII-jake @yuzhustudio
+/.github/ @SII-Holos/plugin-market-maintainers
+/schemas/ @SII-Holos/plugin-market-maintainers
+/scripts/ @SII-Holos/plugin-market-maintainers
+/registry.json @SII-Holos/plugin-market-maintainers
+/plugins/ @SII-Holos/plugin-market-reviewers
