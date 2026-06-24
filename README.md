@@ -46,6 +46,8 @@ bun run build-registry --check
 
 5. Open a pull request. After CI and maintainer review pass, merging to `main` makes the plugin visible to Synergy clients.
 
+See [REVIEW_POLICY.md](REVIEW_POLICY.md) for maintainer review rules, trust labels, and merge requirements.
+
 ## Artifact Requirements
 
 Every published artifact must be an installable Synergy plugin package, not a source archive. The tarball must contain:
@@ -58,3 +60,7 @@ permissions.summary.json
 ```
 
 The entry must include a `sha256-...` integrity string, a signature metadata URL, and the signer public key. CI verifies the downloaded artifact hash, the required package files, the manifest name/version, signature payload hashes, and the Ed25519 signature using the registry-reviewed signer.
+
+## Security
+
+Do not open public issues for malicious plugins, compromised artifacts, incorrect signers, leaked signing keys, or registry bypasses. Use the private reporting flow described in [.github/SECURITY.md](.github/SECURITY.md).

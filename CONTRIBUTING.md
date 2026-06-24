@@ -2,6 +2,8 @@
 
 Synergy Plugin Market uses GitHub pull requests as the review and publishing channel.
 
+Read [REVIEW_POLICY.md](REVIEW_POLICY.md) before submitting plugins that request high-risk permissions, `verified`, or `official` status.
+
 ## Before Opening a PR
 
 - Publish the plugin artifact from the plugin's own repository.
@@ -45,3 +47,5 @@ Maintainers check that:
 - integrity and signature metadata match the release artifact
 - the registry signer matches the `.sig` signer and verifies the Ed25519 signature
 - the plugin is compatible with the listed Synergy version range
+
+Third-party submissions should not set `official: true` or `verified: true` unless a maintainer explicitly asks for that change.
