@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "synergy-frontend-kit",
+  "name": "synergy-frontend-kit",
+  "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, setup automation, and design-readiness UI.",
+  "repo": "https://github.com/SII-Holos/synergy-frontend-kit",
+  "homepage": "https://github.com/SII-Holos/synergy-frontend-kit",
+  "author": {
+    "name": "SII Holos"
+  },
+  "verified": true,
+  "official": true,
+  "keywords": [
+    "accessibility",
+    "design",
+    "frontend",
+    "shadcn",
+    "synergy-plugin",
+    "tailwind",
+    "ui"
+  ],
+  "compatibility": {
+    "synergy": ">=2.2.0"
+  },
+  "versions": [
+    {
+      "version": "0.2.0",
+      "downloadUrl": "https://github.com/SII-Holos/synergy-frontend-kit/releases/download/v0.2.0/synergy-frontend-kit-0.2.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/SII-Holos/synergy-frontend-kit/releases/download/v0.2.0/synergy-frontend-kit-0.2.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-d658e036fb887ea977460a039397c8d6bd367324bf316aec9c2a237ba603fce4",
+      "manifestHash": "6a5972fba2fb8057ea6ec05108954bab523315b45cb93e3febf93048c0ee90aa",
+      "permissionsHash": "060210840a81a36697a0c607ac9beae6c75d54942f7c1691b9737e06f128107f",
+      "risk": "high",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Requires config:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:read",
+          "description": "Requires filesystem:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:write",
+          "description": "Requires filesystem:write",
+          "risk": "high"
+        },
+        {
+          "key": "mcp:invoke",
+          "description": "Requires mcp:invoke",
+          "risk": "medium"
+        },
+        {
+          "key": "mcp:spawn",
+          "description": "Requires mcp:spawn",
+          "risk": "medium"
+        },
+        {
+          "key": "network",
+          "description": "Requires network",
+          "risk": "medium"
+        },
+        {
+          "key": "plugin_invoke",
+          "description": "Requires plugin_invoke",
+          "risk": "medium"
+        },
+        {
+          "key": "shell",
+          "description": "Requires shell",
+          "risk": "high"
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "workspacePanels",
+        "settings"
+      ],
+      "publishedAt": "2026-06-24T22:42:11.986Z",
+      "changelog": "Upgrade for Synergy 2.2 plugin marketplace with complete skill bundle sync, pinned MCP servers, setup automation, and design readiness UI."
+    }
+  ],
+  "yankedVersions": []
+}

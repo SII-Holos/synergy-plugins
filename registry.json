@@ -1,5 +1,36 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-25T00:00:00.000Z",
-  "plugins": []
+  "updatedAt": "2026-06-24T22:42:11.986Z",
+  "plugins": [
+    {
+      "id": "synergy-frontend-kit",
+      "name": "synergy-frontend-kit",
+      "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, setup automation, and design-readiness UI.",
+      "repo": "https://github.com/SII-Holos/synergy-frontend-kit",
+      "entry": "plugins/synergy-frontend-kit.json",
+      "author": {
+        "name": "SII Holos"
+      },
+      "verified": true,
+      "official": true,
+      "keywords": [
+        "accessibility",
+        "design",
+        "frontend",
+        "shadcn",
+        "synergy-plugin",
+        "tailwind",
+        "ui"
+      ],
+      "latestVersion": "0.2.0",
+      "updatedAt": "2026-06-24T22:42:11.986Z",
+      "risk": "high",
+      "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "settings",
+        "workspacePanels"
+      ]
+    }
+  ]
 }
