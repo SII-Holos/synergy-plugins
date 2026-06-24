@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/SII-Holos/synergy-plugins/main/schemas/plugin-entry.schema.json",
+  "title": "Synergy Plugin Registry Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "name",
+    "description",
+    "repo",
+    "author",
+    "verified",
+    "official",
+    "keywords",
+    "compatibility",
+    "versions",
+    "yankedVersions"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "$ref": "#/$defs/pluginId" },
+    "name": { "$ref": "#/$defs/pluginId" },
+    "description": { "type": "string", "minLength": 1 },
+    "repo": { "type": "string", "format": "uri" },
+    "homepage": { "type": "string", "format": "uri" },
+    "author": { "$ref": "#/$defs/author" },
+    "verified": { "type": "boolean" },
+    "official": { "type": "boolean" },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["synergy"],
+      "properties": {
+        "synergy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/version" }
+    },
+    "yankedVersions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "pluginId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "permission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "description", "risk"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "risk": { "enum": ["low", "medium", "high"] },
+        "granted": { "type": "boolean" }
+      }
+    },
+    "version": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "downloadUrl",
+        "signatureUrl",
+        "integrity",
+        "manifestHash",
+        "permissionsHash",
+        "risk",
+        "runtimeMode",
+        "permissionsSummary",
+        "tools",
+        "uiSurfaces",
+        "publishedAt"
+      ],
+      "properties": {
+        "version": { "type": "string", "minLength": 1 },
+        "downloadUrl": { "type": "string", "format": "uri" },
+        "signatureUrl": { "type": "string", "format": "uri" },
+        "integrity": { "type": "string", "pattern": "^sha256-[a-f0-9]{64}$" },
+        "manifestHash": { "type": "string", "minLength": 1 },
+        "permissionsHash": { "type": "string", "minLength": 1 },
+        "risk": { "enum": ["low", "medium", "high"] },
+        "runtimeMode": { "enum": ["in-process", "worker", "process"] },
+        "permissionsSummary": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/permission" }
+        },
+        "tools": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "uiSurfaces": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "changelog": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/SII-Holos/synergy-plugins/main/schemas/registry.schema.json",
+  "title": "Synergy Plugin Registry Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "updatedAt", "plugins"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "plugins": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pluginSummary" }
+    }
+  },
+  "$defs": {
+    "pluginId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "pluginSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "repo",
+        "entry",
+        "author",
+        "verified",
+        "official",
+        "keywords",
+        "latestVersion",
+        "updatedAt",
+        "risk",
+        "runtimeMode",
+        "tools",
+        "uiSurfaces"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/pluginId" },
+        "name": { "$ref": "#/$defs/pluginId" },
+        "description": { "type": "string", "minLength": 1 },
+        "repo": { "type": "string", "format": "uri" },
+        "entry": { "type": "string", "pattern": "^plugins/[a-z0-9][a-z0-9._-]*\\.json$" },
+        "author": { "$ref": "#/$defs/author" },
+        "verified": { "type": "boolean" },
+        "official": { "type": "boolean" },
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "latestVersion": { "type": "string", "minLength": 1 },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "risk": { "enum": ["low", "medium", "high"] },
+        "runtimeMode": { "enum": ["in-process", "worker", "process"] },
+        "tools": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "uiSurfaces": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

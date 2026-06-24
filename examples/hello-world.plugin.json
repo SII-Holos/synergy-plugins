@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "hello-world",
+  "name": "hello-world",
+  "description": "Example Synergy plugin",
+  "repo": "https://github.com/SII-Holos/hello-world-plugin",
+  "homepage": "https://github.com/SII-Holos/hello-world-plugin",
+  "author": {
+    "name": "SII Holos"
+  },
+  "verified": true,
+  "official": true,
+  "keywords": ["synergy-plugin"],
+  "compatibility": {
+    "synergy": ">=1.0.0"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "downloadUrl": "https://github.com/SII-Holos/hello-world-plugin/releases/download/v0.1.0/hello-world-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/SII-Holos/hello-world-plugin/releases/download/v0.1.0/hello-world-0.1.0.synergy-plugin.tgz.sig",
+      "integrity": "sha256-...",
+      "manifestHash": "...",
+      "permissionsHash": "...",
+      "risk": "low",
+      "runtimeMode": "process",
+      "permissionsSummary": [],
+      "tools": ["greet"],
+      "uiSurfaces": ["toolRenderers"],
+      "publishedAt": "2026-06-25T00:00:00.000Z",
+      "changelog": "Initial release"
+    }
+  ],
+  "yankedVersions": []
+}
