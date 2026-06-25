@@ -12,7 +12,7 @@ const root = path.resolve(import.meta.dir, "..")
 const registryPath = path.join(root, "registry.json")
 const registrySchemaPath = path.join(root, "schemas", "registry.schema.json")
 const pluginsDir = path.join(root, "plugins")
-const downloadTimeoutMs = Number(process.env.SYNERGY_REGISTRY_DOWNLOAD_TIMEOUT_MS ?? 120_000)
+const downloadTimeoutMs = Number(process.env.SYNERGY_REGISTRY_DOWNLOAD_TIMEOUT_MS ?? 900_000)
 
 function ajv() {
   const instance = new Ajv2020({ allErrors: true, strict: true })
@@ -35,9 +35,19 @@ async function validateRegistrySchema() {
 }
 
 async function download(url: string) {
-  const response = await fetch(url, { signal: AbortSignal.timeout(downloadTimeoutMs) })
-  if (!response.ok) throw new Error(`GET ${url} failed with ${response.status}`)
-  return Buffer.from(await response.arrayBuffer())
+  let lastError: unknown
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, { signal: AbortSignal.timeout(downloadTimeoutMs) })
+      if (!response.ok) throw new Error(`status ${response.status}`)
+      return Buffer.from(await response.arrayBuffer())
+    } catch (error) {
+      lastError = error
+      if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, attempt * 2_000))
+    }
+  }
+  const message = lastError instanceof Error ? lastError.message : String(lastError)
+  throw new Error(`GET ${url} failed after 3 attempts (${downloadTimeoutMs}ms each): ${message}`)
 }
 
 function sha256(buffer: Buffer) {
