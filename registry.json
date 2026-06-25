@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-24T22:42:11.986Z",
+  "updatedAt": "2026-06-25T07:50:00.721Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -30,6 +30,68 @@
       "uiSurfaces": [
         "settings",
         "workspacePanels"
+      ]
+    },
+    {
+      "id": "synergy-meme-plugin",
+      "name": "synergy-meme-plugin",
+      "description": "Generate meme images from bundled memegen.link templates.",
+      "repo": "https://github.com/EricSanchezok/synergy-meme-plugin",
+      "entry": "plugins/synergy-meme-plugin.json",
+      "author": {
+        "name": "SII Holos"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "image",
+        "meme",
+        "memegen",
+        "synergy-plugin"
+      ],
+      "latestVersion": "0.1.0",
+      "updatedAt": "2026-06-25T00:33:24.244Z",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "tools": [
+        "generate_meme",
+        "search_meme_templates"
+      ],
+      "uiSurfaces": []
+    },
+    {
+      "id": "synergy-uuid-plus",
+      "name": "synergy-uuid-plus",
+      "description": "ID, hash, encoding, and password generation utilities",
+      "repo": "https://github.com/yzxoi/synergy-uuid-plus",
+      "entry": "plugins/synergy-uuid-plus.json",
+      "author": {
+        "name": "EricSanchezok"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "base64",
+        "crypto",
+        "generator",
+        "hash",
+        "password",
+        "synergy-plugin",
+        "utilities",
+        "uuid"
+      ],
+      "latestVersion": "0.1.0",
+      "updatedAt": "2026-06-25T07:50:00.721Z",
+      "risk": "low",
+      "runtimeMode": "in-process",
+      "tools": [
+        "encode_base64",
+        "generate_password",
+        "generate_uuid",
+        "hash_text"
+      ],
+      "uiSurfaces": [
+        "toolRenderers"
       ]
     }
   ]
