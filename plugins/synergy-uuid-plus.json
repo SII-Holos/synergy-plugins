@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "synergy-uuid-plus",
+  "name": "synergy-uuid-plus",
+  "description": "ID, hash, encoding, and password generation utilities",
+  "repo": "https://github.com/yzxoi/synergy-uuid-plus",
+  "author": {
+    "name": "EricSanchezok"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "base64",
+    "crypto",
+    "generator",
+    "hash",
+    "password",
+    "synergy-plugin",
+    "utilities",
+    "uuid"
+  ],
+  "compatibility": {
+    "synergy": ">=1.0.0"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "downloadUrl": "https://github.com/yzxoi/synergy-uuid-plus/releases/download/v0.1.0/synergy-uuid-plus-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/synergy-uuid-plus/releases/download/v0.1.0/synergy-uuid-plus-0.1.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "483a6c48d867e72b6d48158918da77237e15b3d0e6d9f4f6ae8393cd198280ee"
+      },
+      "integrity": "sha256-33c4b89655484e9bf767bdd34fc6f960540c96faf137082a0d1ee602524b95fe",
+      "manifestHash": "012104c36be70c6d394a1e67f3f94071216acaa9eeb4ec164d466fbca74f6fe7",
+      "permissionsHash": "5b0390e42388ce53c35a5a947dcdff1e4e4805a83c5d5788dec5e66944b51e49",
+      "risk": "low",
+      "runtimeMode": "in-process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Requires config:read",
+          "risk": "medium"
+        },
+        {
+          "key": "plugin_invoke",
+          "description": "Requires plugin_invoke",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "generate_uuid",
+        "hash_text",
+        "encode_base64",
+        "generate_password"
+      ],
+      "uiSurfaces": [
+        "toolRenderers"
+      ],
+      "publishedAt": "2026-06-25T07:50:00.721Z"
+    }
+  ],
+  "yankedVersions": []
+}
