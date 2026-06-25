@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-24T22:42:11.986Z",
+  "updatedAt": "2026-06-25T00:33:24.244Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -31,6 +31,33 @@
         "settings",
         "workspacePanels"
       ]
+    },
+    {
+      "id": "synergy-meme-plugin",
+      "name": "synergy-meme-plugin",
+      "description": "Generate meme images from bundled memegen.link templates.",
+      "repo": "https://github.com/EricSanchezok/synergy-meme-plugin",
+      "entry": "plugins/synergy-meme-plugin.json",
+      "author": {
+        "name": "SII Holos"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "image",
+        "meme",
+        "memegen",
+        "synergy-plugin"
+      ],
+      "latestVersion": "0.1.0",
+      "updatedAt": "2026-06-25T00:33:24.244Z",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "tools": [
+        "generate_meme",
+        "search_meme_templates"
+      ],
+      "uiSurfaces": []
     }
   ]
 }
