@@ -12,6 +12,7 @@ const root = path.resolve(import.meta.dir, "..")
 const registryPath = path.join(root, "registry.json")
 const registrySchemaPath = path.join(root, "schemas", "registry.schema.json")
 const pluginsDir = path.join(root, "plugins")
+const downloadTimeoutMs = Number(process.env.SYNERGY_REGISTRY_DOWNLOAD_TIMEOUT_MS ?? 120_000)
 
 function ajv() {
   const instance = new Ajv2020({ allErrors: true, strict: true })
@@ -34,7 +35,7 @@ async function validateRegistrySchema() {
 }
 
 async function download(url: string) {
-  const response = await fetch(url, { signal: AbortSignal.timeout(30000) })
+  const response = await fetch(url, { signal: AbortSignal.timeout(downloadTimeoutMs) })
   if (!response.ok) throw new Error(`GET ${url} failed with ${response.status}`)
   return Buffer.from(await response.arrayBuffer())
 }
