@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "synergy-meme-plugin",
+  "name": "synergy-meme-plugin",
+  "description": "Generate meme images from bundled memegen.link templates.",
+  "repo": "https://github.com/EricSanchezok/synergy-meme-plugin",
+  "homepage": "https://github.com/EricSanchezok/synergy-meme-plugin",
+  "author": {
+    "name": "SII Holos"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "image",
+    "meme",
+    "memegen",
+    "synergy-plugin"
+  ],
+  "compatibility": {
+    "synergy": ">=2.2.2"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.1.0/synergy-meme-plugin-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.1.0/synergy-meme-plugin-0.1.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-55c23707569796cfc6cc6af02b10b0bd88417d6ec27639bbe451ceacc87c3141",
+      "manifestHash": "c251c6173b3f61067122274e711983202f5f43db9a0454b67d558109b56b46a6",
+      "permissionsHash": "222d7bc207e0b15c395a29e898c0a06e2e70dcedd50e56850e1e9b0e1a73b48f",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Requires config:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:read",
+          "description": "Requires filesystem:read",
+          "risk": "medium"
+        },
+        {
+          "key": "plugin_invoke",
+          "description": "Requires plugin_invoke",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "search_meme_templates",
+        "generate_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-06-25T00:33:24.244Z",
+      "changelog": "Initial release"
+    }
+  ],
+  "yankedVersions": []
+}
