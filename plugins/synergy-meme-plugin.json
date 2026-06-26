@@ -17,7 +17,7 @@
     "synergy-plugin"
   ],
   "compatibility": {
-    "synergy": ">=2.3.0"
+    "synergy": ">=2.4.0"
   },
   "versions": [
     {
@@ -93,6 +93,45 @@
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-06-25T12:59:45.448Z"
+    },
+    {
+      "version": "0.3.0",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.0/synergy-meme-plugin-0.3.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.0/synergy-meme-plugin-0.3.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-65245c7dd6dba3776582e8e1f0349097a153c269ec90820804ae9746d0e2f0ee",
+      "manifestHash": "0df1335147a38bce1248fe65141dd5692f70693806761f72c4d5e96ecb454103",
+      "permissionsHash": "945f6dac70880bc202b4435dc12f39ea8d1669a8ccb37818d961cb4a8bbbf26f",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Requires config:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:read",
+          "description": "Requires filesystem:read",
+          "risk": "medium"
+        },
+        {
+          "key": "plugin_invoke",
+          "description": "Requires plugin_invoke",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "generate_meme",
+        "search_meme_templates",
+        "pick_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-06-26T11:23:22.307Z",
+      "changelog": "Add Cortex structured hidden planner task and unified media-generation display."
     }
   ],
   "yankedVersions": []
