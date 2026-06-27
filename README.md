@@ -13,6 +13,7 @@ https://raw.githubusercontent.com/SII-Holos/synergy-plugins/main/registry.json
 ```text
 registry.json                 # Generated lightweight index for list/search views
 plugins/<plugin-id>.json      # Reviewed plugin detail entries
+icons/<plugin-id>.svg         # Reviewed marketplace SVG icons
 schemas/*.schema.json         # JSON Schema contracts
 scripts/*.ts                  # Validation and index generation
 examples/*.plugin.json        # Example detail entries, not published to the registry
@@ -35,7 +36,8 @@ Manual publishing is also supported:
    - `<id>-<version>.synergy-plugin.tgz`
    - `<id>-<version>.synergy-plugin.tgz.sig`
 3. Add or update `plugins/<plugin-id>.json` in this repository. Each version must include `signature.algorithm: "ed25519"` and `signature.signer` from the `.sig` file.
-4. Run:
+4. If the plugin uses a custom marketplace icon, add `icons/<plugin-id>.svg` and set `icon` to `{ "type": "registry-svg", "path": "icons/<plugin-id>.svg" }`.
+5. Run:
 
 ```bash
 bun install
@@ -44,7 +46,7 @@ bun run validate
 bun run build-registry --check
 ```
 
-5. Open a pull request. After CI and maintainer review pass, merging to `main` makes the plugin visible to Synergy clients.
+6. Open a pull request. After CI and maintainer review pass, merging to `main` makes the plugin visible to Synergy clients.
 
 See [REVIEW_POLICY.md](REVIEW_POLICY.md) for maintainer review rules, trust labels, and merge requirements.
 
@@ -60,6 +62,22 @@ permissions.summary.json
 ```
 
 The entry must include a `sha256-...` integrity string, a signature metadata URL, and the signer public key. CI verifies the downloaded artifact hash, the required package files, the manifest name/version, signature payload hashes, and the Ed25519 signature using the registry-reviewed signer.
+
+## Marketplace Icons
+
+Registry icons are reviewed assets. Use a Lucide token for simple entries:
+
+```json
+{ "type": "lucide", "name": "image" }
+```
+
+Use a custom SVG when the plugin needs a recognizable brand mark:
+
+```json
+{ "type": "registry-svg", "path": "icons/my-plugin.svg" }
+```
+
+Custom icons must live in `icons/<plugin-id>.svg`, be 32 KB or smaller, and avoid scripts, `foreignObject`, event handlers, embedded images, external URLs, data URLs, and executable references.
 
 ## Security
 

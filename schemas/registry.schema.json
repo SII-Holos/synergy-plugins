@@ -55,6 +55,7 @@
         "repo": { "type": "string", "format": "uri" },
         "entry": { "type": "string", "pattern": "^plugins/[a-z0-9][a-z0-9._-]*\\.json$" },
         "author": { "$ref": "#/$defs/author" },
+        "icon": { "$ref": "#/$defs/icon" },
         "verified": { "type": "boolean" },
         "official": { "type": "boolean" },
         "keywords": {
@@ -77,6 +78,28 @@
           "uniqueItems": true
         }
       }
+    },
+    "icon": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "name"],
+          "properties": {
+            "type": { "const": "lucide" },
+            "name": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "path"],
+          "properties": {
+            "type": { "const": "registry-svg" },
+            "path": { "type": "string", "pattern": "^icons/[a-z0-9][a-z0-9._-]*\\.svg$" }
+          }
+        }
+      ]
     }
   }
 }

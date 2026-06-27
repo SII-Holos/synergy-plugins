@@ -11,6 +11,9 @@ type PluginEntry = {
   description: string
   repo: string
   author: { name: string; email?: string; url?: string }
+  icon?:
+    | { type: "lucide"; name: string }
+    | { type: "registry-svg"; path: string }
   verified: boolean
   official: boolean
   keywords: string[]
@@ -50,6 +53,7 @@ export async function buildRegistry() {
       repo: entry.repo,
       entry: `plugins/${entry.id}.json`,
       author: entry.author,
+      ...(entry.icon ? { icon: entry.icon } : {}),
       verified: entry.verified,
       official: entry.official,
       keywords: [...entry.keywords].sort(),

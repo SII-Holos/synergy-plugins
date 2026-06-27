@@ -5,7 +5,7 @@ import os from "node:os"
 import path from "node:path"
 import { spawnSync } from "node:child_process"
 import { validatePluginEntryFile } from "./validate-plugin-entry"
-import { validateArtifact } from "./validate-registry"
+import { validateArtifact, validateRegistryIcon } from "./validate-registry"
 
 const originalFetch = globalThis.fetch
 
@@ -142,6 +142,52 @@ describe("plugin entry schema", () => {
     })
     const filepath = await writeEntryFile(entry)
     await expect(validatePluginEntryFile(filepath)).rejects.toThrow("failed schema validation")
+  })
+
+  test("accepts lucide and registry SVG icon metadata", async () => {
+    await expect(validatePluginEntryFile(await writeEntryFile(baseEntry({ icon: { type: "lucide", name: "image" } })))).resolves.toMatchObject({
+      icon: { type: "lucide", name: "image" },
+    })
+    await expect(
+      validatePluginEntryFile(
+        await writeEntryFile(baseEntry({ icon: { type: "registry-svg", path: "icons/test-plugin.svg" } })),
+      ),
+    ).resolves.toMatchObject({ icon: { type: "registry-svg", path: "icons/test-plugin.svg" } })
+  })
+
+  test("rejects invalid icon metadata", async () => {
+    const filepath = await writeEntryFile(baseEntry({ icon: { type: "registry-svg", path: "../icon.svg" } }))
+    await expect(validatePluginEntryFile(filepath)).rejects.toThrow("failed schema validation")
+  })
+})
+
+describe("registry icon validation", () => {
+  async function registryWithIcon(content: string, pluginId = "test-plugin") {
+    const dir = await fs.mkdtemp(path.join(os.tmpdir(), "synergy-registry-icon-"))
+    await fs.mkdir(path.join(dir, "icons"), { recursive: true })
+    await fs.writeFile(path.join(dir, "icons", `${pluginId}.svg`), content)
+    return dir
+  }
+
+  test("accepts a safe registry SVG icon", async () => {
+    const dir = await registryWithIcon('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="#111" d="M8 8h48v48H8z"/></svg>')
+    await expect(
+      validateRegistryIcon({ id: "test-plugin", icon: { type: "registry-svg", path: "icons/test-plugin.svg" } }, dir),
+    ).resolves.toBeUndefined()
+  })
+
+  test("rejects icon paths that do not match the plugin id", async () => {
+    const dir = await registryWithIcon('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"/>')
+    await expect(
+      validateRegistryIcon({ id: "test-plugin", icon: { type: "registry-svg", path: "icons/other-plugin.svg" } }, dir),
+    ).rejects.toThrow("icon path must be icons/test-plugin.svg")
+  })
+
+  test("rejects unsafe SVG content", async () => {
+    const dir = await registryWithIcon('<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>')
+    await expect(
+      validateRegistryIcon({ id: "test-plugin", icon: { type: "registry-svg", path: "icons/test-plugin.svg" } }, dir),
+    ).rejects.toThrow("icon SVG cannot contain <script>")
   })
 })
 

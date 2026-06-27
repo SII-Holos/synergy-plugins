@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-26T11:23:22.307Z",
+  "updatedAt": "2026-06-27T15:20:43.368Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -10,6 +10,10 @@
       "entry": "plugins/synergy-frontend-kit.json",
       "author": {
         "name": "SII Holos"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-frontend-kit.svg"
       },
       "verified": true,
       "official": true,
@@ -22,8 +26,8 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.2.0",
-      "updatedAt": "2026-06-24T22:42:11.986Z",
+      "latestVersion": "0.2.1",
+      "updatedAt": "2026-06-27T15:20:43.254Z",
       "risk": "high",
       "runtimeMode": "process",
       "tools": [],
@@ -41,6 +45,10 @@
       "author": {
         "name": "SII Holos"
       },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-meme-plugin.svg"
+      },
       "verified": false,
       "official": false,
       "keywords": [
@@ -49,8 +57,8 @@
         "memegen",
         "synergy-plugin"
       ],
-      "latestVersion": "0.3.0",
-      "updatedAt": "2026-06-26T11:23:22.307Z",
+      "latestVersion": "0.3.1",
+      "updatedAt": "2026-06-27T15:20:43.368Z",
       "risk": "medium",
       "runtimeMode": "process",
       "tools": [

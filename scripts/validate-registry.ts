@@ -13,6 +13,7 @@ const registryPath = path.join(root, "registry.json")
 const registrySchemaPath = path.join(root, "schemas", "registry.schema.json")
 const pluginsDir = path.join(root, "plugins")
 const downloadTimeoutMs = Number(process.env.SYNERGY_REGISTRY_DOWNLOAD_TIMEOUT_MS ?? 900_000)
+const maxIconBytes = 32 * 1024
 
 function ajv() {
   const instance = new Ajv2020({ allErrors: true, strict: true })
@@ -70,6 +71,39 @@ function extractTar(filepath: string, outDir: string) {
 
 async function readJson(filepath: string) {
   return JSON.parse(await fs.readFile(filepath, "utf8"))
+}
+
+function validateSvgIconContent(pluginId: string, svg: string) {
+  const forbidden = [
+    { pattern: /<\s*script\b/i, label: "<script>" },
+    { pattern: /<\s*foreignObject\b/i, label: "<foreignObject>" },
+    { pattern: /<\s*image\b/i, label: "<image>" },
+    { pattern: /\son[a-z]+\s*=/i, label: "event handlers" },
+    { pattern: /\b(?:href|xlink:href)\s*=/i, label: "href references" },
+    { pattern: /\bsrc\s*=\s*["']\s*(?:https?:|data:|javascript:)/i, label: "external or executable URLs" },
+    { pattern: /@import\b/i, label: "CSS imports" },
+    { pattern: /url\(\s*["']?(?:https?:|data:|javascript:)/i, label: "external CSS URLs" },
+  ]
+  if (!/<svg[\s>]/i.test(svg)) throw new Error(`${pluginId}: icon must be an SVG document`)
+  for (const item of forbidden) {
+    if (item.pattern.test(svg)) throw new Error(`${pluginId}: icon SVG cannot contain ${item.label}`)
+  }
+}
+
+export async function validateRegistryIcon(entry: any, registryRoot = root) {
+  if (!entry.icon) return
+  if (entry.icon.type === "lucide") return
+  if (entry.icon.type !== "registry-svg") throw new Error(`${entry.id}: unsupported icon type`)
+
+  const expected = `icons/${entry.id}.svg`
+  if (entry.icon.path !== expected) throw new Error(`${entry.id}: icon path must be ${expected}`)
+
+  const iconPath = path.join(registryRoot, entry.icon.path)
+  const stat = await fs.stat(iconPath).catch(() => null)
+  if (!stat?.isFile()) throw new Error(`${entry.id}: icon file is missing: ${entry.icon.path}`)
+  if (stat.size > maxIconBytes) throw new Error(`${entry.id}: icon SVG exceeds ${maxIconBytes} bytes`)
+
+  validateSvgIconContent(entry.id, await fs.readFile(iconPath, "utf8"))
 }
 
 async function verifyEd25519(input: { publicKeyHex: string; signatureHex: string; payload: unknown }) {
@@ -136,6 +170,7 @@ async function validatePluginEntries() {
   const entries = []
   for (const name of files) {
     const entry = await validatePluginEntryFile(path.join(pluginsDir, name))
+    await validateRegistryIcon(entry)
     for (const version of entry.versions) await validateArtifact(entry, version)
     entries.push(entry)
   }

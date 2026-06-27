@@ -6,6 +6,7 @@
 - [ ] Updated an existing plugin entry
 - [ ] Yanked a version
 - [ ] Updated registry tooling or documentation
+- [ ] Added or updated marketplace icon assets
 
 ### Review classification
 
@@ -23,6 +24,8 @@
 - [ ] `signature.algorithm` is `ed25519`
 - [ ] `signature.signer` matches the `.sig` signer
 - [ ] `plugin.json.name`, registry id, entry filename, and signature `pluginId` are the same canonical plugin id
+- [ ] Custom icons live at `icons/<plugin-id>.svg` and match the entry `icon.path`
+- [ ] Custom SVG icons do not contain scripts, event handlers, `foreignObject`, embedded images, or external references
 - [ ] `registry.json` was generated with `bun run build-registry`
 
 ### Trust labels
