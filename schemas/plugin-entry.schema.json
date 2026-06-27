@@ -26,6 +26,7 @@
     "repo": { "type": "string", "format": "uri" },
     "homepage": { "type": "string", "format": "uri" },
     "author": { "$ref": "#/$defs/author" },
+    "icon": { "$ref": "#/$defs/icon" },
     "verified": { "type": "boolean" },
     "official": { "type": "boolean" },
     "keywords": {
@@ -66,6 +67,28 @@
         "email": { "type": "string", "format": "email" },
         "url": { "type": "string", "format": "uri" }
       }
+    },
+    "icon": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "name"],
+          "properties": {
+            "type": { "const": "lucide" },
+            "name": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "path"],
+          "properties": {
+            "type": { "const": "registry-svg" },
+            "path": { "type": "string", "pattern": "^icons/[a-z0-9][a-z0-9._-]*\\.svg$" }
+          }
+        }
+      ]
     },
     "permission": {
       "type": "object",
