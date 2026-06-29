@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-29T11:53:06.530Z",
+  "updatedAt": "2026-06-29T13:02:41.138Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -26,8 +26,8 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.2.2",
-      "updatedAt": "2026-06-29T11:53:06.426Z",
+      "latestVersion": "0.2.3",
+      "updatedAt": "2026-06-29T13:02:41.038Z",
       "risk": "low",
       "runtimeMode": "process",
       "tools": [],
@@ -57,8 +57,8 @@
         "memegen",
         "synergy-plugin"
       ],
-      "latestVersion": "0.3.3",
-      "updatedAt": "2026-06-29T11:53:06.530Z",
+      "latestVersion": "0.3.4",
+      "updatedAt": "2026-06-29T13:02:41.138Z",
       "risk": "medium",
       "runtimeMode": "process",
       "tools": [
