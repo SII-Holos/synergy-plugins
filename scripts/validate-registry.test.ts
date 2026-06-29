@@ -36,7 +36,7 @@ function sortKeys(value: unknown): unknown {
 }
 
 function baseCapabilities(manifest: any) {
-  const caps = new Set<string>(["plugin_invoke"])
+  const caps = new Set<string>()
   const pt = manifest.permissions?.tools
   const pd = manifest.permissions?.data
   const fsPermission = pt?.filesystem ?? "none"
