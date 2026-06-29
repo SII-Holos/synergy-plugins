@@ -55,6 +55,79 @@ function sha256(buffer: Buffer) {
   return crypto.createHash("sha256").update(buffer).digest("hex")
 }
 
+function sha256Text(text: string) {
+  return crypto.createHash("sha256").update(text).digest("hex")
+}
+
+function sortKeys(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(sortKeys)
+  if (value && typeof value === "object") {
+    const result: Record<string, unknown> = {}
+    for (const [key, item] of Object.entries(value as Record<string, unknown>).sort(([a], [b]) =>
+      a.localeCompare(b),
+    )) {
+      result[key] = sortKeys(item)
+    }
+    return result
+  }
+  return value
+}
+
+function computeManifestHash(manifest: any) {
+  return sha256Text(JSON.stringify(sortKeys(manifest)))
+}
+
+function baseCapabilities(manifest: any) {
+  const caps = new Set<string>(["plugin_invoke"])
+  const pt = manifest.permissions?.tools
+  const pd = manifest.permissions?.data
+
+  const fsPermission = pt?.filesystem ?? "none"
+  if (fsPermission === "read") caps.add("filesystem:read")
+  if (fsPermission === "write") {
+    caps.add("filesystem:read")
+    caps.add("filesystem:write")
+  }
+
+  if (pt?.shell ?? false) caps.add("shell")
+  if (pt?.network ?? false) caps.add("network")
+
+  if (pt?.mcp === "invoke") caps.add("mcp:invoke")
+  if (pt?.mcp === "spawn") {
+    caps.add("mcp:invoke")
+    caps.add("mcp:spawn")
+  }
+
+  if (pt?.task) caps.add("task")
+
+  if ((pd?.session ?? "none") === "read") caps.add("session_data")
+  if ((pd?.workspace ?? "none") === "read") caps.add("workspace_data")
+
+  const config = pd?.config ?? "plugin"
+  if (config === "global") {
+    caps.add("config:read")
+    caps.add("config:write")
+  }
+  if (config === "plugin") caps.add("config:read")
+
+  if (pd?.secrets === "own") caps.add("secrets")
+
+  return [...caps].sort()
+}
+
+function computePermissionsHash(manifest: any) {
+  return sha256Text(
+    JSON.stringify(
+      sortKeys({
+        capabilities: baseCapabilities(manifest),
+        permissions: manifest.permissions ?? {},
+        contributes: manifest.contributes ?? {},
+        lifecycle: manifest.lifecycle ?? {},
+      }),
+    ),
+  )
+}
+
 function tarList(filepath: string) {
   const result = spawnSync("tar", ["-tzf", filepath], { encoding: "utf8" })
   if (result.status !== 0) throw new Error(`Failed to list ${filepath}: ${result.stderr}`)
@@ -143,6 +216,13 @@ export async function validateArtifact(entry: any, version: any) {
   if (manifest.name !== entry.id) throw new Error(`${entry.id}@${version.version}: manifest name mismatch`)
   if (manifest.version !== version.version) throw new Error(`${entry.id}@${version.version}: manifest version mismatch`)
 
+  const manifestHash = computeManifestHash(manifest)
+  const permissionsHash = computePermissionsHash(manifest)
+  if (manifestHash !== version.manifestHash) throw new Error(`${entry.id}@${version.version}: manifest hash mismatch`)
+  if (permissionsHash !== version.permissionsHash) {
+    throw new Error(`${entry.id}@${version.version}: permissions hash mismatch`)
+  }
+
   const signatureRaw = await download(version.signatureUrl)
   const signature = JSON.parse(signatureRaw.toString("utf8"))
   if (version.signature?.algorithm !== "ed25519") throw new Error(`${entry.id}@${version.version}: unsupported signature algorithm`)
@@ -171,7 +251,11 @@ async function validatePluginEntries() {
   for (const name of files) {
     const entry = await validatePluginEntryFile(path.join(pluginsDir, name))
     await validateRegistryIcon(entry)
-    for (const version of entry.versions) await validateArtifact(entry, version)
+    const yankedVersions = new Set(entry.yankedVersions ?? [])
+    for (const version of entry.versions) {
+      if (yankedVersions.has(version.version)) continue
+      await validateArtifact(entry, version)
+    }
     entries.push(entry)
   }
   return entries

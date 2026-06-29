@@ -17,6 +17,73 @@ function sha256(buffer: Buffer) {
   return crypto.createHash("sha256").update(buffer).digest("hex")
 }
 
+function sha256Text(text: string) {
+  return crypto.createHash("sha256").update(text).digest("hex")
+}
+
+function sortKeys(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(sortKeys)
+  if (value && typeof value === "object") {
+    const result: Record<string, unknown> = {}
+    for (const [key, item] of Object.entries(value as Record<string, unknown>).sort(([a], [b]) =>
+      a.localeCompare(b),
+    )) {
+      result[key] = sortKeys(item)
+    }
+    return result
+  }
+  return value
+}
+
+function baseCapabilities(manifest: any) {
+  const caps = new Set<string>(["plugin_invoke"])
+  const pt = manifest.permissions?.tools
+  const pd = manifest.permissions?.data
+  const fsPermission = pt?.filesystem ?? "none"
+
+  if (fsPermission === "read") caps.add("filesystem:read")
+  if (fsPermission === "write") {
+    caps.add("filesystem:read")
+    caps.add("filesystem:write")
+  }
+  if (pt?.shell ?? false) caps.add("shell")
+  if (pt?.network ?? false) caps.add("network")
+  if (pt?.mcp === "invoke") caps.add("mcp:invoke")
+  if (pt?.mcp === "spawn") {
+    caps.add("mcp:invoke")
+    caps.add("mcp:spawn")
+  }
+  if (pt?.task) caps.add("task")
+  if ((pd?.session ?? "none") === "read") caps.add("session_data")
+  if ((pd?.workspace ?? "none") === "read") caps.add("workspace_data")
+
+  const config = pd?.config ?? "plugin"
+  if (config === "global") {
+    caps.add("config:read")
+    caps.add("config:write")
+  }
+  if (config === "plugin") caps.add("config:read")
+  if (pd?.secrets === "own") caps.add("secrets")
+
+  return [...caps].sort()
+}
+
+function computedHashes(manifest: any) {
+  return {
+    manifestHash: sha256Text(JSON.stringify(sortKeys(manifest))),
+    permissionsHash: sha256Text(
+      JSON.stringify(
+        sortKeys({
+          capabilities: baseCapabilities(manifest),
+          permissions: manifest.permissions ?? {},
+          contributes: manifest.contributes ?? {},
+          lifecycle: manifest.lifecycle ?? {},
+        }),
+      ),
+    ),
+  }
+}
+
 async function generateKeyPair() {
   const key = (await subtle.generateKey("Ed25519" as any, true, ["sign", "verify"])) as CryptoKeyPair
   const privateRaw = await subtle.exportKey("pkcs8", key.privateKey)
@@ -75,11 +142,20 @@ function baseEntry(overrides: Record<string, unknown> = {}) {
   }
 }
 
-async function buildArtifact() {
+function artifactManifest(overrides: Record<string, unknown> = {}) {
+  return {
+    name: "test-plugin",
+    version: "1.0.0",
+    description: "Test plugin",
+    ...overrides,
+  }
+}
+
+async function buildArtifact(manifest = artifactManifest()) {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), "synergy-registry-artifact-"))
   const packageDir = path.join(root, "package")
   await fs.mkdir(path.join(packageDir, "runtime"), { recursive: true })
-  await fs.writeFile(path.join(packageDir, "plugin.json"), JSON.stringify({ name: "test-plugin", version: "1.0.0" }))
+  await fs.writeFile(path.join(packageDir, "plugin.json"), JSON.stringify(manifest, null, 2))
   await fs.writeFile(path.join(packageDir, "runtime", "index.js"), "export default {}\n")
   await fs.writeFile(path.join(packageDir, "integrity.json"), "{}\n")
   await fs.writeFile(path.join(packageDir, "permissions.summary.json"), "[]\n")
@@ -89,13 +165,15 @@ async function buildArtifact() {
   return Buffer.from(await fs.readFile(tarballPath))
 }
 
-async function signedFixture() {
-  const artifact = await buildArtifact()
+async function signedFixture(input: { manifest?: Record<string, unknown>; payload?: Record<string, unknown> } = {}) {
+  const manifest = input.manifest ?? artifactManifest()
+  const artifact = await buildArtifact(manifest)
   const key = await generateKeyPair()
+  const hashes = computedHashes(manifest)
   const payload = {
     tarballHash: sha256(artifact),
-    manifestHash: "manifest-hash",
-    permissionsHash: "permissions-hash",
+    ...hashes,
+    ...input.payload,
   }
   const privateKey = await importPrivateKey(key.privateKey)
   const signatureRaw = await subtle.sign("Ed25519" as any, privateKey, new TextEncoder().encode(JSON.stringify(payload)))
@@ -109,7 +187,7 @@ async function signedFixture() {
     signedAt: Date.now(),
     payload,
   }
-  return { artifact, key, signature }
+  return { artifact, key, signature, hashes }
 }
 
 describe("plugin entry schema", () => {
@@ -193,7 +271,7 @@ describe("registry icon validation", () => {
 
 describe("artifact validation", () => {
   test("verifies artifact integrity and Ed25519 signature with the registry signer", async () => {
-    const { artifact, key, signature } = await signedFixture()
+    const { artifact, key, signature, hashes } = await signedFixture()
     globalThis.fetch = async (url) => {
       const target = String(url)
       if (target.endsWith(".sig")) return new Response(JSON.stringify(signature))
@@ -204,13 +282,15 @@ describe("artifact validation", () => {
       validateArtifact({ id: "test-plugin" }, {
         ...baseEntry().versions[0],
         integrity: `sha256-${sha256(artifact)}`,
+        manifestHash: hashes.manifestHash,
+        permissionsHash: hashes.permissionsHash,
         signature: { algorithm: "ed25519", signer: key.publicKey },
       }),
     ).resolves.toBeUndefined()
   })
 
   test("rejects a signature whose signer does not match the registry entry", async () => {
-    const { artifact, signature } = await signedFixture()
+    const { artifact, signature, hashes } = await signedFixture()
     globalThis.fetch = async (url) => {
       const target = String(url)
       if (target.endsWith(".sig")) return new Response(JSON.stringify(signature))
@@ -221,11 +301,46 @@ describe("artifact validation", () => {
       validateArtifact({ id: "test-plugin" }, {
         ...baseEntry().versions[0],
         integrity: `sha256-${sha256(artifact)}`,
+        manifestHash: hashes.manifestHash,
+        permissionsHash: hashes.permissionsHash,
         signature: {
           algorithm: "ed25519",
           signer: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
         },
       }),
     ).rejects.toThrow("signature signer mismatch")
+  })
+
+  test("rejects a permissions hash that does not match the artifact manifest", async () => {
+    const { artifact, key, signature, hashes } = await signedFixture({
+      manifest: artifactManifest({
+        permissions: {
+          tools: {
+            invoke: true,
+            filesystem: "read",
+            network: false,
+            shell: false,
+            mcp: "none",
+            task: { agents: ["planner"], maxRuntimeMs: 30000 },
+          },
+        },
+      }),
+      payload: { permissionsHash: "old-permissions-hash" },
+    })
+    globalThis.fetch = async (url) => {
+      const target = String(url)
+      if (target.endsWith(".sig")) return new Response(JSON.stringify(signature))
+      return new Response(artifact)
+    }
+
+    await expect(
+      validateArtifact({ id: "test-plugin" }, {
+        ...baseEntry().versions[0],
+        integrity: `sha256-${sha256(artifact)}`,
+        manifestHash: hashes.manifestHash,
+        permissionsHash: "old-permissions-hash",
+        signature: { algorithm: "ed25519", signer: key.publicKey },
+      }),
+    ).rejects.toThrow("permissions hash mismatch")
   })
 })
