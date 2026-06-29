@@ -17,7 +17,7 @@
     "synergy-plugin"
   ],
   "compatibility": {
-    "synergy": ">=2.4.2"
+    "synergy": ">=2.4.3"
   },
   "versions": [
     {
@@ -58,6 +58,45 @@
       "uiSurfaces": [],
       "publishedAt": "2026-06-29T11:53:06.530Z",
       "changelog": "Release for Synergy 2.4.2 plugin permission and media display compatibility."
+    },
+    {
+      "version": "0.3.4",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.4/synergy-meme-plugin-0.3.4.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.4/synergy-meme-plugin-0.3.4.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-95c049a855e74c03b90b00ad4c2a8d98f5c369bb2244de90d7ea43bfdabba409",
+      "manifestHash": "032714159726198365b5f87e1919785a06443da169aa5a0b99715de67cad2d66",
+      "permissionsHash": "74a8f8b6e7fcbc2cf4453d7d44fadbc7aa6df7234107a3f131da2c476b731d22",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Requires config:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:read",
+          "description": "Requires filesystem:read",
+          "risk": "medium"
+        },
+        {
+          "key": "task",
+          "description": "Requires task",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "generate_meme",
+        "search_meme_templates",
+        "pick_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-06-29T13:02:41.138Z",
+      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility."
     }
   ],
   "yankedVersions": [],

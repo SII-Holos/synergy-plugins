@@ -20,7 +20,7 @@
     "ui"
   ],
   "compatibility": {
-    "synergy": ">=2.4.2"
+    "synergy": ">=2.4.3"
   },
   "versions": [
     {
@@ -80,6 +80,64 @@
       ],
       "publishedAt": "2026-06-29T11:53:06.426Z",
       "changelog": "Release for Synergy 2.4.2 plugin permission compatibility and personal official source metadata."
+    },
+    {
+      "version": "0.2.3",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.3/synergy-frontend-kit-0.2.3.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.3/synergy-frontend-kit-0.2.3.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-2b4c5d17c14c73aacf1d6907d7b6df15f1b5db79dfb29db993cb40caa3ac2b67",
+      "manifestHash": "3ff78f70964d9cbd6103ef613e5e9b750003d3cf2258bf97b07c8e03d59c2717",
+      "permissionsHash": "1e2d09bd1512912e9fe8b74e03ae27aeea9bc7d6a1ca792cb64a154307cf5dad",
+      "risk": "low",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Requires config:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:read",
+          "description": "Requires filesystem:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:write",
+          "description": "Requires filesystem:write",
+          "risk": "high"
+        },
+        {
+          "key": "mcp:invoke",
+          "description": "Requires mcp:invoke",
+          "risk": "medium"
+        },
+        {
+          "key": "mcp:spawn",
+          "description": "Requires mcp:spawn",
+          "risk": "medium"
+        },
+        {
+          "key": "network",
+          "description": "Requires network",
+          "risk": "medium"
+        },
+        {
+          "key": "shell",
+          "description": "Requires shell",
+          "risk": "high"
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "workspacePanels",
+        "settings"
+      ],
+      "publishedAt": "2026-06-29T13:02:41.038Z",
+      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility."
     }
   ],
   "yankedVersions": [],
