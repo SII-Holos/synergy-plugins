@@ -171,9 +171,56 @@
       "uiSurfaces": [],
       "publishedAt": "2026-06-27T15:20:43.368Z",
       "changelog": "Add registry-managed marketplace icon for Synergy 2.4.1."
+    },
+    {
+      "version": "0.3.2",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.2/synergy-meme-plugin-0.3.2.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.2/synergy-meme-plugin-0.3.2.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-6250735e04cebb119b6b39935b1dfb88f0a765b891ecc5f555d4f26567e39fc3",
+      "manifestHash": "79be1cae98a1e5c64a6ca045953c59f61e400e1e2dff6e48a9971c14661338d1",
+      "permissionsHash": "e368d87ff8a3e6a473037d5147bb38336ccc326ed6082809b5a07b9069a35a67",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Requires config:read",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:read",
+          "description": "Requires filesystem:read",
+          "risk": "medium"
+        },
+        {
+          "key": "plugin_invoke",
+          "description": "Requires plugin_invoke",
+          "risk": "medium"
+        },
+        {
+          "key": "task",
+          "description": "Requires task",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "generate_meme",
+        "search_meme_templates",
+        "pick_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-06-29T02:16:40.818Z",
+      "changelog": "Re-sign marketplace artifact with delegated task permission included in the permissions hash."
     }
   ],
-  "yankedVersions": [],
+  "yankedVersions": [
+    "0.3.0",
+    "0.3.1"
+  ],
   "icon": {
     "type": "registry-svg",
     "path": "icons/synergy-meme-plugin.svg"

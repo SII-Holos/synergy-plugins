@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-27T15:20:43.368Z",
+  "updatedAt": "2026-06-29T02:16:40.818Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -57,8 +57,8 @@
         "memegen",
         "synergy-plugin"
       ],
-      "latestVersion": "0.3.1",
-      "updatedAt": "2026-06-27T15:20:43.368Z",
+      "latestVersion": "0.3.2",
+      "updatedAt": "2026-06-29T02:16:40.818Z",
       "risk": "medium",
       "runtimeMode": "process",
       "tools": [
