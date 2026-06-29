@@ -6,10 +6,10 @@
   "repo": "https://github.com/EricSanchezok/synergy-meme-plugin",
   "homepage": "https://github.com/EricSanchezok/synergy-meme-plugin",
   "author": {
-    "name": "SII Holos"
+    "name": "EricSanchez"
   },
-  "verified": false,
-  "official": false,
+  "verified": true,
+  "official": true,
   "keywords": [
     "image",
     "meme",
@@ -17,20 +17,20 @@
     "synergy-plugin"
   ],
   "compatibility": {
-    "synergy": ">=2.4.1"
+    "synergy": ">=2.4.2"
   },
   "versions": [
     {
-      "version": "0.1.0",
-      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.1.0/synergy-meme-plugin-0.1.0.synergy-plugin.tgz",
-      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.1.0/synergy-meme-plugin-0.1.0.synergy-plugin.tgz.sig",
+      "version": "0.3.3",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.3/synergy-meme-plugin-0.3.3.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.3/synergy-meme-plugin-0.3.3.synergy-plugin.tgz.sig",
       "signature": {
         "algorithm": "ed25519",
         "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
       },
-      "integrity": "sha256-55c23707569796cfc6cc6af02b10b0bd88417d6ec27639bbe451ceacc87c3141",
-      "manifestHash": "c251c6173b3f61067122274e711983202f5f43db9a0454b67d558109b56b46a6",
-      "permissionsHash": "222d7bc207e0b15c395a29e898c0a06e2e70dcedd50e56850e1e9b0e1a73b48f",
+      "integrity": "sha256-c433fc343405a81dd814909beb5d9a81ecdc91f1622cd2a8363a0f1e8146be8c",
+      "manifestHash": "209cdbf2c65196a6d551c3157d965de537f16552aac5d3b0eb3fd9abc7946ce2",
+      "permissionsHash": "74a8f8b6e7fcbc2cf4453d7d44fadbc7aa6df7234107a3f131da2c476b731d22",
       "risk": "medium",
       "runtimeMode": "process",
       "permissionsSummary": [
@@ -42,163 +42,6 @@
         {
           "key": "filesystem:read",
           "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "plugin_invoke",
-          "description": "Requires plugin_invoke",
-          "risk": "medium"
-        }
-      ],
-      "tools": [
-        "search_meme_templates",
-        "generate_meme"
-      ],
-      "uiSurfaces": [],
-      "publishedAt": "2026-06-25T00:33:24.244Z",
-      "changelog": "Initial release"
-    },
-    {
-      "version": "0.2.0",
-      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.2.0/synergy-meme-plugin-0.2.0.synergy-plugin.tgz",
-      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.2.0/synergy-meme-plugin-0.2.0.synergy-plugin.tgz.sig",
-      "signature": {
-        "algorithm": "ed25519",
-        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
-      },
-      "integrity": "sha256-100be3c09dab38187ff218014e49f6b7c871516c0ee3399b255fbd198a4a06d3",
-      "manifestHash": "b3e9348d3b61686c9478bfa494ac97e1715c71c202b321269c6c8d06dbbcd472",
-      "permissionsHash": "cb9d3fc223ae0c7822d085af2b0da16c79b1c408eee15abd0b2af6672b8ce866",
-      "risk": "medium",
-      "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "plugin_invoke",
-          "description": "Requires plugin_invoke",
-          "risk": "medium"
-        }
-      ],
-      "tools": [
-        "generate_meme"
-      ],
-      "uiSurfaces": [],
-      "publishedAt": "2026-06-25T12:59:45.448Z"
-    },
-    {
-      "version": "0.3.0",
-      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.0/synergy-meme-plugin-0.3.0.synergy-plugin.tgz",
-      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.0/synergy-meme-plugin-0.3.0.synergy-plugin.tgz.sig",
-      "signature": {
-        "algorithm": "ed25519",
-        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
-      },
-      "integrity": "sha256-65245c7dd6dba3776582e8e1f0349097a153c269ec90820804ae9746d0e2f0ee",
-      "manifestHash": "0df1335147a38bce1248fe65141dd5692f70693806761f72c4d5e96ecb454103",
-      "permissionsHash": "945f6dac70880bc202b4435dc12f39ea8d1669a8ccb37818d961cb4a8bbbf26f",
-      "risk": "medium",
-      "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "plugin_invoke",
-          "description": "Requires plugin_invoke",
-          "risk": "medium"
-        }
-      ],
-      "tools": [
-        "generate_meme",
-        "search_meme_templates",
-        "pick_meme"
-      ],
-      "uiSurfaces": [],
-      "publishedAt": "2026-06-26T11:23:22.307Z",
-      "changelog": "Add Cortex structured hidden planner task and unified media-generation display."
-    },
-    {
-      "version": "0.3.1",
-      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.1/synergy-meme-plugin-0.3.1.synergy-plugin.tgz",
-      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.1/synergy-meme-plugin-0.3.1.synergy-plugin.tgz.sig",
-      "signature": {
-        "algorithm": "ed25519",
-        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
-      },
-      "integrity": "sha256-58a086291fb8f18e7baf645e67270189f9a372eddbf74a463933b6a56893ab17",
-      "manifestHash": "04ee7a513be6682fc5b9d5103e182cbea744060762d2c2f1a682ba446ed8707e",
-      "permissionsHash": "945f6dac70880bc202b4435dc12f39ea8d1669a8ccb37818d961cb4a8bbbf26f",
-      "risk": "medium",
-      "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "plugin_invoke",
-          "description": "Requires plugin_invoke",
-          "risk": "medium"
-        }
-      ],
-      "tools": [
-        "generate_meme",
-        "search_meme_templates",
-        "pick_meme"
-      ],
-      "uiSurfaces": [],
-      "publishedAt": "2026-06-27T15:20:43.368Z",
-      "changelog": "Add registry-managed marketplace icon for Synergy 2.4.1."
-    },
-    {
-      "version": "0.3.2",
-      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.2/synergy-meme-plugin-0.3.2.synergy-plugin.tgz",
-      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.2/synergy-meme-plugin-0.3.2.synergy-plugin.tgz.sig",
-      "signature": {
-        "algorithm": "ed25519",
-        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
-      },
-      "integrity": "sha256-6250735e04cebb119b6b39935b1dfb88f0a765b891ecc5f555d4f26567e39fc3",
-      "manifestHash": "79be1cae98a1e5c64a6ca045953c59f61e400e1e2dff6e48a9971c14661338d1",
-      "permissionsHash": "e368d87ff8a3e6a473037d5147bb38336ccc326ed6082809b5a07b9069a35a67",
-      "risk": "medium",
-      "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "plugin_invoke",
-          "description": "Requires plugin_invoke",
           "risk": "medium"
         },
         {
@@ -213,14 +56,11 @@
         "pick_meme"
       ],
       "uiSurfaces": [],
-      "publishedAt": "2026-06-29T02:16:40.818Z",
-      "changelog": "Re-sign marketplace artifact with delegated task permission included in the permissions hash."
+      "publishedAt": "2026-06-29T11:53:06.530Z",
+      "changelog": "Release for Synergy 2.4.2 plugin permission and media display compatibility."
     }
   ],
-  "yankedVersions": [
-    "0.3.0",
-    "0.3.1"
-  ],
+  "yankedVersions": [],
   "icon": {
     "type": "registry-svg",
     "path": "icons/synergy-meme-plugin.svg"

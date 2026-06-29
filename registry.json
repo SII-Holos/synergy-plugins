@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-29T02:16:40.818Z",
+  "updatedAt": "2026-06-29T11:53:06.530Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
       "name": "synergy-frontend-kit",
       "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, setup automation, and design-readiness UI.",
-      "repo": "https://github.com/SII-Holos/synergy-frontend-kit",
+      "repo": "https://github.com/EricSanchezok/synergy-frontend-kit",
       "entry": "plugins/synergy-frontend-kit.json",
       "author": {
-        "name": "SII Holos"
+        "name": "EricSanchez"
       },
       "icon": {
         "type": "registry-svg",
@@ -26,9 +26,9 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.2.1",
-      "updatedAt": "2026-06-27T15:20:43.254Z",
-      "risk": "high",
+      "latestVersion": "0.2.2",
+      "updatedAt": "2026-06-29T11:53:06.426Z",
+      "risk": "low",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
@@ -43,22 +43,22 @@
       "repo": "https://github.com/EricSanchezok/synergy-meme-plugin",
       "entry": "plugins/synergy-meme-plugin.json",
       "author": {
-        "name": "SII Holos"
+        "name": "EricSanchez"
       },
       "icon": {
         "type": "registry-svg",
         "path": "icons/synergy-meme-plugin.svg"
       },
-      "verified": false,
-      "official": false,
+      "verified": true,
+      "official": true,
       "keywords": [
         "image",
         "meme",
         "memegen",
         "synergy-plugin"
       ],
-      "latestVersion": "0.3.2",
-      "updatedAt": "2026-06-29T02:16:40.818Z",
+      "latestVersion": "0.3.3",
+      "updatedAt": "2026-06-29T11:53:06.530Z",
       "risk": "medium",
       "runtimeMode": "process",
       "tools": [
@@ -67,41 +67,6 @@
         "search_meme_templates"
       ],
       "uiSurfaces": []
-    },
-    {
-      "id": "synergy-uuid-plus",
-      "name": "synergy-uuid-plus",
-      "description": "ID, hash, encoding, and password generation utilities",
-      "repo": "https://github.com/yzxoi/synergy-uuid-plus",
-      "entry": "plugins/synergy-uuid-plus.json",
-      "author": {
-        "name": "EricSanchezok"
-      },
-      "verified": false,
-      "official": false,
-      "keywords": [
-        "base64",
-        "crypto",
-        "generator",
-        "hash",
-        "password",
-        "synergy-plugin",
-        "utilities",
-        "uuid"
-      ],
-      "latestVersion": "0.1.0",
-      "updatedAt": "2026-06-25T07:50:00.721Z",
-      "risk": "low",
-      "runtimeMode": "in-process",
-      "tools": [
-        "encode_base64",
-        "generate_password",
-        "generate_uuid",
-        "hash_text"
-      ],
-      "uiSurfaces": [
-        "toolRenderers"
-      ]
     }
   ]
 }
