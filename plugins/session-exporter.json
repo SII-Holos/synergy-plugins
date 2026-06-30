@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "id": "session-exporter",
+  "name": "session-exporter",
+  "description": "Export Synergy sessions as quality-annotated agentic coding training data.",
+  "repo": "https://github.com/yzxoi/session-exporter",
+  "homepage": "https://github.com/yzxoi/session-exporter",
+  "author": {
+    "name": "yzxoi"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "agentic-coding",
+    "dataset",
+    "export",
+    "session",
+    "sft",
+    "synergy-plugin",
+    "tool-use",
+    "training-data"
+  ],
+  "compatibility": {
+    "synergy": ">=2.4.3"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "downloadUrl": "https://github.com/yzxoi/session-exporter/releases/download/v0.1.0/session-exporter-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/session-exporter/releases/download/v0.1.0/session-exporter-0.1.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "483a6c48d867e72b6d48158918da77237e15b3d0e6d9f4f6ae8393cd198280ee"
+      },
+      "integrity": "sha256-a658ef91a49fa18920f0f808d3d9994e06c301be587f00c05dbab90b8dfed217",
+      "manifestHash": "403a23bf9ae019fbc59621c1919d55a070be66f746f747ab1886324ca7983c55",
+      "permissionsHash": "5634be291d4dc3e9ff95396ede78210da6b52494f4cdcea5a47413c62aada1be",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "session_data",
+          "description": "Reads session messages, tool calls, DAGs, and export metadata.",
+          "risk": "high"
+        },
+        {
+          "key": "workspace_data",
+          "description": "Reads workspace context and file diff metadata included in session exports.",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:read",
+          "description": "Reads existing export indexes and generated export artifacts.",
+          "risk": "medium"
+        },
+        {
+          "key": "filesystem:write",
+          "description": "Writes exported training-data artifacts to the configured output directory.",
+          "risk": "high"
+        },
+        {
+          "key": "config:read",
+          "description": "Reads plugin configuration for output, quality, privacy, and auto-export settings.",
+          "risk": "medium"
+        },
+        {
+          "key": "hooks:promptTransform",
+          "description": "Captures system prompts when the prompt transform hook is available.",
+          "risk": "high"
+        },
+        {
+          "key": "hooks:toolExecute:all",
+          "description": "Observes tool execution outputs before compaction for higher-fidelity exports.",
+          "risk": "high"
+        }
+      ],
+      "tools": ["export_config", "export_session", "list_exports"],
+      "uiSurfaces": [],
+      "publishedAt": "2026-06-30T10:02:27Z",
+      "changelog": "Initial release for exporting Synergy sessions as ADP-inspired, ShareGPT, and raw quality-annotated training data."
+    }
+  ],
+  "yankedVersions": [],
+  "icon": {
+    "type": "lucide",
+    "name": "database"
+  }
+}
