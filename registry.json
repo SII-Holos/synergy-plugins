@@ -1,7 +1,43 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-29T13:02:41.138Z",
+  "updatedAt": "2026-06-30T10:02:27Z",
   "plugins": [
+    {
+      "id": "session-exporter",
+      "name": "session-exporter",
+      "description": "Export Synergy sessions as quality-annotated agentic coding training data.",
+      "repo": "https://github.com/yzxoi/session-exporter",
+      "entry": "plugins/session-exporter.json",
+      "author": {
+        "name": "yzxoi"
+      },
+      "icon": {
+        "type": "lucide",
+        "name": "database"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "agentic-coding",
+        "dataset",
+        "export",
+        "session",
+        "sft",
+        "synergy-plugin",
+        "tool-use",
+        "training-data"
+      ],
+      "latestVersion": "0.1.0",
+      "updatedAt": "2026-06-30T10:02:27Z",
+      "risk": "medium",
+      "runtimeMode": "process",
+      "tools": [
+        "export_config",
+        "export_session",
+        "list_exports"
+      ],
+      "uiSurfaces": []
+    },
     {
       "id": "synergy-frontend-kit",
       "name": "synergy-frontend-kit",
