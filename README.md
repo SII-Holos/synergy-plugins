@@ -35,7 +35,7 @@ Manual publishing is also supported:
 2. Create a GitHub Release and upload:
    - `<id>-<version>.synergy-plugin.tgz`
    - `<id>-<version>.synergy-plugin.tgz.sig`
-3. Add or update `plugins/<plugin-id>.json` in this repository. Each version must include `signature.algorithm: "ed25519"` and `signature.signer` from the `.sig` file.
+3. Add or update `plugins/<plugin-id>.json` in this repository. The entry must include `compatibility.synergy` matching the packaged `plugin.json` `engines.synergy`. Each version must include `signature.algorithm: "ed25519"` and `signature.signer` from the `.sig` file.
 4. If the plugin uses a custom marketplace icon, add `icons/<plugin-id>.svg` and set `icon` to `{ "type": "registry-svg", "path": "icons/<plugin-id>.svg" }`.
 5. Run:
 
@@ -61,7 +61,7 @@ integrity.json
 permissions.summary.json
 ```
 
-The entry must include a `sha256-...` integrity string, a signature metadata URL, and the signer public key. CI verifies the downloaded artifact hash, the required package files, the manifest name/version, signature payload hashes, and the Ed25519 signature using the registry-reviewed signer.
+The entry must include `compatibility.synergy`, a `sha256-...` integrity string, a signature metadata URL, and the signer public key. CI verifies the downloaded artifact hash, the required package files, the manifest name/version, signature payload hashes, and the Ed25519 signature using the registry-reviewed signer.
 
 ## Marketplace Icons
 

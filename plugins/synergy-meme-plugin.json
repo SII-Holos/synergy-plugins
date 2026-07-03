@@ -97,6 +97,38 @@
       "uiSurfaces": [],
       "publishedAt": "2026-06-29T13:02:41.138Z",
       "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility."
+    },
+    {
+      "version": "0.3.5",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.5/synergy-meme-plugin-0.3.5.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.5/synergy-meme-plugin-0.3.5.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-52a72652a0fcaa725ef531f2528a12ea75840e38ad80015c3385c0f808227c7f",
+      "manifestHash": "795934dcc5f3752b7e1be18a9b3641710382fcdd99f98cf772387da8e015fe22",
+      "permissionsHash": "2bb3280b4680689b5b62952aab79f815f095c33240d0e9608b231d37a83d0cd3",
+      "risk": "low",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Can read Synergy configuration values.",
+          "risk": "low"
+        },
+        {
+          "key": "task",
+          "description": "Can launch approved Synergy subagents from plugin tools.",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "generate_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-06-30T00:57:44.551Z",
+      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility with current permission hashing."
     }
   ],
   "yankedVersions": [],

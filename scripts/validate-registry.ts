@@ -133,7 +133,7 @@ function tarList(filepath: string) {
   if (result.status !== 0) throw new Error(`Failed to list ${filepath}: ${result.stderr}`)
   return result.stdout
     .split("\n")
-    .map((item) => item.replace(/^\.\//, "").replace(/\/$/, ""))
+    .map((item) => item.replace(/\r$/, "").replace(/^\.\//, "").replace(/\/$/, ""))
     .filter(Boolean)
 }
 
