@@ -140,7 +140,9 @@
       "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility."
     }
   ],
-  "yankedVersions": [],
+  "yankedVersions": [
+    "0.2.2"
+  ],
   "icon": {
     "type": "registry-svg",
     "path": "icons/synergy-frontend-kit.svg"
