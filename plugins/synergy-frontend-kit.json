@@ -138,6 +138,74 @@
       ],
       "publishedAt": "2026-06-29T13:02:41.038Z",
       "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility."
+    },
+    {
+      "version": "0.2.4",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.4/synergy-frontend-kit-0.2.4.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.4/synergy-frontend-kit-0.2.4.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "8a3ead692ef02dc9fd2c77c831e78200571e009e92d75b76b5dfaaa4e57746df"
+      },
+      "integrity": "sha256-c8b832f9e4b43beb7e0a689e3513a3de21ad68284151ee94209537a2166b4c7b",
+      "manifestHash": "ab5721bdea254eaf0622cd584d958cbb2244f16803725583493af5881d9d9c23",
+      "permissionsHash": "81553a1e2f0aa0a4c0e8711136b0b66ce7511ee5546ba9fd72ac3a909794c060",
+      "risk": "low",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Can read Synergy configuration values.",
+          "risk": "low"
+        },
+        {
+          "key": "file_read",
+          "description": "Can read files and directories in your workspace.",
+          "risk": "low"
+        },
+        {
+          "key": "file_write",
+          "description": "Can create, modify, or delete files in your workspace.",
+          "risk": "medium"
+        },
+        {
+          "key": "mcp_invoke",
+          "description": "Can call tools exposed by MCP servers.",
+          "risk": "medium"
+        },
+        {
+          "key": "mcp_spawn",
+          "description": "Can start and manage MCP server processes.",
+          "risk": "medium"
+        },
+        {
+          "key": "network_request",
+          "description": "Can make network requests to: registry.npmjs.org, api.github.com, github.com, raw.githubusercontent.com.",
+          "risk": "medium"
+        },
+        {
+          "key": "shell",
+          "description": "Can execute non-destructive shell commands in the current workspace.",
+          "risk": "medium"
+        },
+        {
+          "key": "ui.workbenchPanels",
+          "description": "Adds custom panels to the side workspace or BottomSpace.",
+          "risk": "low"
+        },
+        {
+          "key": "ui.settings",
+          "description": "Adds a custom settings page or form.",
+          "risk": "low"
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "workbenchPanels",
+        "settings"
+      ],
+      "publishedAt": "2026-07-04T13:20:35.588Z",
+      "changelog": "Migrate UI contribution manifest fields to the current Synergy workbench panel protocol."
     }
   ],
   "yankedVersions": [
