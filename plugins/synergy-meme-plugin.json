@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "synergy-meme-plugin",
   "name": "synergy-meme-plugin",
-  "description": "Generate meme images from bundled memegen.link templates.",
+  "description": "Generate expressive meme images from bundled memegen.link templates.",
   "repo": "https://github.com/EricSanchezok/synergy-meme-plugin",
   "homepage": "https://github.com/EricSanchezok/synergy-meme-plugin",
   "author": {
@@ -161,6 +161,48 @@
       "uiSurfaces": [],
       "publishedAt": "2026-07-04T12:54:54.067Z",
       "changelog": "Migrate manifest and media display metadata to the current Synergy plugin protocol."
+    },
+    {
+      "version": "0.3.7",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.7/synergy-meme-plugin-0.3.7.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.7/synergy-meme-plugin-0.3.7.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-41246baf4c32417143db1b03dd540ea8264df69709c677c9bbb364789e991103",
+      "manifestHash": "413c8bffdb7b98398678192c4c00cc30b3f272ce2b39f5744e1753f2082208a5",
+      "permissionsHash": "b13ff36f8d5a5874443e653788e67330c4d8ac89f12f385df5cccc0c29c40557",
+      "risk": "high",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "description": "Can read Synergy configuration values.",
+          "risk": "low"
+        },
+        {
+          "key": "prompt_transform",
+          "description": "Can modify the system prompt and message context sent to the LLM.",
+          "risk": "high"
+        },
+        {
+          "key": "task",
+          "description": "Can launch approved Synergy subagents from plugin tools.",
+          "risk": "medium"
+        },
+        {
+          "key": "hooks.promptTransform",
+          "description": "Can modify the system prompt and message context sent to the LLM.",
+          "risk": "high"
+        }
+      ],
+      "tools": [
+        "generate_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-07-06T12:45:54.559Z",
+      "changelog": "Adds primary-agent meme expression prompt injection and improves emotional brief guidance for meme planning."
     }
   ],
   "yankedVersions": [],
