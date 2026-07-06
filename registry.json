@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-04T13:20:35.588Z",
+  "updatedAt": "2026-07-06T12:45:54.559Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -39,7 +39,7 @@
     {
       "id": "synergy-meme-plugin",
       "name": "synergy-meme-plugin",
-      "description": "Generate meme images from bundled memegen.link templates.",
+      "description": "Generate expressive meme images from bundled memegen.link templates.",
       "repo": "https://github.com/EricSanchezok/synergy-meme-plugin",
       "entry": "plugins/synergy-meme-plugin.json",
       "author": {
@@ -57,9 +57,9 @@
         "memegen",
         "synergy-plugin"
       ],
-      "latestVersion": "0.3.6",
-      "updatedAt": "2026-07-04T12:54:54.067Z",
-      "risk": "medium",
+      "latestVersion": "0.3.7",
+      "updatedAt": "2026-07-06T12:45:54.559Z",
+      "risk": "high",
       "runtimeMode": "process",
       "tools": [
         "generate_meme"
