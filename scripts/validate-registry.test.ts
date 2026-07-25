@@ -89,6 +89,23 @@ function api3PermissionsHash(manifest: any) {
     JSON.stringify(
       sortKeys({
         capabilities: manifest.capabilities,
+        contributionRequirements: manifest.contributions.map((item: any) => ({
+          kind: item.kind,
+          id: item.id,
+          requires: item.requires ?? [],
+          ...(item.kind === "operation" ? { expose: item.expose } : {}),
+          ...(item.kind.startsWith("ui.") && item.component ? { trustedComponent: true } : {}),
+        })),
+      }),
+    ),
+  )
+}
+
+function legacyApi3PermissionsHash(manifest: any) {
+  return sha256Text(
+    JSON.stringify(
+      sortKeys({
+        capabilities: manifest.capabilities,
         requirements: manifest.contributions.map((item: any) => ({
           kind: item.kind,
           id: item.id,
@@ -312,13 +329,58 @@ describe("artifact validation", () => {
       capabilities: [{ id: "shell.execute" }],
       contributions: [
         {
+          kind: "operation",
+          id: "configure",
+          requires: ["shell.execute"],
+          expose: ["tool"],
+        },
+        {
+          kind: "ui.workbenchPanel",
+          id: "settings",
+          requires: [],
+          component: { entry: "ui/index.js", export: "Settings" },
+        },
+      ],
+    })
+    const permissionsHash = api3PermissionsHash(manifest)
+    const { artifact, key, signature, hashes } = await signedFixture({
+      manifest,
+      payload: {
+        permissionsHash,
+      },
+    })
+    globalThis.fetch = async (url) => {
+      const target = String(url)
+      if (target.endsWith(".sig")) return new Response(JSON.stringify(signature))
+      return new Response(artifact)
+    }
+
+    await expect(
+      validateArtifact({ id: "test-plugin" }, {
+        ...baseEntry().versions[0],
+        integrity: `sha256-${sha256(artifact)}`,
+        manifestHash: hashes.manifestHash,
+        permissionsHash,
+        signature: { algorithm: "ed25519", signer: key.publicKey },
+      }),
+    ).resolves.toBeUndefined()
+  })
+
+  test("retains validation for historical API3 permissions hashes", async () => {
+    const manifest = artifactManifest({
+      apiVersion: "3.0",
+      id: "test-plugin",
+      name: "Test Plugin",
+      capabilities: [{ id: "shell.execute" }],
+      contributions: [
+        {
           kind: "cli.command",
           id: "setup",
           requires: ["shell.execute"],
         },
       ],
     })
-    const permissionsHash = api3PermissionsHash(manifest)
+    const permissionsHash = legacyApi3PermissionsHash(manifest)
     const { artifact, key, signature, hashes } = await signedFixture({
       manifest,
       payload: {
