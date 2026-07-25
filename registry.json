@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-25T01:26:07.757Z",
+  "updatedAt": "2026-07-25T17:43:10.171Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -26,8 +26,8 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.3.0",
-      "updatedAt": "2026-07-25T01:26:07.757Z",
+      "latestVersion": "0.3.1",
+      "updatedAt": "2026-07-25T17:43:10.171Z",
       "risk": "high",
       "runtimeMode": "process",
       "tools": [],
