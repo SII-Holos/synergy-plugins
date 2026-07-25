@@ -13,6 +13,10 @@ import {
   permissionsHashPayload,
   stablePluginJson,
 } from "@ericsanchezok/synergy-plugin/permissions";
+import {
+  computeManifestHash as computeApi3ManifestHash,
+  computePermissionsHash as computeApi3PermissionsHash,
+} from "@ericsanchezok/synergy-plugin-api3/integrity";
 
 const root = path.resolve(import.meta.dir, "..");
 const registryPath = path.join(root, "registry.json");
@@ -140,25 +144,30 @@ function computeLegacyPermissionsHash(manifest: any) {
   );
 }
 
+function computeLegacyApi3PermissionsHash(manifest: any) {
+  if (manifest.apiVersion !== "3.0") return;
+  return sha256Text(
+    JSON.stringify(
+      sortKeys({
+        capabilities: manifest.capabilities,
+        requirements: manifest.contributions.map((item: any) => ({
+          kind: item.kind,
+          id: item.id,
+          requires: item.requires ?? [],
+        })),
+      }),
+    ),
+  );
+}
+
 function computeManifestHash(manifest: any) {
+  if (manifest.apiVersion === "3.0") return computeApi3ManifestHash(manifest);
   return sha256Text(stablePluginJson(manifestHashPayload(manifest)));
 }
 
 function computePermissionsHash(manifest: any) {
-  if (manifest.apiVersion === "3.0") {
-    return sha256Text(
-      JSON.stringify(
-        sortKeys({
-          capabilities: manifest.capabilities,
-          requirements: manifest.contributions.map((item: any) => ({
-            kind: item.kind,
-            id: item.id,
-            requires: item.requires ?? [],
-          })),
-        }),
-      ),
-    );
-  }
+  if (manifest.apiVersion === "3.0")
+    return computeApi3PermissionsHash(manifest);
   return sha256Text(
     stablePluginJson(
       permissionsHashPayload(manifest, baseCapabilities(manifest)),
@@ -296,11 +305,14 @@ export async function validateArtifact(entry: any, version: any) {
   const manifestHash = computeManifestHash(manifest);
   const permissionsHash = computePermissionsHash(manifest);
   const legacyPermissionsHash = computeLegacyPermissionsHash(manifest);
+  const legacyApi3PermissionsHash =
+    computeLegacyApi3PermissionsHash(manifest);
   if (manifestHash !== version.manifestHash)
     throw new Error(`${entry.id}@${version.version}: manifest hash mismatch`);
   if (
     permissionsHash !== version.permissionsHash &&
-    legacyPermissionsHash !== version.permissionsHash
+    legacyPermissionsHash !== version.permissionsHash &&
+    legacyApi3PermissionsHash !== version.permissionsHash
   ) {
     throw new Error(
       `${entry.id}@${version.version}: permissions hash mismatch`,

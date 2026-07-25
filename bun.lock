@@ -6,6 +6,7 @@
       "name": "@sii-holos/synergy-plugins-registry",
       "devDependencies": {
         "@ericsanchezok/synergy-plugin": "^2.4.4",
+        "@ericsanchezok/synergy-plugin-api3": "npm:@ericsanchezok/synergy-plugin@3.0.6",
         "ajv": "^8.17.1",
         "ajv-formats": "^3.0.1",
       },
@@ -13,6 +14,8 @@
   },
   "packages": {
     "@ericsanchezok/synergy-plugin": ["@ericsanchezok/synergy-plugin@2.4.4", "", { "dependencies": { "@ericsanchezok/synergy-sdk": "2.4.4", "@ericsanchezok/synergy-util": "2.4.4" }, "peerDependencies": { "zod": ">=4.0.0" } }, "sha512-BnmpKkDuiHoJ997mKADZDZTCX2EZWyzz2mxYMQPJNM3Qt6qyL4UgZj+38dR9NByo9qImpNk/Uhat4sNWuYJ6AA=="],
+
+    "@ericsanchezok/synergy-plugin-api3": ["@ericsanchezok/synergy-plugin@3.0.6", "", { "dependencies": { "@ericsanchezok/synergy-sdk": "3.0.6" }, "peerDependencies": { "zod": ">=4.0.0" } }, "sha512-gi+iVrGRGc4dCsZSaVCd71h7Rlgv0dp4/z4dxJjVfEFShcc9jtawso6XBPR7ztc7iDpN7bLB1/+6ypQo661sog=="],
 
     "@ericsanchezok/synergy-sdk": ["@ericsanchezok/synergy-sdk@2.4.4", "", {}, "sha512-O6F0foBISZxmSSNmZo4rUlUbVFQ5zzsfDuHFoDqjfLHmcY+v7jeeEkX+As+MWS/IlY9OtCc/Icibi5YNBSdyxQ=="],
 
@@ -31,5 +34,7 @@
     "require-from-string": ["require-from-string@2.0.2", "", {}, "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="],
 
     "zod": ["zod@4.1.8", "", {}, "sha512-5R1P+WwQqmmMIEACyzSvo4JXHY5WiAFHRMg+zBZKgKS+Q1viRa0C1hmUKtHltoIFKtIdki3pRxkmpP74jnNYHQ=="],
+
+    "@ericsanchezok/synergy-plugin-api3/@ericsanchezok/synergy-sdk": ["@ericsanchezok/synergy-sdk@3.0.6", "", {}, "sha512-48ItgHp6x8Wi2Tj82FhLiHeSvxT9YOnHAvgEjcl6jmp4dvLLcQq51kIV3xLTmFF9iayLGjYsERWxE/Mv24rNZQ=="],
   }
 }
