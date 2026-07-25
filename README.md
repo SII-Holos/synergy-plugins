@@ -61,7 +61,7 @@ integrity.json
 permissions.summary.json
 ```
 
-The entry must include `compatibility.synergy`, a `sha256-...` integrity string, a signature metadata URL, and the signer public key. CI verifies the downloaded artifact hash, the required package files, the manifest name/version, signature payload hashes, and the Ed25519 signature using the registry-reviewed signer.
+The entry must include `compatibility.synergy`, a `sha256-...` integrity string, a signature metadata URL, and the signer public key. CI verifies the downloaded artifact hash, the required package files, the manifest identity (`id` for API3, `name` for historical API2 artifacts) and version, signature payload hashes, and the Ed25519 signature using the registry-reviewed signer.
 
 ## Marketplace Icons
 

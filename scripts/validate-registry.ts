@@ -145,6 +145,20 @@ function computeManifestHash(manifest: any) {
 }
 
 function computePermissionsHash(manifest: any) {
+  if (manifest.apiVersion === "3.0") {
+    return sha256Text(
+      JSON.stringify(
+        sortKeys({
+          capabilities: manifest.capabilities,
+          requirements: manifest.contributions.map((item: any) => ({
+            kind: item.kind,
+            id: item.id,
+            requires: item.requires ?? [],
+          })),
+        }),
+      ),
+    );
+  }
   return sha256Text(
     stablePluginJson(
       permissionsHashPayload(manifest, baseCapabilities(manifest)),
@@ -270,8 +284,10 @@ export async function validateArtifact(entry: any, version: any) {
 
   extractTar(tarballPath, tmp);
   const manifest = await readJson(path.join(tmp, "plugin.json"));
-  if (manifest.name !== entry.id)
-    throw new Error(`${entry.id}@${version.version}: manifest name mismatch`);
+  const manifestId =
+    manifest.apiVersion === "3.0" ? manifest.id : manifest.name;
+  if (manifestId !== entry.id)
+    throw new Error(`${entry.id}@${version.version}: manifest id mismatch`);
   if (manifest.version !== version.version)
     throw new Error(
       `${entry.id}@${version.version}: manifest version mismatch`,

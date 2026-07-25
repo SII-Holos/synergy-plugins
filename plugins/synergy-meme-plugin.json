@@ -17,7 +17,7 @@
     "synergy-plugin"
   ],
   "compatibility": {
-    "synergy": ">=2.4.3"
+    "synergy": "plugin-api:3.0"
   },
   "versions": [
     {
@@ -203,6 +203,40 @@
       "uiSurfaces": [],
       "publishedAt": "2026-07-06T12:45:54.559Z",
       "changelog": "Adds primary-agent meme expression prompt injection and improves emotional brief guidance for meme planning."
+    },
+    {
+      "version": "0.3.8",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.8/synergy-meme-plugin-0.3.8.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.8/synergy-meme-plugin-0.3.8.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "483a6c48d867e72b6d48158918da77237e15b3d0e6d9f4f6ae8393cd198280ee"
+      },
+      "integrity": "sha256-6f067b8c6ea4f71738a8fcf937e27fd6e6008d60ebb95c349ce87631d1268d48",
+      "manifestHash": "363db8fdda280a0c78161c05c078e68cf8038d4539d8fdb34f3141dc1c454342",
+      "permissionsHash": "6a08b51f9020976c80c78f61df8067f76d20a252b19366c64b85c5bfa96d518a",
+      "risk": "high",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "task.delegate",
+          "description": "Synergy host capability task.delegate",
+          "risk": "high"
+        },
+        {
+          "key": "asset.write",
+          "description": "Synergy host capability asset.write",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "generate_meme",
+        "search_meme_templates",
+        "pick_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-07-25T01:26:01.108Z",
+      "changelog": "Plugin API 3 migration with resident meme generation and Plugin Kit 3.0.2 runtime discovery compatibility."
     }
   ],
   "yankedVersions": [],

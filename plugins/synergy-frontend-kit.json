@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "synergy-frontend-kit",
   "name": "synergy-frontend-kit",
-  "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, setup automation, and design-readiness UI.",
+  "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, and setup automation.",
   "repo": "https://github.com/EricSanchezok/synergy-frontend-kit",
   "homepage": "https://github.com/EricSanchezok/synergy-frontend-kit",
   "author": {
@@ -20,7 +20,7 @@
     "ui"
   ],
   "compatibility": {
-    "synergy": ">=2.4.3"
+    "synergy": "plugin-api:3.0"
   },
   "versions": [
     {
@@ -206,6 +206,33 @@
       ],
       "publishedAt": "2026-07-04T13:20:35.588Z",
       "changelog": "Migrate UI contribution manifest fields to the current Synergy workbench panel protocol."
+    },
+    {
+      "version": "0.3.0",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.0/synergy-frontend-kit-0.3.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.0/synergy-frontend-kit-0.3.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "483a6c48d867e72b6d48158918da77237e15b3d0e6d9f4f6ae8393cd198280ee"
+      },
+      "integrity": "sha256-360d7be7dad8e71ed9e926652ba619cd80e0ed5ed3ecba2e995546df1a05eb3c",
+      "manifestHash": "7b6fc8ee1494d7638bed77b13b2e12aaf0bcba266b7f34d8e323b70a0c496686",
+      "permissionsHash": "fceee3f4bc7f13ea423625c2551a58baefbc90ab0c4fd16e850eb9a38efbb6db",
+      "risk": "high",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "shell.execute",
+          "description": "Synergy host capability shell.execute",
+          "risk": "high"
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ],
+      "publishedAt": "2026-07-25T01:26:07.757Z",
+      "changelog": "Plugin API 3 native settings and settings-gated MCP contributions with Plugin Kit 3.0.2 validation compatibility."
     }
   ],
   "yankedVersions": [

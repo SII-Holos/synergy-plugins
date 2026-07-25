@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-06T12:45:54.559Z",
+  "updatedAt": "2026-07-25T01:26:07.757Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
       "name": "synergy-frontend-kit",
-      "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, setup automation, and design-readiness UI.",
+      "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, and setup automation.",
       "repo": "https://github.com/EricSanchezok/synergy-frontend-kit",
       "entry": "plugins/synergy-frontend-kit.json",
       "author": {
@@ -26,14 +26,13 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.2.4",
-      "updatedAt": "2026-07-04T13:20:35.588Z",
-      "risk": "low",
+      "latestVersion": "0.3.0",
+      "updatedAt": "2026-07-25T01:26:07.757Z",
+      "risk": "high",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
-        "settings",
-        "workbenchPanels"
+        "ui.settings"
       ]
     },
     {
@@ -57,12 +56,14 @@
         "memegen",
         "synergy-plugin"
       ],
-      "latestVersion": "0.3.7",
-      "updatedAt": "2026-07-06T12:45:54.559Z",
+      "latestVersion": "0.3.8",
+      "updatedAt": "2026-07-25T01:26:01.108Z",
       "risk": "high",
       "runtimeMode": "process",
       "tools": [
-        "generate_meme"
+        "generate_meme",
+        "pick_meme",
+        "search_meme_templates"
       ],
       "uiSurfaces": []
     }

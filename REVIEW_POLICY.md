@@ -23,7 +23,7 @@ a core maintainer.
 
 Reviewers must verify:
 
-- plugin id, entry filename, manifest `name`, and signature `pluginId` match
+- plugin id, entry filename, manifest identity (`id` for API3, `name` for historical API2 artifacts), and signature `pluginId` match
 - `downloadUrl` and `signatureUrl` point to public release assets
 - artifact integrity matches `sha256-...`
 - the `.sig` signer matches `versions[].signature.signer`
