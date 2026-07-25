@@ -237,6 +237,40 @@
       "uiSurfaces": [],
       "publishedAt": "2026-07-25T01:26:01.108Z",
       "changelog": "Plugin API 3 migration with resident meme generation and Plugin Kit 3.0.2 runtime discovery compatibility."
+    },
+    {
+      "version": "0.3.9",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.9/synergy-meme-plugin-0.3.9.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.9/synergy-meme-plugin-0.3.9.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "483a6c48d867e72b6d48158918da77237e15b3d0e6d9f4f6ae8393cd198280ee"
+      },
+      "integrity": "sha256-6b88a15aab474b7591e3214422e0bfc68518e747744b70300849f1b3ca0744e7",
+      "manifestHash": "ceed68707eb7b7d726891ead4c62f1834158db8d84e80f5437f377f1f7a7ac71",
+      "permissionsHash": "54209bae517671a90c2cffc735a64627dda2f7b6408b94a06f0b80eb1af27912",
+      "risk": "high",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "task.delegate",
+          "description": "Synergy host capability task.delegate",
+          "risk": "high"
+        },
+        {
+          "key": "asset.write",
+          "description": "Synergy host capability asset.write",
+          "risk": "medium"
+        }
+      ],
+      "tools": [
+        "generate_meme",
+        "search_meme_templates",
+        "pick_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-07-25T17:42:40.217Z",
+      "changelog": "Re-sign Plugin API 3 artifact with the canonical Synergy 3.0.6 integrity contract."
     }
   ],
   "yankedVersions": [],
