@@ -84,6 +84,21 @@ function computedHashes(manifest: any) {
   }
 }
 
+function api3PermissionsHash(manifest: any) {
+  return sha256Text(
+    JSON.stringify(
+      sortKeys({
+        capabilities: manifest.capabilities,
+        requirements: manifest.contributions.map((item: any) => ({
+          kind: item.kind,
+          id: item.id,
+          requires: item.requires ?? [],
+        })),
+      }),
+    ),
+  )
+}
+
 async function generateKeyPair() {
   const key = (await subtle.generateKey("Ed25519" as any, true, ["sign", "verify"])) as CryptoKeyPair
   const privateRaw = await subtle.exportKey("pkcs8", key.privateKey)
@@ -284,6 +299,44 @@ describe("artifact validation", () => {
         integrity: `sha256-${sha256(artifact)}`,
         manifestHash: hashes.manifestHash,
         permissionsHash: hashes.permissionsHash,
+        signature: { algorithm: "ed25519", signer: key.publicKey },
+      }),
+    ).resolves.toBeUndefined()
+  })
+
+  test("uses the API3 manifest id when name is a display label", async () => {
+    const manifest = artifactManifest({
+      apiVersion: "3.0",
+      id: "test-plugin",
+      name: "Test Plugin",
+      capabilities: [{ id: "shell.execute" }],
+      contributions: [
+        {
+          kind: "cli.command",
+          id: "setup",
+          requires: ["shell.execute"],
+        },
+      ],
+    })
+    const permissionsHash = api3PermissionsHash(manifest)
+    const { artifact, key, signature, hashes } = await signedFixture({
+      manifest,
+      payload: {
+        permissionsHash,
+      },
+    })
+    globalThis.fetch = async (url) => {
+      const target = String(url)
+      if (target.endsWith(".sig")) return new Response(JSON.stringify(signature))
+      return new Response(artifact)
+    }
+
+    await expect(
+      validateArtifact({ id: "test-plugin" }, {
+        ...baseEntry().versions[0],
+        integrity: `sha256-${sha256(artifact)}`,
+        manifestHash: hashes.manifestHash,
+        permissionsHash,
         signature: { algorithm: "ed25519", signer: key.publicKey },
       }),
     ).resolves.toBeUndefined()
