@@ -233,6 +233,33 @@
       ],
       "publishedAt": "2026-07-25T01:26:07.757Z",
       "changelog": "Plugin API 3 native settings and settings-gated MCP contributions with Plugin Kit 3.0.2 validation compatibility."
+    },
+    {
+      "version": "0.3.1",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.1/synergy-frontend-kit-0.3.1.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.1/synergy-frontend-kit-0.3.1.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "483a6c48d867e72b6d48158918da77237e15b3d0e6d9f4f6ae8393cd198280ee"
+      },
+      "integrity": "sha256-f3c8ed13fb1885f907f6ac02e701ade262e8b679bbc8370ea1f642fe58941402",
+      "manifestHash": "47f1dc18edb020d814e52cc04a3f65d43a0caaabfebc30f74dafab0db99a8b41",
+      "permissionsHash": "077495aea53cddf17e81ee6894b68d122c65e2d479a08e7183aa966195f68f4f",
+      "risk": "high",
+      "runtimeMode": "process",
+      "permissionsSummary": [
+        {
+          "key": "shell.execute",
+          "description": "Synergy host capability shell.execute",
+          "risk": "high"
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ],
+      "publishedAt": "2026-07-25T17:43:10.171Z",
+      "changelog": "Re-sign Plugin API 3 artifact with the canonical Synergy 3.0.6 integrity contract."
     }
   ],
   "yankedVersions": [
