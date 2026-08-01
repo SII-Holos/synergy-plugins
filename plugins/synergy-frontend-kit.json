@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "synergy-frontend-kit",
   "name": "synergy-frontend-kit",
   "description": "Official frontend capability kit for Synergy agents: curated design skills, pinned MCP tooling, and setup automation.",
@@ -20,11 +20,15 @@
     "ui"
   ],
   "compatibility": {
-    "synergy": "plugin-api:3.0"
+    "synergy": ">=3.0.6"
   },
   "versions": [
     {
       "version": "0.2.2",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.2 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.2/synergy-frontend-kit-0.2.2.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.2/synergy-frontend-kit-0.2.2.synergy-plugin.tgz.sig",
       "signature": {
@@ -34,55 +38,65 @@
       "integrity": "sha256-143414aef28ba57a7407c5179e694349634b7d8de650274b0f26cee3c9f2c787",
       "manifestHash": "19f6917b502815117973ad68c378c41e920f08b36b57f31d8305defe18e550b4",
       "permissionsHash": "1e2d09bd1512912e9fe8b74e03ae27aeea9bc7d6a1ca792cb64a154307cf5dad",
-      "risk": "low",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:write",
-          "description": "Requires filesystem:write",
-          "risk": "high"
-        },
-        {
-          "key": "mcp:invoke",
-          "description": "Requires mcp:invoke",
-          "risk": "medium"
-        },
-        {
-          "key": "mcp:spawn",
-          "description": "Requires mcp:spawn",
-          "risk": "medium"
-        },
-        {
-          "key": "network",
-          "description": "Requires network",
-          "risk": "medium"
-        },
-        {
-          "key": "shell",
-          "description": "Requires shell",
-          "risk": "high"
-        }
-      ],
       "tools": [],
       "uiSurfaces": [
         "workspacePanels",
         "settings"
       ],
       "publishedAt": "2026-06-29T11:53:06.426Z",
-      "changelog": "Release for Synergy 2.4.2 plugin permission compatibility and personal official source metadata."
+      "changelog": "Release for Synergy 2.4.2 plugin permission compatibility and personal official source metadata.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "filesystem:read",
+          "category": "files",
+          "title": "Read workspace files",
+          "description": "Can read files in the active workspace."
+        },
+        {
+          "key": "filesystem:write",
+          "category": "files",
+          "title": "Update workspace files",
+          "description": "Can create and update files in the active workspace."
+        },
+        {
+          "key": "mcp:invoke",
+          "category": "tools",
+          "title": "Use MCP tools",
+          "description": "Can call tools exposed by declared MCP services."
+        },
+        {
+          "key": "mcp:spawn",
+          "category": "runtime",
+          "title": "Start MCP services",
+          "description": "Can start and manage declared MCP service processes."
+        },
+        {
+          "key": "network",
+          "category": "network",
+          "title": "Access the network",
+          "description": "Can make outbound network requests."
+        },
+        {
+          "key": "shell",
+          "category": "runtime",
+          "title": "Run setup commands",
+          "description": "Can run commands through explicitly declared setup actions."
+        }
+      ]
     },
     {
       "version": "0.2.3",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.3 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.3/synergy-frontend-kit-0.2.3.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.3/synergy-frontend-kit-0.2.3.synergy-plugin.tgz.sig",
       "signature": {
@@ -92,55 +106,65 @@
       "integrity": "sha256-2b4c5d17c14c73aacf1d6907d7b6df15f1b5db79dfb29db993cb40caa3ac2b67",
       "manifestHash": "3ff78f70964d9cbd6103ef613e5e9b750003d3cf2258bf97b07c8e03d59c2717",
       "permissionsHash": "1e2d09bd1512912e9fe8b74e03ae27aeea9bc7d6a1ca792cb64a154307cf5dad",
-      "risk": "low",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:write",
-          "description": "Requires filesystem:write",
-          "risk": "high"
-        },
-        {
-          "key": "mcp:invoke",
-          "description": "Requires mcp:invoke",
-          "risk": "medium"
-        },
-        {
-          "key": "mcp:spawn",
-          "description": "Requires mcp:spawn",
-          "risk": "medium"
-        },
-        {
-          "key": "network",
-          "description": "Requires network",
-          "risk": "medium"
-        },
-        {
-          "key": "shell",
-          "description": "Requires shell",
-          "risk": "high"
-        }
-      ],
       "tools": [],
       "uiSurfaces": [
         "workspacePanels",
         "settings"
       ],
       "publishedAt": "2026-06-29T13:02:41.038Z",
-      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility."
+      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "filesystem:read",
+          "category": "files",
+          "title": "Read workspace files",
+          "description": "Can read files in the active workspace."
+        },
+        {
+          "key": "filesystem:write",
+          "category": "files",
+          "title": "Update workspace files",
+          "description": "Can create and update files in the active workspace."
+        },
+        {
+          "key": "mcp:invoke",
+          "category": "tools",
+          "title": "Use MCP tools",
+          "description": "Can call tools exposed by declared MCP services."
+        },
+        {
+          "key": "mcp:spawn",
+          "category": "runtime",
+          "title": "Start MCP services",
+          "description": "Can start and manage declared MCP service processes."
+        },
+        {
+          "key": "network",
+          "category": "network",
+          "title": "Access the network",
+          "description": "Can make outbound network requests."
+        },
+        {
+          "key": "shell",
+          "category": "runtime",
+          "title": "Run setup commands",
+          "description": "Can run commands through explicitly declared setup actions."
+        }
+      ]
     },
     {
       "version": "0.2.4",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.3 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.4/synergy-frontend-kit-0.2.4.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.2.4/synergy-frontend-kit-0.2.4.synergy-plugin.tgz.sig",
       "signature": {
@@ -150,65 +174,77 @@
       "integrity": "sha256-c8b832f9e4b43beb7e0a689e3513a3de21ad68284151ee94209537a2166b4c7b",
       "manifestHash": "ab5721bdea254eaf0622cd584d958cbb2244f16803725583493af5881d9d9c23",
       "permissionsHash": "81553a1e2f0aa0a4c0e8711136b0b66ce7511ee5546ba9fd72ac3a909794c060",
-      "risk": "low",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Can read Synergy configuration values.",
-          "risk": "low"
-        },
-        {
-          "key": "file_read",
-          "description": "Can read files and directories in your workspace.",
-          "risk": "low"
-        },
-        {
-          "key": "file_write",
-          "description": "Can create, modify, or delete files in your workspace.",
-          "risk": "medium"
-        },
-        {
-          "key": "mcp_invoke",
-          "description": "Can call tools exposed by MCP servers.",
-          "risk": "medium"
-        },
-        {
-          "key": "mcp_spawn",
-          "description": "Can start and manage MCP server processes.",
-          "risk": "medium"
-        },
-        {
-          "key": "network_request",
-          "description": "Can make network requests to: registry.npmjs.org, api.github.com, github.com, raw.githubusercontent.com.",
-          "risk": "medium"
-        },
-        {
-          "key": "shell",
-          "description": "Can execute non-destructive shell commands in the current workspace.",
-          "risk": "medium"
-        },
-        {
-          "key": "ui.workbenchPanels",
-          "description": "Adds custom panels to the side workspace or BottomSpace.",
-          "risk": "low"
-        },
-        {
-          "key": "ui.settings",
-          "description": "Adds a custom settings page or form.",
-          "risk": "low"
-        }
-      ],
       "tools": [],
       "uiSurfaces": [
         "workbenchPanels",
         "settings"
       ],
       "publishedAt": "2026-07-04T13:20:35.588Z",
-      "changelog": "Migrate UI contribution manifest fields to the current Synergy workbench panel protocol."
+      "changelog": "Migrate UI contribution manifest fields to the current Synergy workbench panel protocol.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "file_read",
+          "category": "files",
+          "title": "Read workspace files",
+          "description": "Can read files in the active workspace."
+        },
+        {
+          "key": "file_write",
+          "category": "files",
+          "title": "Update workspace files",
+          "description": "Can create and update files in the active workspace."
+        },
+        {
+          "key": "mcp_invoke",
+          "category": "tools",
+          "title": "Use MCP tools",
+          "description": "Can call tools exposed by declared MCP services."
+        },
+        {
+          "key": "mcp_spawn",
+          "category": "runtime",
+          "title": "Start MCP services",
+          "description": "Can start and manage declared MCP service processes."
+        },
+        {
+          "key": "network_request",
+          "category": "network",
+          "title": "Access the network",
+          "description": "Can make outbound network requests to declared services."
+        },
+        {
+          "key": "shell",
+          "category": "runtime",
+          "title": "Run setup commands",
+          "description": "Can run commands through explicitly declared setup actions."
+        },
+        {
+          "key": "ui.workbenchPanels",
+          "category": "ui",
+          "title": "Add workspace panels",
+          "description": "Adds declared panels to the Synergy workspace."
+        },
+        {
+          "key": "ui.settings",
+          "category": "ui",
+          "title": "Add plugin settings",
+          "description": "Adds a settings form for this plugin."
+        }
+      ]
     },
     {
       "version": "0.3.0",
+      "apiVersion": "3.0",
+      "compatibility": {
+        "synergy": ">=3.0.2"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.0/synergy-frontend-kit-0.3.0.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.0/synergy-frontend-kit-0.3.0.synergy-plugin.tgz.sig",
       "signature": {
@@ -218,24 +254,28 @@
       "integrity": "sha256-360d7be7dad8e71ed9e926652ba619cd80e0ed5ed3ecba2e995546df1a05eb3c",
       "manifestHash": "7b6fc8ee1494d7638bed77b13b2e12aaf0bcba266b7f34d8e323b70a0c496686",
       "permissionsHash": "fceee3f4bc7f13ea423625c2551a58baefbc90ab0c4fd16e850eb9a38efbb6db",
-      "risk": "high",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "shell.execute",
-          "description": "Synergy host capability shell.execute",
-          "risk": "high"
-        }
-      ],
       "tools": [],
       "uiSurfaces": [
         "ui.settings"
       ],
       "publishedAt": "2026-07-25T01:26:07.757Z",
-      "changelog": "Plugin API 3 native settings and settings-gated MCP contributions with Plugin Kit 3.0.2 validation compatibility."
+      "changelog": "Plugin API 3 native settings and settings-gated MCP contributions with Plugin Kit 3.0.2 validation compatibility.",
+      "permissionsSummary": [
+        {
+          "key": "shell.execute",
+          "category": "runtime",
+          "title": "Run declared setup commands",
+          "description": "Can execute commands only through contributions that explicitly require this access."
+        }
+      ]
     },
     {
       "version": "0.3.1",
+      "apiVersion": "3.0",
+      "compatibility": {
+        "synergy": ">=3.0.6"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.1/synergy-frontend-kit-0.3.1.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.3.1/synergy-frontend-kit-0.3.1.synergy-plugin.tgz.sig",
       "signature": {
@@ -245,21 +285,21 @@
       "integrity": "sha256-f3c8ed13fb1885f907f6ac02e701ade262e8b679bbc8370ea1f642fe58941402",
       "manifestHash": "47f1dc18edb020d814e52cc04a3f65d43a0caaabfebc30f74dafab0db99a8b41",
       "permissionsHash": "077495aea53cddf17e81ee6894b68d122c65e2d479a08e7183aa966195f68f4f",
-      "risk": "high",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "shell.execute",
-          "description": "Synergy host capability shell.execute",
-          "risk": "high"
-        }
-      ],
       "tools": [],
       "uiSurfaces": [
         "ui.settings"
       ],
       "publishedAt": "2026-07-25T17:43:10.171Z",
-      "changelog": "Re-sign Plugin API 3 artifact with the canonical Synergy 3.0.6 integrity contract."
+      "changelog": "Re-sign Plugin API 3 artifact with the canonical Synergy 3.0.6 integrity contract.",
+      "permissionsSummary": [
+        {
+          "key": "shell.execute",
+          "category": "runtime",
+          "title": "Run declared setup commands",
+          "description": "Can execute commands only through contributions that explicitly require this access."
+        }
+      ]
     }
   ],
   "yankedVersions": [

@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/SII-Holos/synergy-plugins/main/schemas/registry.schema.json",
-  "title": "Synergy Plugin Registry Index",
+  "title": "Synergy Plugin Registry Index v2",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "updatedAt", "plugins"],
   "properties": {
-    "schemaVersion": { "const": 1 },
+    "schemaVersion": { "const": 2 },
     "updatedAt": { "type": "string", "format": "date-time" },
     "plugins": {
       "type": "array",
@@ -17,6 +17,14 @@
     "pluginId": {
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["synergy"],
+      "properties": {
+        "synergy": { "type": "string", "minLength": 1 }
+      }
     },
     "author": {
       "type": "object",
@@ -41,9 +49,7 @@
         "verified",
         "official",
         "keywords",
-        "latestVersion",
         "updatedAt",
-        "risk",
         "runtimeMode",
         "tools",
         "uiSurfaces"
@@ -64,8 +70,9 @@
           "uniqueItems": true
         },
         "latestVersion": { "type": "string", "minLength": 1 },
+        "apiVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "compatibility": { "$ref": "#/$defs/compatibility" },
         "updatedAt": { "type": "string", "format": "date-time" },
-        "risk": { "enum": ["low", "medium", "high"] },
         "runtimeMode": { "enum": ["in-process", "worker", "process"] },
         "tools": {
           "type": "array",

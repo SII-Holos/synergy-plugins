@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "hello-world",
   "name": "hello-world",
   "description": "Example Synergy plugin",
@@ -12,11 +12,15 @@
   "official": true,
   "keywords": ["synergy-plugin"],
   "compatibility": {
-    "synergy": ">=1.0.0"
+    "synergy": ">=3.0.11"
   },
   "versions": [
     {
       "version": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
       "downloadUrl": "https://github.com/SII-Holos/hello-world-plugin/releases/download/v0.1.0/hello-world-0.1.0.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/SII-Holos/hello-world-plugin/releases/download/v0.1.0/hello-world-0.1.0.synergy-plugin.tgz.sig",
       "signature": {
@@ -26,9 +30,22 @@
       "integrity": "sha256-...",
       "manifestHash": "...",
       "permissionsHash": "...",
-      "risk": "low",
       "runtimeMode": "process",
-      "permissionsSummary": [],
+      "featuresSummary": [
+        {
+          "key": "tool:greet",
+          "title": "Friendly greeting",
+          "description": "Adds a greeting tool that agents can use when requested."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "workspace.read",
+          "category": "files",
+          "title": "Read workspace files",
+          "description": "Can read files in the active workspace."
+        }
+      ],
       "tools": ["greet"],
       "uiSurfaces": ["toolRenderers"],
       "publishedAt": "2026-06-25T00:00:00.000Z",
