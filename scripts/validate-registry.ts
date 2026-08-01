@@ -162,12 +162,42 @@ function computeLegacyApi3PermissionsHash(manifest: any) {
 
 function computeManifestHash(manifest: any) {
   if (manifest.apiVersion === "3.0") return computeApi3ManifestHash(manifest);
+  if (manifest.apiVersion === "4.0")
+    return sha256Text(JSON.stringify(sortKeys(manifest)));
   return sha256Text(stablePluginJson(manifestHashPayload(manifest)));
+}
+
+function computeApi4PermissionsHash(manifest: any) {
+  return sha256Text(
+    JSON.stringify(
+      sortKeys({
+        capabilities: manifest.capabilities ?? [],
+        contributionRequirements: (manifest.contributions ?? [])
+          .filter(
+            (item: any) =>
+              Boolean(item.requires?.length) ||
+              item.kind === "operation" ||
+              (item.kind.startsWith("ui.") && Boolean(item.component)),
+          )
+          .map((item: any) => ({
+            kind: item.kind,
+            id: item.id,
+            requires: item.requires ?? [],
+            ...(item.kind === "operation" ? { expose: item.expose } : {}),
+            ...(item.kind.startsWith("ui.") && item.component
+              ? { trustedComponent: true }
+              : {}),
+          })),
+      }),
+    ),
+  );
 }
 
 function computePermissionsHash(manifest: any) {
   if (manifest.apiVersion === "3.0")
     return computeApi3PermissionsHash(manifest);
+  if (manifest.apiVersion === "4.0")
+    return computeApi4PermissionsHash(manifest);
   return sha256Text(
     stablePluginJson(
       permissionsHashPayload(manifest, baseCapabilities(manifest)),
@@ -294,13 +324,24 @@ export async function validateArtifact(entry: any, version: any) {
   extractTar(tarballPath, tmp);
   const manifest = await readJson(path.join(tmp, "plugin.json"));
   const manifestId =
-    manifest.apiVersion === "3.0" ? manifest.id : manifest.name;
+    manifest.apiVersion === "3.0" || manifest.apiVersion === "4.0"
+      ? manifest.id
+      : manifest.name;
   if (manifestId !== entry.id)
     throw new Error(`${entry.id}@${version.version}: manifest id mismatch`);
   if (manifest.version !== version.version)
     throw new Error(
       `${entry.id}@${version.version}: manifest version mismatch`,
     );
+  const artifactApiVersion = manifest.apiVersion ?? "2.0";
+  if (artifactApiVersion !== version.apiVersion)
+    throw new Error(`${entry.id}@${version.version}: plugin API version mismatch`);
+  if (
+    manifest.apiVersion === "4.0" &&
+    manifest.compatibility?.synergy !== version.compatibility?.synergy
+  ) {
+    throw new Error(`${entry.id}@${version.version}: Synergy compatibility mismatch`);
+  }
 
   const manifestHash = computeManifestHash(manifest);
   const permissionsHash = computePermissionsHash(manifest);

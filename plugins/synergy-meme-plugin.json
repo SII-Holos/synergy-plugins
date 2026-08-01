@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "synergy-meme-plugin",
   "name": "synergy-meme-plugin",
   "description": "Generate expressive meme images from bundled memegen.link templates.",
@@ -17,11 +17,15 @@
     "synergy-plugin"
   ],
   "compatibility": {
-    "synergy": "plugin-api:3.0"
+    "synergy": ">=3.0.6"
   },
   "versions": [
     {
       "version": "0.3.3",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.2 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.3/synergy-meme-plugin-0.3.3.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.3/synergy-meme-plugin-0.3.3.synergy-plugin.tgz.sig",
       "signature": {
@@ -31,25 +35,7 @@
       "integrity": "sha256-c433fc343405a81dd814909beb5d9a81ecdc91f1622cd2a8363a0f1e8146be8c",
       "manifestHash": "209cdbf2c65196a6d551c3157d965de537f16552aac5d3b0eb3fd9abc7946ce2",
       "permissionsHash": "74a8f8b6e7fcbc2cf4453d7d44fadbc7aa6df7234107a3f131da2c476b731d22",
-      "risk": "medium",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "task",
-          "description": "Requires task",
-          "risk": "medium"
-        }
-      ],
       "tools": [
         "generate_meme",
         "search_meme_templates",
@@ -57,10 +43,34 @@
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-06-29T11:53:06.530Z",
-      "changelog": "Release for Synergy 2.4.2 plugin permission and media display compatibility."
+      "changelog": "Release for Synergy 2.4.2 plugin permission and media display compatibility.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "filesystem:read",
+          "category": "files",
+          "title": "Read workspace files",
+          "description": "Can read files in the active workspace."
+        },
+        {
+          "key": "task",
+          "category": "tools",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        }
+      ]
     },
     {
       "version": "0.3.4",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.3 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.4/synergy-meme-plugin-0.3.4.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.4/synergy-meme-plugin-0.3.4.synergy-plugin.tgz.sig",
       "signature": {
@@ -70,25 +80,7 @@
       "integrity": "sha256-95c049a855e74c03b90b00ad4c2a8d98f5c369bb2244de90d7ea43bfdabba409",
       "manifestHash": "032714159726198365b5f87e1919785a06443da169aa5a0b99715de67cad2d66",
       "permissionsHash": "74a8f8b6e7fcbc2cf4453d7d44fadbc7aa6df7234107a3f131da2c476b731d22",
-      "risk": "medium",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Requires config:read",
-          "risk": "medium"
-        },
-        {
-          "key": "filesystem:read",
-          "description": "Requires filesystem:read",
-          "risk": "medium"
-        },
-        {
-          "key": "task",
-          "description": "Requires task",
-          "risk": "medium"
-        }
-      ],
       "tools": [
         "generate_meme",
         "search_meme_templates",
@@ -96,10 +88,34 @@
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-06-29T13:02:41.138Z",
-      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility."
+      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "filesystem:read",
+          "category": "files",
+          "title": "Read workspace files",
+          "description": "Can read files in the active workspace."
+        },
+        {
+          "key": "task",
+          "category": "tools",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        }
+      ]
     },
     {
       "version": "0.3.5",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.3 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.5/synergy-meme-plugin-0.3.5.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.5/synergy-meme-plugin-0.3.5.synergy-plugin.tgz.sig",
       "signature": {
@@ -109,29 +125,34 @@
       "integrity": "sha256-52a72652a0fcaa725ef531f2528a12ea75840e38ad80015c3385c0f808227c7f",
       "manifestHash": "795934dcc5f3752b7e1be18a9b3641710382fcdd99f98cf772387da8e015fe22",
       "permissionsHash": "2bb3280b4680689b5b62952aab79f815f095c33240d0e9608b231d37a83d0cd3",
-      "risk": "low",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Can read Synergy configuration values.",
-          "risk": "low"
-        },
-        {
-          "key": "task",
-          "description": "Can launch approved Synergy subagents from plugin tools.",
-          "risk": "medium"
-        }
-      ],
       "tools": [
         "generate_meme"
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-06-30T00:57:44.551Z",
-      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility with current permission hashing."
+      "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility with current permission hashing.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "task",
+          "category": "tools",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        }
+      ]
     },
     {
       "version": "0.3.6",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.3 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.6/synergy-meme-plugin-0.3.6.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.6/synergy-meme-plugin-0.3.6.synergy-plugin.tgz.sig",
       "signature": {
@@ -141,29 +162,34 @@
       "integrity": "sha256-3b99bdcc939cfcf375f6abc1635a28f988c906c71bb227e1ffead84172df8339",
       "manifestHash": "bea269a3b78373aa5e8697130aa492b87b48f3fdad7a0c2513d5b8ba849c5884",
       "permissionsHash": "256e99af705fc84123037d19c83cca5bf5b26929664ae4a002335dbc02de4da7",
-      "risk": "medium",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Can read Synergy configuration values.",
-          "risk": "low"
-        },
-        {
-          "key": "task",
-          "description": "Can launch approved Synergy subagents from plugin tools.",
-          "risk": "medium"
-        }
-      ],
       "tools": [
         "generate_meme"
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-07-04T12:54:54.067Z",
-      "changelog": "Migrate manifest and media display metadata to the current Synergy plugin protocol."
+      "changelog": "Migrate manifest and media display metadata to the current Synergy plugin protocol.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "task",
+          "category": "tools",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        }
+      ]
     },
     {
       "version": "0.3.7",
+      "apiVersion": "2.0",
+      "compatibility": {
+        "synergy": ">=2.4.3 <3.0.0"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.7/synergy-meme-plugin-0.3.7.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.7/synergy-meme-plugin-0.3.7.synergy-plugin.tgz.sig",
       "signature": {
@@ -173,39 +199,46 @@
       "integrity": "sha256-41246baf4c32417143db1b03dd540ea8264df69709c677c9bbb364789e991103",
       "manifestHash": "413c8bffdb7b98398678192c4c00cc30b3f272ce2b39f5744e1753f2082208a5",
       "permissionsHash": "b13ff36f8d5a5874443e653788e67330c4d8ac89f12f385df5cccc0c29c40557",
-      "risk": "high",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "config:read",
-          "description": "Can read Synergy configuration values.",
-          "risk": "low"
-        },
-        {
-          "key": "prompt_transform",
-          "description": "Can modify the system prompt and message context sent to the LLM.",
-          "risk": "high"
-        },
-        {
-          "key": "task",
-          "description": "Can launch approved Synergy subagents from plugin tools.",
-          "risk": "medium"
-        },
-        {
-          "key": "hooks.promptTransform",
-          "description": "Can modify the system prompt and message context sent to the LLM.",
-          "risk": "high"
-        }
-      ],
       "tools": [
         "generate_meme"
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-07-06T12:45:54.559Z",
-      "changelog": "Adds primary-agent meme expression prompt injection and improves emotional brief guidance for meme planning."
+      "changelog": "Adds primary-agent meme expression prompt injection and improves emotional brief guidance for meme planning.",
+      "permissionsSummary": [
+        {
+          "key": "config:read",
+          "category": "data",
+          "title": "Read configuration",
+          "description": "Can read approved Synergy configuration values."
+        },
+        {
+          "key": "prompt_transform",
+          "category": "hooks",
+          "title": "Add conversation guidance",
+          "description": "Can add plugin guidance to the context sent to the model."
+        },
+        {
+          "key": "task",
+          "category": "tools",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        },
+        {
+          "key": "hooks.promptTransform",
+          "category": "hooks",
+          "title": "Add conversation guidance",
+          "description": "Contributes declared guidance to the model context."
+        }
+      ]
     },
     {
       "version": "0.3.8",
+      "apiVersion": "3.0",
+      "compatibility": {
+        "synergy": ">=3.0.2"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.8/synergy-meme-plugin-0.3.8.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.8/synergy-meme-plugin-0.3.8.synergy-plugin.tgz.sig",
       "signature": {
@@ -215,20 +248,7 @@
       "integrity": "sha256-6f067b8c6ea4f71738a8fcf937e27fd6e6008d60ebb95c349ce87631d1268d48",
       "manifestHash": "363db8fdda280a0c78161c05c078e68cf8038d4539d8fdb34f3141dc1c454342",
       "permissionsHash": "6a08b51f9020976c80c78f61df8067f76d20a252b19366c64b85c5bfa96d518a",
-      "risk": "high",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "task.delegate",
-          "description": "Synergy host capability task.delegate",
-          "risk": "high"
-        },
-        {
-          "key": "asset.write",
-          "description": "Synergy host capability asset.write",
-          "risk": "medium"
-        }
-      ],
       "tools": [
         "generate_meme",
         "search_meme_templates",
@@ -236,10 +256,28 @@
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-07-25T01:26:01.108Z",
-      "changelog": "Plugin API 3 migration with resident meme generation and Plugin Kit 3.0.2 runtime discovery compatibility."
+      "changelog": "Plugin API 3 migration with resident meme generation and Plugin Kit 3.0.2 runtime discovery compatibility.",
+      "permissionsSummary": [
+        {
+          "key": "task.delegate",
+          "category": "tools",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        },
+        {
+          "key": "asset.write",
+          "category": "files",
+          "title": "Create attachments",
+          "description": "Can create files and attachments in Synergy."
+        }
+      ]
     },
     {
       "version": "0.3.9",
+      "apiVersion": "3.0",
+      "compatibility": {
+        "synergy": ">=3.0.6"
+      },
       "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.9/synergy-meme-plugin-0.3.9.synergy-plugin.tgz",
       "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.3.9/synergy-meme-plugin-0.3.9.synergy-plugin.tgz.sig",
       "signature": {
@@ -249,20 +287,7 @@
       "integrity": "sha256-6b88a15aab474b7591e3214422e0bfc68518e747744b70300849f1b3ca0744e7",
       "manifestHash": "ceed68707eb7b7d726891ead4c62f1834158db8d84e80f5437f377f1f7a7ac71",
       "permissionsHash": "54209bae517671a90c2cffc735a64627dda2f7b6408b94a06f0b80eb1af27912",
-      "risk": "high",
       "runtimeMode": "process",
-      "permissionsSummary": [
-        {
-          "key": "task.delegate",
-          "description": "Synergy host capability task.delegate",
-          "risk": "high"
-        },
-        {
-          "key": "asset.write",
-          "description": "Synergy host capability asset.write",
-          "risk": "medium"
-        }
-      ],
       "tools": [
         "generate_meme",
         "search_meme_templates",
@@ -270,7 +295,21 @@
       ],
       "uiSurfaces": [],
       "publishedAt": "2026-07-25T17:42:40.217Z",
-      "changelog": "Re-sign Plugin API 3 artifact with the canonical Synergy 3.0.6 integrity contract."
+      "changelog": "Re-sign Plugin API 3 artifact with the canonical Synergy 3.0.6 integrity contract.",
+      "permissionsSummary": [
+        {
+          "key": "task.delegate",
+          "category": "tools",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        },
+        {
+          "key": "asset.write",
+          "category": "files",
+          "title": "Create attachments",
+          "description": "Can create files and attachments in Synergy."
+        }
+      ]
     }
   ],
   "yankedVersions": [],

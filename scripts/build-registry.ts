@@ -5,7 +5,7 @@ const root = path.resolve(import.meta.dir, "..")
 const pluginsDir = path.join(root, "plugins")
 const registryPath = path.join(root, "registry.json")
 
-type PluginEntry = {
+export type PluginEntry = {
   id: string
   name: string
   description: string
@@ -17,9 +17,12 @@ type PluginEntry = {
   verified: boolean
   official: boolean
   keywords: string[]
+  compatibility: { synergy: string }
+  yankedVersions: string[]
   versions: Array<{
     version: string
-    risk: "low" | "medium" | "high"
+    apiVersion: string
+    compatibility: { synergy: string }
     runtimeMode: "in-process" | "worker" | "process"
     tools: string[]
     uiSurfaces: string[]
@@ -29,6 +32,13 @@ type PluginEntry = {
 
 function latestVersion(entry: PluginEntry) {
   return [...entry.versions].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))[0]
+}
+
+function latestInstallableVersion(entry: PluginEntry) {
+  const yanked = new Set(entry.yankedVersions)
+  return [...entry.versions]
+    .filter((version) => version.apiVersion === "4.0" && !yanked.has(version.version))
+    .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))[0]
 }
 
 async function readEntries() {
@@ -43,28 +53,7 @@ async function readEntries() {
 
 export async function buildRegistry() {
   const entries = await readEntries()
-  const summaries = entries.map((entry) => {
-    const latest = latestVersion(entry)
-    if (!latest) throw new Error(`Plugin ${entry.id} has no versions`)
-    return {
-      id: entry.id,
-      name: entry.name,
-      description: entry.description,
-      repo: entry.repo,
-      entry: `plugins/${entry.id}.json`,
-      author: entry.author,
-      ...(entry.icon ? { icon: entry.icon } : {}),
-      verified: entry.verified,
-      official: entry.official,
-      keywords: [...entry.keywords].sort(),
-      latestVersion: latest.version,
-      updatedAt: latest.publishedAt,
-      risk: latest.risk,
-      runtimeMode: latest.runtimeMode,
-      tools: [...latest.tools].sort(),
-      uiSurfaces: [...latest.uiSurfaces].sort(),
-    }
-  })
+  const summaries = entries.map(registrySummary)
 
   const updatedAt =
     summaries.length > 0
@@ -72,9 +61,39 @@ export async function buildRegistry() {
       : "2026-06-25T00:00:00.000Z"
 
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     updatedAt,
     plugins: summaries,
+  }
+}
+
+export function registrySummary(entry: PluginEntry) {
+  const latestPublished = latestVersion(entry)
+  if (!latestPublished) throw new Error(`Plugin ${entry.id} has no versions`)
+  const latest = latestInstallableVersion(entry)
+  const presentation = latest ?? latestPublished
+  return {
+    id: entry.id,
+    name: entry.name,
+    description: entry.description,
+    repo: entry.repo,
+    entry: `plugins/${entry.id}.json`,
+    author: entry.author,
+    ...(entry.icon ? { icon: entry.icon } : {}),
+    verified: entry.verified,
+    official: entry.official,
+    keywords: [...entry.keywords].sort(),
+    ...(latest
+      ? {
+          latestVersion: latest.version,
+          apiVersion: latest.apiVersion,
+          compatibility: latest.compatibility,
+        }
+      : {}),
+    updatedAt: latestPublished.publishedAt,
+    runtimeMode: presentation.runtimeMode,
+    tools: [...presentation.tools].sort(),
+    uiSurfaces: [...presentation.uiSurfaces].sort(),
   }
 }
 

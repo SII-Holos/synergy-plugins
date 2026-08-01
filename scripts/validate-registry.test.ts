@@ -6,6 +6,7 @@ import path from "node:path"
 import { spawnSync } from "node:child_process"
 import { validatePluginEntryFile } from "./validate-plugin-entry"
 import { validateArtifact, validateRegistryIcon } from "./validate-registry"
+import { registrySummary, type PluginEntry } from "./build-registry"
 
 const originalFetch = globalThis.fetch
 
@@ -69,6 +70,12 @@ function baseCapabilities(manifest: any) {
 }
 
 function computedHashes(manifest: any) {
+  if (manifest.apiVersion === "4.0") {
+    return {
+      manifestHash: sha256Text(JSON.stringify(sortKeys(manifest))),
+      permissionsHash: api4PermissionsHash(manifest),
+    }
+  }
   return {
     manifestHash: sha256Text(JSON.stringify(sortKeys(manifest))),
     permissionsHash: sha256Text(
@@ -82,6 +89,30 @@ function computedHashes(manifest: any) {
       ),
     ),
   }
+}
+
+function api4PermissionsHash(manifest: any) {
+  return sha256Text(
+    JSON.stringify(
+      sortKeys({
+        capabilities: manifest.capabilities ?? [],
+        contributionRequirements: (manifest.contributions ?? [])
+          .filter(
+            (item: any) =>
+              Boolean(item.requires?.length) ||
+              item.kind === "operation" ||
+              (item.kind.startsWith("ui.") && Boolean(item.component)),
+          )
+          .map((item: any) => ({
+            kind: item.kind,
+            id: item.id,
+            requires: item.requires ?? [],
+            ...(item.kind === "operation" ? { expose: item.expose } : {}),
+            ...(item.kind.startsWith("ui.") && item.component ? { trustedComponent: true } : {}),
+          })),
+      }),
+    ),
+  )
 }
 
 function api3PermissionsHash(manifest: any) {
@@ -139,7 +170,7 @@ async function writeEntryFile(entry: unknown) {
 
 function baseEntry(overrides: Record<string, unknown> = {}) {
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: "test-plugin",
     name: "test-plugin",
     description: "Test plugin",
@@ -152,6 +183,8 @@ function baseEntry(overrides: Record<string, unknown> = {}) {
     versions: [
       {
         version: "1.0.0",
+        apiVersion: "4.0",
+        compatibility: { synergy: ">=3.0.0" },
         downloadUrl: "https://example.test/test-plugin-1.0.0.synergy-plugin.tgz",
         signatureUrl: "https://example.test/test-plugin-1.0.0.synergy-plugin.tgz.sig",
         signature: {
@@ -161,7 +194,6 @@ function baseEntry(overrides: Record<string, unknown> = {}) {
         integrity: "sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         manifestHash: "manifest-hash",
         permissionsHash: "permissions-hash",
-        risk: "low",
         runtimeMode: "process",
         permissionsSummary: [],
         tools: [],
@@ -176,9 +208,16 @@ function baseEntry(overrides: Record<string, unknown> = {}) {
 
 function artifactManifest(overrides: Record<string, unknown> = {}) {
   return {
+    manifestVersion: 1,
+    apiVersion: "4.0",
+    id: "test-plugin",
     name: "test-plugin",
     version: "1.0.0",
     description: "Test plugin",
+    compatibility: { synergy: ">=3.0.0" },
+    capabilities: [],
+    contributions: [],
+    artifacts: { generation: "test-generation" },
     ...overrides,
   }
 }
@@ -228,6 +267,13 @@ describe("plugin entry schema", () => {
     await expect(validatePluginEntryFile(filepath)).resolves.toMatchObject({ id: "test-plugin" })
   })
 
+  test("rejects legacy risk fields in registry v2", async () => {
+    const entry = baseEntry({
+      versions: [{ ...baseEntry().versions[0], risk: "high" }],
+    })
+    await expect(validatePluginEntryFile(await writeEntryFile(entry))).rejects.toThrow("failed schema validation")
+  })
+
   test("rejects entries missing version signature metadata", async () => {
     const entry = baseEntry({
       versions: [
@@ -268,6 +314,28 @@ describe("plugin entry schema", () => {
   test("rejects invalid icon metadata", async () => {
     const filepath = await writeEntryFile(baseEntry({ icon: { type: "registry-svg", path: "../icon.svg" } }))
     await expect(validatePluginEntryFile(filepath)).rejects.toThrow("failed schema validation")
+  })
+})
+
+describe("registry v2 default candidates", () => {
+  test("keeps API3 history but selects only a non-yanked API4 version", () => {
+    const entry = baseEntry({
+      versions: [
+        { ...baseEntry().versions[0], version: "3.9.0", apiVersion: "3.0", publishedAt: "2026-07-01T00:00:00.000Z" },
+        { ...baseEntry().versions[0], version: "4.0.0", apiVersion: "4.0", publishedAt: "2026-07-02T00:00:00.000Z" },
+      ],
+    }) as PluginEntry
+    expect(registrySummary(entry)).toMatchObject({
+      latestVersion: "4.0.0",
+      apiVersion: "4.0",
+    })
+  })
+
+  test("does not expose API3 history as a default install candidate", () => {
+    const entry = baseEntry({
+      versions: [{ ...baseEntry().versions[0], apiVersion: "3.0" }],
+    }) as PluginEntry
+    expect(registrySummary(entry)).not.toHaveProperty("latestVersion")
   })
 })
 
@@ -358,6 +426,8 @@ describe("artifact validation", () => {
     await expect(
       validateArtifact({ id: "test-plugin" }, {
         ...baseEntry().versions[0],
+        apiVersion: "3.0",
+        compatibility: { synergy: ">=3.0.0" },
         integrity: `sha256-${sha256(artifact)}`,
         manifestHash: hashes.manifestHash,
         permissionsHash,
@@ -396,6 +466,8 @@ describe("artifact validation", () => {
     await expect(
       validateArtifact({ id: "test-plugin" }, {
         ...baseEntry().versions[0],
+        apiVersion: "3.0",
+        compatibility: { synergy: ">=3.0.0" },
         integrity: `sha256-${sha256(artifact)}`,
         manifestHash: hashes.manifestHash,
         permissionsHash,

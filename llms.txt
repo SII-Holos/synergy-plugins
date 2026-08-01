@@ -18,7 +18,7 @@ The command prepares the GitHub Release assets, writes `plugins/<plugin-id>.json
 
 - `plugins/<plugin-id>.json` is the source of truth for a plugin detail entry.
 - `registry.json` is generated from `plugins/*.json`; do not hand-edit it except through `bun run build-registry`.
-- Every version must point to an installable `.synergy-plugin.tgz`, a matching `.sig`, a `sha256-...` integrity value, and `signature.signer`.
+- Every version must record `apiVersion`, `compatibility.synergy`, a natural-language access summary, an installable `.synergy-plugin.tgz`, a matching `.sig`, a `sha256-...` integrity value, and `signature.signer`.
 - CI verifies the artifact, manifest identity, permission hashes, and Ed25519 signature using the registry-reviewed signer.
 
 ## Not For Synergy Source Development

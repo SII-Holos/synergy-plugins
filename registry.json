@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "updatedAt": "2026-07-25T17:43:10.171Z",
   "plugins": [
     {
@@ -26,9 +26,7 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.3.1",
       "updatedAt": "2026-07-25T17:43:10.171Z",
-      "risk": "high",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
@@ -56,9 +54,7 @@
         "memegen",
         "synergy-plugin"
       ],
-      "latestVersion": "0.3.9",
       "updatedAt": "2026-07-25T17:42:40.217Z",
-      "risk": "high",
       "runtimeMode": "process",
       "tools": [
         "generate_meme",
