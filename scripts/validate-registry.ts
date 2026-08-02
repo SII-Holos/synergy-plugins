@@ -17,6 +17,10 @@ import {
   computeManifestHash as computeApi3ManifestHash,
   computePermissionsHash as computeApi3PermissionsHash,
 } from "@ericsanchezok/synergy-plugin-api3/integrity";
+import {
+  computeManifestHash as computeApi4ManifestHash,
+  computePermissionsHash as computeApi4PermissionsHash,
+} from "@ericsanchezok/synergy-plugin-api4/integrity";
 
 const root = path.resolve(import.meta.dir, "..");
 const registryPath = path.join(root, "registry.json");
@@ -163,34 +167,8 @@ function computeLegacyApi3PermissionsHash(manifest: any) {
 function computeManifestHash(manifest: any) {
   if (manifest.apiVersion === "3.0") return computeApi3ManifestHash(manifest);
   if (manifest.apiVersion === "4.0")
-    return sha256Text(JSON.stringify(sortKeys(manifest)));
+    return computeApi4ManifestHash(manifest);
   return sha256Text(stablePluginJson(manifestHashPayload(manifest)));
-}
-
-function computeApi4PermissionsHash(manifest: any) {
-  return sha256Text(
-    JSON.stringify(
-      sortKeys({
-        capabilities: manifest.capabilities ?? [],
-        contributionRequirements: (manifest.contributions ?? [])
-          .filter(
-            (item: any) =>
-              Boolean(item.requires?.length) ||
-              item.kind === "operation" ||
-              (item.kind.startsWith("ui.") && Boolean(item.component)),
-          )
-          .map((item: any) => ({
-            kind: item.kind,
-            id: item.id,
-            requires: item.requires ?? [],
-            ...(item.kind === "operation" ? { expose: item.expose } : {}),
-            ...(item.kind.startsWith("ui.") && item.component
-              ? { trustedComponent: true }
-              : {}),
-          })),
-      }),
-    ),
-  );
 }
 
 function computePermissionsHash(manifest: any) {

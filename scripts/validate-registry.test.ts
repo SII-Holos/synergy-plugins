@@ -7,6 +7,10 @@ import { spawnSync } from "node:child_process"
 import { validatePluginEntryFile } from "./validate-plugin-entry"
 import { validateArtifact, validateRegistryIcon } from "./validate-registry"
 import { registrySummary, type PluginEntry } from "./build-registry"
+import {
+  computeManifestHash as computeApi4ManifestHash,
+  computePermissionsHash as computeApi4PermissionsHash,
+} from "@ericsanchezok/synergy-plugin-api4/integrity"
 
 const originalFetch = globalThis.fetch
 
@@ -72,8 +76,8 @@ function baseCapabilities(manifest: any) {
 function computedHashes(manifest: any) {
   if (manifest.apiVersion === "4.0") {
     return {
-      manifestHash: sha256Text(JSON.stringify(sortKeys(manifest))),
-      permissionsHash: api4PermissionsHash(manifest),
+      manifestHash: computeApi4ManifestHash(manifest),
+      permissionsHash: computeApi4PermissionsHash(manifest),
     }
   }
   return {
@@ -370,6 +374,42 @@ describe("registry icon validation", () => {
 })
 
 describe("artifact validation", () => {
+  test("verifies current API4 trusted UI permissions hashes", async () => {
+    const manifest = artifactManifest({
+      capabilities: [{ id: "selection.read" }],
+      contributions: [
+        {
+          kind: "ui.textAction",
+          id: "translate-selection",
+          requires: ["selection.read"],
+          presentation: {
+            kind: "popover",
+            component: { entry: "ui/index.js", export: "TranslationPopover" },
+          },
+        },
+      ],
+    })
+    const { artifact, key, signature, hashes } = await signedFixture({ manifest })
+    globalThis.fetch = async (url) => {
+      const target = String(url)
+      if (target.endsWith(".sig")) return new Response(JSON.stringify(signature))
+      return new Response(artifact)
+    }
+
+    await expect(
+      validateArtifact(
+        { id: "test-plugin" },
+        {
+          ...baseEntry().versions[0],
+          integrity: `sha256-${sha256(artifact)}`,
+          manifestHash: hashes.manifestHash,
+          permissionsHash: hashes.permissionsHash,
+          signature: { algorithm: "ed25519", signer: key.publicKey },
+        },
+      ),
+    ).resolves.toBeUndefined()
+  })
+
   test("verifies artifact integrity and Ed25519 signature with the registry signer", async () => {
     const { artifact, key, signature, hashes } = await signedFixture()
     globalThis.fetch = async (url) => {
