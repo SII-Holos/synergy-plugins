@@ -7,6 +7,7 @@
       "devDependencies": {
         "@ericsanchezok/synergy-plugin": "^2.4.4",
         "@ericsanchezok/synergy-plugin-api3": "npm:@ericsanchezok/synergy-plugin@3.0.6",
+        "@ericsanchezok/synergy-plugin-api4": "npm:@ericsanchezok/synergy-plugin@3.0.11",
         "ajv": "^8.17.1",
         "ajv-formats": "^3.0.1",
       },
@@ -16,6 +17,8 @@
     "@ericsanchezok/synergy-plugin": ["@ericsanchezok/synergy-plugin@2.4.4", "", { "dependencies": { "@ericsanchezok/synergy-sdk": "2.4.4", "@ericsanchezok/synergy-util": "2.4.4" }, "peerDependencies": { "zod": ">=4.0.0" } }, "sha512-BnmpKkDuiHoJ997mKADZDZTCX2EZWyzz2mxYMQPJNM3Qt6qyL4UgZj+38dR9NByo9qImpNk/Uhat4sNWuYJ6AA=="],
 
     "@ericsanchezok/synergy-plugin-api3": ["@ericsanchezok/synergy-plugin@3.0.6", "", { "dependencies": { "@ericsanchezok/synergy-sdk": "3.0.6" }, "peerDependencies": { "zod": ">=4.0.0" } }, "sha512-gi+iVrGRGc4dCsZSaVCd71h7Rlgv0dp4/z4dxJjVfEFShcc9jtawso6XBPR7ztc7iDpN7bLB1/+6ypQo661sog=="],
+
+    "@ericsanchezok/synergy-plugin-api4": ["@ericsanchezok/synergy-plugin@3.0.11", "", { "dependencies": { "@ericsanchezok/synergy-sdk": "3.0.11" }, "peerDependencies": { "zod": ">=4.0.0" } }, "sha512-JMQU3Ax9TUcD8qxpBXVycH2s/r8Ma5kdwPtrWcA6ofbL18H+uFEcCiibmQoM7gf0Fyo2nnkZHYHcItVAhT3EhA=="],
 
     "@ericsanchezok/synergy-sdk": ["@ericsanchezok/synergy-sdk@2.4.4", "", {}, "sha512-O6F0foBISZxmSSNmZo4rUlUbVFQ5zzsfDuHFoDqjfLHmcY+v7jeeEkX+As+MWS/IlY9OtCc/Icibi5YNBSdyxQ=="],
 
@@ -36,5 +39,7 @@
     "zod": ["zod@4.1.8", "", {}, "sha512-5R1P+WwQqmmMIEACyzSvo4JXHY5WiAFHRMg+zBZKgKS+Q1viRa0C1hmUKtHltoIFKtIdki3pRxkmpP74jnNYHQ=="],
 
     "@ericsanchezok/synergy-plugin-api3/@ericsanchezok/synergy-sdk": ["@ericsanchezok/synergy-sdk@3.0.6", "", {}, "sha512-48ItgHp6x8Wi2Tj82FhLiHeSvxT9YOnHAvgEjcl6jmp4dvLLcQq51kIV3xLTmFF9iayLGjYsERWxE/Mv24rNZQ=="],
+
+    "@ericsanchezok/synergy-plugin-api4/@ericsanchezok/synergy-sdk": ["@ericsanchezok/synergy-sdk@3.0.11", "", {}, "sha512-U2Cqt0tCFK4uGKg7bx+5tQvSY1W/Ku59HC9Q4Z6XP1bQ/RMNcAv9kblP4fQ5PCU9tnyeE9V/+vMcDlOuT82Sjg=="],
   }
 }

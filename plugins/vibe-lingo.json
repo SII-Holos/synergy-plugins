@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 2,
+  "id": "vibe-lingo",
+  "name": "vibe-lingo",
+  "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy.",
+  "repo": "https://github.com/EricSanchezok/vibe-lingo",
+  "homepage": "https://github.com/EricSanchezok/vibe-lingo",
+  "author": {
+    "name": "Eric Sanchez"
+  },
+  "icon": {
+    "type": "registry-svg",
+    "path": "icons/vibe-lingo.svg"
+  },
+  "verified": true,
+  "official": true,
+  "keywords": [
+    "coaching",
+    "language-learning",
+    "review",
+    "synergy-plugin",
+    "translation"
+  ],
+  "compatibility": {
+    "synergy": ">=3.0.11"
+  },
+  "versions": [
+    {
+      "version": "0.7.3",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.3/vibe-lingo-0.7.3.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.3/vibe-lingo-0.7.3.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-42ec3ae3be81948c9116b3efddee452de15d83ff02c7e70c24d39f2271c7e890",
+      "manifestHash": "76c541949017c7b2d641cb450c12186b0e2b97ccfbc63a098a099905b272acbf",
+      "permissionsHash": "ff978ba0d3f756b433948a6f0b3519c3800322593b8117154bbfbc079729f300",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "tool:record-correction",
+          "title": "Save a correction",
+          "description": "Shows the correction in the conversation and saves it as learning evidence when coaching is active."
+        },
+        {
+          "key": "tool:progress",
+          "title": "Show learning progress",
+          "description": "Summarizes practice, recurring patterns, reviews, and concrete examples when requested."
+        },
+        {
+          "key": "tool:translation-history",
+          "title": "Browse translation history",
+          "description": "Finds translations the user chose to save."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Offer in-conversation coaching",
+          "description": "Adds focused language guidance when VibeLingo coaching is enabled."
+        },
+        {
+          "key": "agents",
+          "title": "Private language helpers",
+          "description": "Uses seven bounded helpers for translation, language recognition, corrections, and review."
+        },
+        {
+          "key": "ui",
+          "title": "VibeLingo interface",
+          "description": "Adds progress, review, settings, correction, and selected-text translation views."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "session.read",
+          "title": "Use conversation context",
+          "description": "Reads the current conversation context needed to recognize learning moments."
+        },
+        {
+          "key": "settings.read",
+          "title": "Read VibeLingo settings",
+          "description": "Reads the language, coaching, translation, and privacy choices saved for this plugin."
+        },
+        {
+          "key": "settings.write",
+          "title": "Save VibeLingo settings",
+          "description": "Saves changes made in the VibeLingo settings screen."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Use Synergy interface actions",
+          "description": "Opens plugin views and confirmation dialogs from the VibeLingo interface."
+        },
+        {
+          "key": "selection.read",
+          "title": "Translate selected text",
+          "description": "Reads text the user explicitly selects before choosing the Translate action."
+        },
+        {
+          "key": "agent.call",
+          "title": "Run private language helpers",
+          "description": "Runs bounded language tasks for translation, corrections, and review without exposing them as chat agents."
+        }
+      ],
+      "tools": [
+        "record-correction",
+        "progress",
+        "translation-history"
+      ],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.textAction",
+        "ui.messageRenderer",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-02T05:45:03.381Z",
+      "changelog": "First official Plugin API 4 release with multilingual coaching, selected-text translation, evidence tracking, and private review scheduling."
+    }
+  ],
+  "yankedVersions": []
+}
