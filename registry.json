@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-25T17:43:10.171Z",
+  "updatedAt": "2026-08-02T03:59:08.586Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -26,7 +26,12 @@
         "tailwind",
         "ui"
       ],
-      "updatedAt": "2026-07-25T17:43:10.171Z",
+      "latestVersion": "0.4.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-02T03:59:08.586Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
@@ -54,7 +59,12 @@
         "memegen",
         "synergy-plugin"
       ],
-      "updatedAt": "2026-07-25T17:42:40.217Z",
+      "latestVersion": "0.4.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-02T03:59:07.736Z",
       "runtimeMode": "process",
       "tools": [
         "generate_meme",

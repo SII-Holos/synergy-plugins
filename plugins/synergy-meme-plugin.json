@@ -8,6 +8,10 @@
   "author": {
     "name": "EricSanchez"
   },
+  "icon": {
+    "type": "registry-svg",
+    "path": "icons/synergy-meme-plugin.svg"
+  },
   "verified": true,
   "official": true,
   "keywords": [
@@ -17,7 +21,7 @@
     "synergy-plugin"
   ],
   "compatibility": {
-    "synergy": ">=3.0.6"
+    "synergy": ">=3.0.11"
   },
   "versions": [
     {
@@ -44,6 +48,7 @@
       "uiSurfaces": [],
       "publishedAt": "2026-06-29T11:53:06.530Z",
       "changelog": "Release for Synergy 2.4.2 plugin permission and media display compatibility.",
+      "featuresSummary": [],
       "permissionsSummary": [
         {
           "key": "config:read",
@@ -89,6 +94,7 @@
       "uiSurfaces": [],
       "publishedAt": "2026-06-29T13:02:41.138Z",
       "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility.",
+      "featuresSummary": [],
       "permissionsSummary": [
         {
           "key": "config:read",
@@ -132,6 +138,7 @@
       "uiSurfaces": [],
       "publishedAt": "2026-06-30T00:57:44.551Z",
       "changelog": "Release for Synergy 2.4.3 packaged plugin runtime compatibility with current permission hashing.",
+      "featuresSummary": [],
       "permissionsSummary": [
         {
           "key": "config:read",
@@ -169,6 +176,7 @@
       "uiSurfaces": [],
       "publishedAt": "2026-07-04T12:54:54.067Z",
       "changelog": "Migrate manifest and media display metadata to the current Synergy plugin protocol.",
+      "featuresSummary": [],
       "permissionsSummary": [
         {
           "key": "config:read",
@@ -206,6 +214,7 @@
       "uiSurfaces": [],
       "publishedAt": "2026-07-06T12:45:54.559Z",
       "changelog": "Adds primary-agent meme expression prompt injection and improves emotional brief guidance for meme planning.",
+      "featuresSummary": [],
       "permissionsSummary": [
         {
           "key": "config:read",
@@ -257,6 +266,7 @@
       "uiSurfaces": [],
       "publishedAt": "2026-07-25T01:26:01.108Z",
       "changelog": "Plugin API 3 migration with resident meme generation and Plugin Kit 3.0.2 runtime discovery compatibility.",
+      "featuresSummary": [],
       "permissionsSummary": [
         {
           "key": "task.delegate",
@@ -296,6 +306,7 @@
       "uiSurfaces": [],
       "publishedAt": "2026-07-25T17:42:40.217Z",
       "changelog": "Re-sign Plugin API 3 artifact with the canonical Synergy 3.0.6 integrity contract.",
+      "featuresSummary": [],
       "permissionsSummary": [
         {
           "key": "task.delegate",
@@ -310,11 +321,71 @@
           "description": "Can create files and attachments in Synergy."
         }
       ]
+    },
+    {
+      "version": "0.4.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.4.0/synergy-meme-plugin-0.4.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-meme-plugin/releases/download/v0.4.0/synergy-meme-plugin-0.4.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-05b48f344bbe8262e2482d02e45c47d43b133cc43171530b1b85923d27a03d38",
+      "manifestHash": "0d12a1ce54f1c3fe74b77104f77566618cf0ac1b6c2a6c1e6b11b1d17c28847a",
+      "permissionsHash": "2f7aa92457d463ce178ab7017e29d79565beb3261aa613b8c2e1e6bc26e25977",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "tool:generate_meme",
+          "title": "generate_meme",
+          "description": "Generate a meme image from an emotional brief. Use this as a lightweight emotional expression channel before a light task, during a funny or ironic moment, or after satisfying progress when a meme would make the interaction warmer, funnier, more companionable, or better matched to the user's playful tone. Good triggers include explicit user playfulness, clear emotional contrast, a surprising twist, a funny minor mistake, long effort paying off, or a celebratory milestone. Coding and tool moments can qualify too, such as a fix/build/test passing, a funny bug cause, or ironic tool behavior. Do not use memes for serious failures, security/privacy issues, user frustration, grief, sensitive topics, or dense technical review. Use at most once per short exchange. The prompt should vividly describe what happened, the feeling, the contrast, and any caption idea. The tool delegates to a hidden planner, then falls back deterministically when planning is unavailable."
+        },
+        {
+          "key": "tool:search_meme_templates",
+          "title": "search_meme_templates",
+          "description": "Search bundled meme templates by id, name, keyword, style, or line count."
+        },
+        {
+          "key": "tool:pick_meme",
+          "title": "pick_meme",
+          "description": "Finalize a meme plan after searching templates. Validates the selected template, caption lines, style, layout, and caption casing."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Conversation guidance",
+          "description": "Adds plugin guidance to conversations when the feature is active."
+        },
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 1 specialized agent."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "task.delegate",
+          "title": "Run bounded internal tasks",
+          "description": "Can delegate bounded work to approved Synergy agents."
+        },
+        {
+          "key": "asset.write",
+          "title": "Create attachments",
+          "description": "Can create files and attachments in Synergy."
+        }
+      ],
+      "tools": [
+        "generate_meme",
+        "search_meme_templates",
+        "pick_meme"
+      ],
+      "uiSurfaces": [],
+      "publishedAt": "2026-08-02T03:59:07.736Z",
+      "changelog": "Stable Plugin API 4 release with local meme generation and native Synergy agent integration."
     }
   ],
-  "yankedVersions": [],
-  "icon": {
-    "type": "registry-svg",
-    "path": "icons/synergy-meme-plugin.svg"
-  }
+  "yankedVersions": []
 }
