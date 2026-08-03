@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-03T15:43:43.777Z",
+  "updatedAt": "2026-08-03T16:10:20.097Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -91,12 +91,12 @@
         "synergy-plugin",
         "translation"
       ],
-      "latestVersion": "0.7.7",
+      "latestVersion": "0.7.8",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-03T15:43:43.777Z",
+      "updatedAt": "2026-08-03T16:10:20.097Z",
       "runtimeMode": "process",
       "tools": [
         "progress",
