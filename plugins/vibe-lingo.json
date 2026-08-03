@@ -319,6 +319,100 @@
       "manifestHash": "3564c99a71b6e6ad3c935f948bdf0c80292f600f99f67c8325ee4f494a68bbad",
       "permissionsHash": "781961f718ab018fee35ff58a4de7bcc59c814bf8d7a2e04d3e25caa8f4cc81c",
       "runtimeMode": "process",
+      "tools": [
+        "record-correction",
+        "progress",
+        "translation-history"
+      ],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.textAction",
+        "ui.messageRenderer",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-03T14:41:12.897Z",
+      "changelog": "Retries transient learning analysis once, classifies safe failure states, and preserves schema-9 learning data during the schema-10 upgrade.",
+      "featuresSummary": [
+        {
+          "key": "tool:record-correction",
+          "title": "record-correction",
+          "description": "Display and record the exact objective corrections and contextual naturalness suggestions selected by the main Agent. Call this as the first visible action only when the VibeLingo coaching contract requires language feedback."
+        },
+        {
+          "key": "tool:progress",
+          "title": "progress",
+          "description": "Show the user's evidence-backed VibeLingo learning progress, review status, recurring patterns, and provenance. Use only when the user explicitly asks about language progress, recurring mistakes, reviews, or historical examples."
+        },
+        {
+          "key": "tool:translation-history",
+          "title": "translation-history",
+          "description": "Show saved VibeLingo translation history. Use only when the user explicitly asks about previous translations or translation history."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Conversation guidance",
+          "description": "Adds plugin guidance to conversations when the feature is active."
+        },
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 7 specialized agents."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 5 interface extensions."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "session.read",
+          "title": "Session read",
+          "description": "Can use the declared Synergy access session.read."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        },
+        {
+          "key": "selection.read",
+          "title": "Selection read",
+          "description": "Can use the declared Synergy access selection.read."
+        },
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        }
+      ]
+    },
+    {
+      "version": "0.7.7",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.7/vibe-lingo-0.7.7.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.7/vibe-lingo-0.7.7.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-0a108659408f91eec457d7660cc06ebe1eba506ee3c39a41e68215f97b58a767",
+      "manifestHash": "90b0b7c6818b16510fced7b4a9afd2b89fde5a03ca7c1bc9dce08910ee515ca3",
+      "permissionsHash": "0082cb3e8b9c87336d2e399c6d0b4f50e05dc4f684b54580afa2bbe31d0df24b",
+      "runtimeMode": "process",
       "featuresSummary": [
         {
           "key": "tool:record-correction",
@@ -394,8 +488,7 @@
         "ui.messageRenderer",
         "ui.settings"
       ],
-      "publishedAt": "2026-08-03T14:41:12.897Z",
-      "changelog": "Retries transient learning analysis once, classifies safe failure states, and preserves schema-9 learning data during the schema-10 upgrade."
+      "publishedAt": "2026-08-03T15:43:43.777Z"
     }
   ],
   "yankedVersions": []
