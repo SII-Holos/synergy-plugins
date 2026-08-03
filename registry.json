@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-03T16:10:20.097Z",
+  "updatedAt": "2026-08-03T17:14:44.291Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -26,12 +26,12 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.4.0",
+      "latestVersion": "0.5.0",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-02T03:59:08.586Z",
+      "updatedAt": "2026-08-03T17:14:44.291Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
