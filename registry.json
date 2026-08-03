@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-02T05:45:03.381Z",
+  "updatedAt": "2026-08-03T10:25:37.130Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -76,15 +76,11 @@
     {
       "id": "vibe-lingo",
       "name": "vibe-lingo",
-      "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy.",
+      "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy",
       "repo": "https://github.com/EricSanchezok/vibe-lingo",
       "entry": "plugins/vibe-lingo.json",
       "author": {
         "name": "Eric Sanchez"
-      },
-      "icon": {
-        "type": "registry-svg",
-        "path": "icons/vibe-lingo.svg"
       },
       "verified": true,
       "official": true,
@@ -95,12 +91,12 @@
         "synergy-plugin",
         "translation"
       ],
-      "latestVersion": "0.7.3",
+      "latestVersion": "0.7.4",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-02T05:45:03.381Z",
+      "updatedAt": "2026-08-03T10:25:37.130Z",
       "runtimeMode": "process",
       "tools": [
         "progress",
