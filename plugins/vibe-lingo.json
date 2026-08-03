@@ -2,15 +2,11 @@
   "schemaVersion": 2,
   "id": "vibe-lingo",
   "name": "vibe-lingo",
-  "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy.",
+  "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy",
   "repo": "https://github.com/EricSanchezok/vibe-lingo",
   "homepage": "https://github.com/EricSanchezok/vibe-lingo",
   "author": {
     "name": "Eric Sanchez"
-  },
-  "icon": {
-    "type": "registry-svg",
-    "path": "icons/vibe-lingo.svg"
   },
   "verified": true,
   "official": true,
@@ -135,6 +131,19 @@
       "manifestHash": "bc235499689ed38f129057915932ffabcc1f976b2a88a8ddc7ec70114db5df36",
       "permissionsHash": "ff978ba0d3f756b433948a6f0b3519c3800322593b8117154bbfbc079729f300",
       "runtimeMode": "process",
+      "tools": [
+        "record-correction",
+        "progress",
+        "translation-history"
+      ],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.textAction",
+        "ui.messageRenderer",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-03T10:25:37.130Z",
+      "changelog": "Add contextual naturalness suggestions alongside objective corrections, support up to eight mixed feedback items, and keep correction cards aligned across wide and narrow layouts.",
       "featuresSummary": [
         {
           "key": "tool:record-correction",
@@ -198,6 +207,87 @@
           "title": "Run private language helpers",
           "description": "Runs bounded language tasks for translation, corrections, and review without exposing them as chat agents."
         }
+      ]
+    },
+    {
+      "version": "0.7.5",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.5/vibe-lingo-0.7.5.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.5/vibe-lingo-0.7.5.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-1aa7178728dc1f0916473953d7caf338dbae877834c1c50c1c40950b09a52aeb",
+      "manifestHash": "8c83094119283d7fce96dde9ddc4985f49c9060ffc45b57f36de88d8533e7444",
+      "permissionsHash": "781961f718ab018fee35ff58a4de7bcc59c814bf8d7a2e04d3e25caa8f4cc81c",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "tool:record-correction",
+          "title": "record-correction",
+          "description": "Display and record the exact objective corrections and contextual naturalness suggestions selected by the main Agent. Call this as the first visible action only when the VibeLingo coaching contract requires language feedback."
+        },
+        {
+          "key": "tool:progress",
+          "title": "progress",
+          "description": "Show the user's evidence-backed VibeLingo learning progress, review status, recurring patterns, and provenance. Use only when the user explicitly asks about language progress, recurring mistakes, reviews, or historical examples."
+        },
+        {
+          "key": "tool:translation-history",
+          "title": "translation-history",
+          "description": "Show saved VibeLingo translation history. Use only when the user explicitly asks about previous translations or translation history."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Conversation guidance",
+          "description": "Adds plugin guidance to conversations when the feature is active."
+        },
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 7 specialized agents."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 5 interface extensions."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "session.read",
+          "title": "Session read",
+          "description": "Can use the declared Synergy access session.read."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        },
+        {
+          "key": "selection.read",
+          "title": "Selection read",
+          "description": "Can use the declared Synergy access selection.read."
+        },
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        }
       ],
       "tools": [
         "record-correction",
@@ -210,8 +300,8 @@
         "ui.messageRenderer",
         "ui.settings"
       ],
-      "publishedAt": "2026-08-03T10:25:37.130Z",
-      "changelog": "Add contextual naturalness suggestions alongside objective corrections, support up to eight mixed feedback items, and keep correction cards aligned across wide and narrow layouts."
+      "publishedAt": "2026-08-03T13:59:05.412Z",
+      "changelog": "Increase model-backed language operations to the host's 120-second runtime budget, give correction delivery 150 seconds of headroom, and allow failed correction analysis to be retried without losing the saved language feedback."
     }
   ],
   "yankedVersions": []
