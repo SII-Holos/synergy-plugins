@@ -76,11 +76,15 @@
     {
       "id": "vibe-lingo",
       "name": "vibe-lingo",
-      "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy",
+      "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy.",
       "repo": "https://github.com/EricSanchezok/vibe-lingo",
       "entry": "plugins/vibe-lingo.json",
       "author": {
         "name": "Eric Sanchez"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/vibe-lingo.svg"
       },
       "verified": true,
       "official": true,

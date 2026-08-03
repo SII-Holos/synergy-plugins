@@ -2,11 +2,15 @@
   "schemaVersion": 2,
   "id": "vibe-lingo",
   "name": "vibe-lingo",
-  "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy",
+  "description": "Work-first multilingual coaching, evidence tracking, and private review scheduling for Synergy.",
   "repo": "https://github.com/EricSanchezok/vibe-lingo",
   "homepage": "https://github.com/EricSanchezok/vibe-lingo",
   "author": {
     "name": "Eric Sanchez"
+  },
+  "icon": {
+    "type": "registry-svg",
+    "path": "icons/vibe-lingo.svg"
   },
   "verified": true,
   "official": true,
@@ -134,65 +138,65 @@
       "featuresSummary": [
         {
           "key": "tool:record-correction",
-          "title": "record-correction",
-          "description": "Display and record the exact objective corrections and contextual naturalness suggestions selected by the main Agent. Call this as the first visible action only when the VibeLingo coaching contract requires language feedback."
+          "title": "Save language feedback",
+          "description": "Shows objective corrections and contextual naturalness suggestions in the conversation, then saves accepted patterns as learning evidence when coaching is active."
         },
         {
           "key": "tool:progress",
-          "title": "progress",
-          "description": "Show the user's evidence-backed VibeLingo learning progress, review status, recurring patterns, and provenance. Use only when the user explicitly asks about language progress, recurring mistakes, reviews, or historical examples."
+          "title": "Show learning progress",
+          "description": "Summarizes practice, recurring patterns, reviews, and concrete examples when requested."
         },
         {
           "key": "tool:translation-history",
-          "title": "translation-history",
-          "description": "Show saved VibeLingo translation history. Use only when the user explicitly asks about previous translations or translation history."
+          "title": "Browse translation history",
+          "description": "Finds translations the user chose to save."
         },
         {
           "key": "chat.system.transform",
-          "title": "Conversation guidance",
-          "description": "Adds plugin guidance to conversations when the feature is active."
+          "title": "Offer in-conversation coaching",
+          "description": "Adds focused language guidance when VibeLingo coaching is enabled."
         },
         {
           "key": "agents",
-          "title": "Specialized agents",
-          "description": "Provides 7 specialized agents."
+          "title": "Private language helpers",
+          "description": "Uses seven bounded helpers for translation, language recognition, corrections, and review."
         },
         {
           "key": "ui",
-          "title": "Synergy interface extensions",
-          "description": "Adds 5 interface extensions."
+          "title": "VibeLingo interface",
+          "description": "Adds progress, review, settings, correction, and selected-text translation views."
         }
       ],
       "permissionsSummary": [
         {
           "key": "session.read",
-          "title": "Session read",
-          "description": "Can use the declared Synergy access session.read."
+          "title": "Use conversation context",
+          "description": "Reads the current conversation context needed to recognize learning moments."
         },
         {
           "key": "settings.read",
-          "title": "Settings read",
-          "description": "Can use the declared Synergy access settings.read."
+          "title": "Read VibeLingo settings",
+          "description": "Reads the language, coaching, translation, and privacy choices saved for this plugin."
         },
         {
           "key": "settings.write",
-          "title": "Settings write",
-          "description": "Can use the declared Synergy access settings.write."
+          "title": "Save VibeLingo settings",
+          "description": "Saves changes made in the VibeLingo settings screen."
         },
         {
           "key": "ui.hostActions",
-          "title": "Ui hostActions",
-          "description": "Can use the declared Synergy access ui.hostActions."
+          "title": "Use Synergy interface actions",
+          "description": "Opens plugin views and confirmation dialogs from the VibeLingo interface."
         },
         {
           "key": "selection.read",
-          "title": "Selection read",
-          "description": "Can use the declared Synergy access selection.read."
+          "title": "Translate selected text",
+          "description": "Reads text the user explicitly selects before choosing the Translate action."
         },
         {
           "key": "agent.call",
-          "title": "Agent call",
-          "description": "Can use the declared Synergy access agent.call."
+          "title": "Run private language helpers",
+          "description": "Runs bounded language tasks for translation, corrections, and review without exposing them as chat agents."
         }
       ],
       "tools": [
