@@ -326,6 +326,12 @@
       "manifestHash": "fe1c7b7edd1448b654ceed9e08edf6d6f9c16560cbd06c610c81732049618098",
       "permissionsHash": "3e632aaf774adcab7958483dfab8351ec0144fd881f7f9b60b6c6783d66065f3",
       "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-02T03:59:08.586Z",
+      "changelog": "Stable Plugin API 4 release with bundled frontend skills, settings, MCP tooling, and setup automation.",
       "featuresSummary": [
         {
           "key": "skills",
@@ -354,13 +360,59 @@
           "title": "Run declared setup commands",
           "description": "Can execute commands only through contributions that explicitly require this access."
         }
+      ]
+    },
+    {
+      "version": "0.5.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.5.0/synergy-frontend-kit-0.5.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.5.0/synergy-frontend-kit-0.5.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-06d13c055c8b6352e65730508f64559683a62e96b4138db3761cfcc11ad3115a",
+      "manifestHash": "81f72f84f592d504ee35ad8b2e638984e3a29dbe69151d426c9c4ea26a0245d0",
+      "permissionsHash": "3e632aaf774adcab7958483dfab8351ec0144fd881f7f9b60b6c6783d66065f3",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "skills",
+          "title": "Packaged skills",
+          "description": "Provides 15 skills that agents can use when relevant."
+        },
+        {
+          "key": "mcp",
+          "title": "Optional MCP services",
+          "description": "Provides 3 MCP services, enabled only when configured."
+        },
+        {
+          "key": "cli:setup",
+          "title": "setup command",
+          "description": "Initialize frontend tooling in the current project (shadcn/ui, layout.design, Playwright browsers)"
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "shell.execute",
+          "title": "Run declared setup commands",
+          "description": "Can execute commands only through contributions that explicitly require this access."
+        }
       ],
       "tools": [],
       "uiSurfaces": [
         "ui.settings"
       ],
-      "publishedAt": "2026-08-02T03:59:08.586Z",
-      "changelog": "Stable Plugin API 4 release with bundled frontend skills, settings, MCP tooling, and setup automation."
+      "publishedAt": "2026-08-03T17:14:44.291Z",
+      "changelog": "Bundle the jakubkrehel better-* skill family (better-interface, better-ui, better-typography, better-colors, better-accessibility, better-layout, better-writing), replacing color-expert and typography. Sync a11y-audit upstream to v2.5.2. Plugin now ships 15 skills."
     }
   ],
   "yankedVersions": [
