@@ -506,6 +506,100 @@
       "manifestHash": "e489b0be21f9084bd4eb11913153aae372a1b6fc3b71d22834addcc0e78c3e5c",
       "permissionsHash": "0082cb3e8b9c87336d2e399c6d0b4f50e05dc4f684b54580afa2bbe31d0df24b",
       "runtimeMode": "process",
+      "tools": [
+        "record-correction",
+        "progress",
+        "translation-history"
+      ],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.textAction",
+        "ui.messageRenderer",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-03T16:10:20.097Z",
+      "changelog": "Makes synchronous review waits clear and approachable with distinct progress for preparing exercises, considering expressions, hints, navigation, pause, resume, and completion.",
+      "featuresSummary": [
+        {
+          "key": "tool:record-correction",
+          "title": "record-correction",
+          "description": "Display and record the exact objective corrections and contextual naturalness suggestions selected by the main Agent. Call this as the first visible action only when the VibeLingo coaching contract requires language feedback."
+        },
+        {
+          "key": "tool:progress",
+          "title": "progress",
+          "description": "Show the user's evidence-backed VibeLingo learning progress, review status, recurring patterns, and provenance. Use only when the user explicitly asks about language progress, recurring mistakes, reviews, or historical examples."
+        },
+        {
+          "key": "tool:translation-history",
+          "title": "translation-history",
+          "description": "Show saved VibeLingo translation history. Use only when the user explicitly asks about previous translations or translation history."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Conversation guidance",
+          "description": "Adds plugin guidance to conversations when the feature is active."
+        },
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 7 specialized agents."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 5 interface extensions."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "session.read",
+          "title": "Session read",
+          "description": "Can use the declared Synergy access session.read."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        },
+        {
+          "key": "selection.read",
+          "title": "Selection read",
+          "description": "Can use the declared Synergy access selection.read."
+        },
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        }
+      ]
+    },
+    {
+      "version": "0.7.9",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.9/vibe-lingo-0.7.9.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.7.9/vibe-lingo-0.7.9.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-2a6677725e7fa7d013f916ea0c37668ed9af3cb56ca7323a2e0b5945e5f55d1a",
+      "manifestHash": "8ef8a138b4c21fe1c60eda1cf9d02868b7be3185d18ee900f56920cf41bb8407",
+      "permissionsHash": "0082cb3e8b9c87336d2e399c6d0b4f50e05dc4f684b54580afa2bbe31d0df24b",
+      "runtimeMode": "process",
       "featuresSummary": [
         {
           "key": "tool:record-correction",
@@ -581,8 +675,8 @@
         "ui.messageRenderer",
         "ui.settings"
       ],
-      "publishedAt": "2026-08-03T16:10:20.097Z",
-      "changelog": "Makes synchronous review waits clear and approachable with distinct progress for preparing exercises, considering expressions, hints, navigation, pause, resume, and completion."
+      "publishedAt": "2026-08-04T08:50:32.374Z",
+      "changelog": "Adds feedback-guided review retries, honest failed-step results, and script- and region-aware language descriptors."
     }
   ],
   "yankedVersions": []
