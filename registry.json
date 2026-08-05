@@ -82,6 +82,10 @@
       "author": {
         "name": "unknown"
       },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-remote.svg"
+      },
       "verified": false,
       "official": false,
       "keywords": [

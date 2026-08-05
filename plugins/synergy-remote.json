@@ -70,5 +70,9 @@
       "publishedAt": "2026-08-05T09:23:57.260Z"
     }
   ],
-  "yankedVersions": []
+  "yankedVersions": [],
+  "icon": {
+    "type": "registry-svg",
+    "path": "icons/synergy-remote.svg"
+  }
 }
