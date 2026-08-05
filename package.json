@@ -9,7 +9,7 @@
     "build-registry": "bun run scripts/build-registry.ts"
   },
   "devDependencies": {
-    "@ericsanchezok/synergy-plugin": "^2.4.4",
+    "@ericsanchezok/synergy-plugin": "^3.0.11",
     "@ericsanchezok/synergy-plugin-api3": "npm:@ericsanchezok/synergy-plugin@3.0.6",
     "@ericsanchezok/synergy-plugin-api4": "npm:@ericsanchezok/synergy-plugin@3.0.11",
     "ajv": "^8.17.1",
