@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "id": "synergy-remote",
+  "name": "synergy-remote",
+  "description": "Secure remote access to Synergy via Tailscale",
+  "repo": "https://github.com/EricSanchezok/synergy-remote",
+  "author": {
+    "name": "unknown"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "remote-access",
+    "synergy-plugin",
+    "tailscale"
+  ],
+  "compatibility": {
+    "synergy": ">=1.1.27"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=1.1.27"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-remote/releases/download/v0.1.0/synergy-remote-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-remote/releases/download/v0.1.0/synergy-remote-0.1.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-4a2409040589f12704fde4627138fac153b4385c902a2de7eb1ce85f7ac7f968",
+      "manifestHash": "1e81509b5a2ed17b9ea1199fa4c704e6783b611f53aab63d67211dd5f49da2b3",
+      "permissionsHash": "d9dcddc7ea44e60f2a256083998af97fe3b84c803370be8516d049e21c266cfe",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "runtime.endpoint.read",
+          "title": "Runtime endpoint read",
+          "description": "Can use the declared Synergy access runtime.endpoint.read."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-05T09:23:57.260Z"
+    }
+  ],
+  "yankedVersions": []
+}
