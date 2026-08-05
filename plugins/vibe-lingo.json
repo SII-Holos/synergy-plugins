@@ -600,6 +600,19 @@
       "manifestHash": "8ef8a138b4c21fe1c60eda1cf9d02868b7be3185d18ee900f56920cf41bb8407",
       "permissionsHash": "0082cb3e8b9c87336d2e399c6d0b4f50e05dc4f684b54580afa2bbe31d0df24b",
       "runtimeMode": "process",
+      "tools": [
+        "record-correction",
+        "progress",
+        "translation-history"
+      ],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.textAction",
+        "ui.messageRenderer",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-04T08:50:32.374Z",
+      "changelog": "Adds feedback-guided review retries, honest failed-step results, and script- and region-aware language descriptors.",
       "featuresSummary": [
         {
           "key": "tool:record-correction",
@@ -663,9 +676,96 @@
           "title": "Agent call",
           "description": "Can use the declared Synergy access agent.call."
         }
+      ]
+    },
+    {
+      "version": "0.8.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.8.0/vibe-lingo-0.8.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.8.0/vibe-lingo-0.8.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
+      },
+      "integrity": "sha256-2e325129afc6c5240f1dc59a1309650d5797c795f5d671c44047cb9c222d78d0",
+      "manifestHash": "960f89933a8cf06f13eae76506522295a4ed30806b2b246f329b271a765bbc08",
+      "permissionsHash": "d78754a18f153f9b1c09f37361586482cfa977ad41df0dd7e02fb1591b29e7e7",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "tool:record-correction",
+          "title": "record-correction",
+          "description": "Display and record the exact objective corrections and contextual naturalness suggestions selected by the main Agent. Call this as the first visible action only when the VibeLingo coaching contract requires language feedback."
+        },
+        {
+          "key": "tool:suggest-expression",
+          "title": "suggest-expression",
+          "description": "Display how the user's message would naturally be expressed in the configured target language when the user did not write the message in the target language. Call this as the first visible action only when the VibeLingo coaching contract calls for a target-language example. Do not use it for target-language attempts (use plugin__vibe-lingo__record-correction instead), for code, commands, paths, identifiers, pasted text, quotations, or trivial acknowledgements."
+        },
+        {
+          "key": "tool:progress",
+          "title": "progress",
+          "description": "Show the user's evidence-backed VibeLingo learning progress, review status, recurring patterns, and provenance. Use only when the user explicitly asks about language progress, recurring mistakes, reviews, or historical examples."
+        },
+        {
+          "key": "tool:translation-history",
+          "title": "translation-history",
+          "description": "Show saved VibeLingo translation history. Use only when the user explicitly asks about previous translations or translation history."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Conversation guidance",
+          "description": "Adds plugin guidance to conversations when the feature is active."
+        },
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 7 specialized agents."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 6 interface extensions."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "session.read",
+          "title": "Session read",
+          "description": "Can use the declared Synergy access session.read."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        },
+        {
+          "key": "selection.read",
+          "title": "Selection read",
+          "description": "Can use the declared Synergy access selection.read."
+        },
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        }
       ],
       "tools": [
         "record-correction",
+        "suggest-expression",
         "progress",
         "translation-history"
       ],
@@ -675,8 +775,8 @@
         "ui.messageRenderer",
         "ui.settings"
       ],
-      "publishedAt": "2026-08-04T08:50:32.374Z",
-      "changelog": "Adds feedback-guided review retries, honest failed-step results, and script- and region-aware language descriptors."
+      "publishedAt": "2026-08-05T15:10:16.665Z",
+      "changelog": "Add suggest-expression tool, mixed-language coaching, expressionSuggestionsEnabled setting; fix analysis failing when pattern list exceeds input bound"
     }
   ],
   "yankedVersions": []
