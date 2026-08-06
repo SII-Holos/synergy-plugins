@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 2,
+  "id": "synergy-taskboard",
+  "name": "synergy-taskboard",
+  "description": "Kanban task board for humans and agents, inspired by dashi-taskboard (Linear-style workflow)",
+  "repo": "https://github.com/yzxoi/synergy-taskboard",
+  "author": {
+    "name": "synergy-agent"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "kanban",
+    "linear",
+    "project-management",
+    "synergy-plugin",
+    "taskboard",
+    "tasks"
+  ],
+  "compatibility": {
+    "synergy": ">=3.0.11"
+  },
+  "versions": [
+    {
+      "version": "1.0.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/yzxoi/synergy-taskboard/releases/download/v1.0.0/synergy-taskboard-1.0.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/synergy-taskboard/releases/download/v1.0.0/synergy-taskboard-1.0.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "c1d8a767e5f0def10238afd5ae895b26965efe3f8438fc5301bb43512886e2da"
+      },
+      "integrity": "sha256-f2a355f8bebd435ed5c1cdc7a3f49d673a7212932dc85e5dc659fc3ace4bd30b",
+      "manifestHash": "0ceeb1f54d7021dced2e5c37761658c4a86b2725ee9aa2658cd53c973cf8f9cb",
+      "permissionsHash": "e06b9ad1b8b9810f01570ea59804e8a73527615c61f794005deb913e0275d40d",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "tool:task-list",
+          "title": "task-list",
+          "description": "List tasks on the taskboard. Returns tasks with identifier, title, status, priority, labels, assignee and version. Use this BEFORE creating or updating to avoid duplicates."
+        },
+        {
+          "key": "tool:task-get",
+          "title": "task-get",
+          "description": "Get one task by its identifier (e.g. LOCAL-3) or id, including description and comments."
+        },
+        {
+          "key": "tool:task-create",
+          "title": "task-create",
+          "description": "Create a task on the taskboard. The project defaults to 'local'. Returns the created task with its identifier and version."
+        },
+        {
+          "key": "tool:task-update",
+          "title": "task-update",
+          "description": "Update a task. Requires the current `version` from task-list/task-get (optimistic concurrency). On VERSION_CONFLICT, re-read the task and retry."
+        },
+        {
+          "key": "tool:task-move",
+          "title": "task-move",
+          "description": "Move a task to another status column. Typical workflow: todo -> in_progress (claim), in_progress -> in_review (done implementing, waiting for user acceptance), in_review -> done ONLY after the user explicitly confirms. Use blocked when stuck, canceled when abandoned."
+        },
+        {
+          "key": "tool:task-comment",
+          "title": "task-comment",
+          "description": "Add a comment to a task. Summarize what you changed, how you verified it, and remaining risks."
+        },
+        {
+          "key": "skills",
+          "title": "Packaged skills",
+          "description": "Provides 1 skill that agents can use when relevant."
+        },
+        {
+          "key": "cli:project-create",
+          "title": "project-create command",
+          "description": "Create a taskboard project"
+        },
+        {
+          "key": "cli:project-list",
+          "title": "project-list command",
+          "description": "List taskboard projects"
+        },
+        {
+          "key": "cli:issue-create",
+          "title": "issue-create command",
+          "description": "Create a task on the taskboard"
+        },
+        {
+          "key": "cli:issue-list",
+          "title": "issue-list command",
+          "description": "List tasks on the taskboard"
+        },
+        {
+          "key": "cli:issue-get",
+          "title": "issue-get command",
+          "description": "Get one task by identifier or id, with comments"
+        },
+        {
+          "key": "cli:issue-update",
+          "title": "issue-update command",
+          "description": "Update a task (requires --version for optimistic concurrency)"
+        },
+        {
+          "key": "cli:issue-move",
+          "title": "issue-move command",
+          "description": "Move a task to another status (optimistic concurrency via --version)"
+        },
+        {
+          "key": "cli:comment-add",
+          "title": "comment-add command",
+          "description": "Add a comment to a task"
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 2 interface extensions."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "workspace.read",
+          "title": "Workspace read",
+          "description": "Can use the declared Synergy access workspace.read."
+        },
+        {
+          "key": "workspace.write",
+          "title": "Workspace write",
+          "description": "Can use the declared Synergy access workspace.write."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        }
+      ],
+      "tools": [
+        "task-list",
+        "task-get",
+        "task-create",
+        "task-update",
+        "task-move",
+        "task-comment"
+      ],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.icon",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-06T11:16:12.576Z"
+    }
+  ],
+  "yankedVersions": []
+}

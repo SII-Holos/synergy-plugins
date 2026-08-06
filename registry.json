@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-05T15:10:16.665Z",
+  "updatedAt": "2026-08-06T11:16:12.576Z",
   "plugins": [
     {
       "id": "synergy-frontend-kit",
@@ -102,6 +102,46 @@
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
+        "ui.settings"
+      ]
+    },
+    {
+      "id": "synergy-taskboard",
+      "name": "synergy-taskboard",
+      "description": "Kanban task board for humans and agents, inspired by dashi-taskboard (Linear-style workflow)",
+      "repo": "https://github.com/yzxoi/synergy-taskboard",
+      "entry": "plugins/synergy-taskboard.json",
+      "author": {
+        "name": "synergy-agent"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "kanban",
+        "linear",
+        "project-management",
+        "synergy-plugin",
+        "taskboard",
+        "tasks"
+      ],
+      "latestVersion": "1.0.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-06T11:16:12.576Z",
+      "runtimeMode": "process",
+      "tools": [
+        "task-comment",
+        "task-create",
+        "task-get",
+        "task-list",
+        "task-move",
+        "task-update"
+      ],
+      "uiSurfaces": [
+        "ui.icon",
+        "ui.navigationItem",
         "ui.settings"
       ]
     },
