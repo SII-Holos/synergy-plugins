@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-07T17:28:47.039Z",
+  "updatedAt": "2026-08-07T23:07:28.243Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -9,17 +9,11 @@
       "repo": "https://github.com/yzxoi/holos-research",
       "entry": "plugins/holos-research.json",
       "author": {
-        "name": "Zhengxi YU",
-        "url": "https://github.com/yzxoi"
+        "name": "unknown"
       },
       "verified": false,
       "official": false,
       "keywords": [
-        "academic",
-        "literature",
-        "paper",
-        "research",
-        "state-machine",
         "synergy-plugin"
       ],
       "latestVersion": "1.0.0",
@@ -27,7 +21,7 @@
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-07T17:28:47.039Z",
+      "updatedAt": "2026-08-07T23:07:28.243Z",
       "runtimeMode": "process",
       "tools": [
         "compute_submit",
