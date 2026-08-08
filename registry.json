@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-08T07:51:35.590Z",
+  "updatedAt": "2026-08-08T08:52:49.484Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -114,6 +114,38 @@
         "search_meme_templates"
       ],
       "uiSurfaces": []
+    },
+    {
+      "id": "synergy-remote-tailscale",
+      "name": "synergy-remote-tailscale",
+      "description": "Secure remote access to Synergy via Tailscale",
+      "repo": "https://github.com/EricSanchezok/synergy-remote",
+      "entry": "plugins/synergy-remote-tailscale.json",
+      "author": {
+        "name": "EricSanchez"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-remote-tailscale.svg"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "remote-access",
+        "synergy-plugin",
+        "tailscale"
+      ],
+      "latestVersion": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=1.1.27"
+      },
+      "updatedAt": "2026-08-08T08:52:49.484Z",
+      "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ]
     },
     {
       "id": "synergy-remote",
