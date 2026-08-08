@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-08T08:52:49.484Z",
+  "updatedAt": "2026-08-08T09:21:30.188Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -9,7 +9,9 @@
       "repo": "https://github.com/yzxoi/holos-research",
       "entry": "plugins/holos-research.json",
       "author": {
-        "name": "unknown"
+        "name": "yzxoi",
+        "email": "y@yzxoi.top",
+        "url": "https://github.com/yzxoi"
       },
       "verified": false,
       "official": false,
@@ -21,7 +23,7 @@
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-08T07:27:38.639Z",
+      "updatedAt": "2026-08-08T09:21:30.188Z",
       "runtimeMode": "process",
       "tools": [
         "compute_submit",
