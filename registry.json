@@ -1,7 +1,49 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-07T08:12:12.001Z",
+  "updatedAt": "2026-08-08T03:39:44.098Z",
   "plugins": [
+    {
+      "id": "holos-research",
+      "name": "holos-research",
+      "description": "Structured research management — from idea discovery through paper submission, with full state machine tracking, adversarial review, and audit trail.",
+      "repo": "https://github.com/yzxoi/holos-research",
+      "entry": "plugins/holos-research.json",
+      "author": {
+        "name": "unknown"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "synergy-plugin"
+      ],
+      "latestVersion": "1.0.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-08T03:39:44.098Z",
+      "runtimeMode": "process",
+      "tools": [
+        "compute_submit",
+        "research_checkpoint_brief",
+        "research_claim",
+        "research_exhibit",
+        "research_experiment",
+        "research_idea",
+        "research_init",
+        "research_journal",
+        "research_monitor",
+        "research_paper",
+        "research_plan",
+        "research_state",
+        "research_submission",
+        "research_timeline",
+        "research_wiki"
+      ],
+      "uiSurfaces": [
+        "ui.workbenchPanel"
+      ]
+    },
     {
       "id": "synergy-frontend-kit",
       "name": "synergy-frontend-kit",
