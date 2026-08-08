@@ -167,11 +167,6 @@
         "synergy-plugin",
         "tailscale"
       ],
-      "latestVersion": "0.1.0",
-      "apiVersion": "4.0",
-      "compatibility": {
-        "synergy": ">=1.1.27"
-      },
       "updatedAt": "2026-08-08T07:51:35.590Z",
       "runtimeMode": "process",
       "tools": [],
