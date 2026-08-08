@@ -124,6 +124,10 @@
       "author": {
         "name": "EricSanchez"
       },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-remote-tailscale.svg"
+      },
       "verified": false,
       "official": false,
       "keywords": [
