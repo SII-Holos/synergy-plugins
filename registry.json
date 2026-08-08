@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-08T03:12:03.627Z",
+  "updatedAt": "2026-08-08T03:25:10.808Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -21,7 +21,7 @@
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-08T03:12:03.627Z",
+      "updatedAt": "2026-08-08T03:25:10.808Z",
       "runtimeMode": "process",
       "tools": [
         "compute_submit",
