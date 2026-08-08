@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-08T03:39:44.098Z",
+  "updatedAt": "2026-08-08T07:51:35.590Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -122,7 +122,7 @@
       "repo": "https://github.com/EricSanchezok/synergy-remote",
       "entry": "plugins/synergy-remote.json",
       "author": {
-        "name": "unknown"
+        "name": "EricSanchez"
       },
       "icon": {
         "type": "registry-svg",
@@ -140,7 +140,7 @@
       "compatibility": {
         "synergy": ">=1.1.27"
       },
-      "updatedAt": "2026-08-05T09:23:57.260Z",
+      "updatedAt": "2026-08-08T07:51:35.590Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [

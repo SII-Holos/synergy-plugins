@@ -4,8 +4,9 @@
   "name": "synergy-remote",
   "description": "Secure remote access to Synergy via Tailscale",
   "repo": "https://github.com/EricSanchezok/synergy-remote",
+  "homepage": "https://github.com/EricSanchezok/synergy-remote",
   "author": {
-    "name": "unknown"
+    "name": "EricSanchez"
   },
   "verified": false,
   "official": false,
@@ -30,8 +31,8 @@
         "algorithm": "ed25519",
         "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
       },
-      "integrity": "sha256-4a2409040589f12704fde4627138fac153b4385c902a2de7eb1ce85f7ac7f968",
-      "manifestHash": "1e81509b5a2ed17b9ea1199fa4c704e6783b611f53aab63d67211dd5f49da2b3",
+      "integrity": "sha256-e738c3de0a0a89a9a7cf8fe2d367737d3d00fc94ec23d5299d3655ade597f6e2",
+      "manifestHash": "84548f8e75ac4d6b080290f1fb785f0128d123f3b1a68823d6849de75bc444a1",
       "permissionsHash": "d9dcddc7ea44e60f2a256083998af97fe3b84c803370be8516d049e21c266cfe",
       "runtimeMode": "process",
       "featuresSummary": [
@@ -67,7 +68,7 @@
       "uiSurfaces": [
         "ui.settings"
       ],
-      "publishedAt": "2026-08-05T09:23:57.260Z"
+      "publishedAt": "2026-08-08T07:51:35.590Z"
     }
   ],
   "yankedVersions": [],
