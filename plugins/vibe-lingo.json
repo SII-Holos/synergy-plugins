@@ -690,8 +690,8 @@
         "algorithm": "ed25519",
         "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
       },
-      "integrity": "sha256-2e325129afc6c5240f1dc59a1309650d5797c795f5d671c44047cb9c222d78d0",
-      "manifestHash": "960f89933a8cf06f13eae76506522295a4ed30806b2b246f329b271a765bbc08",
+      "integrity": "sha256-55e8b716606b75ba9cfc2929a04e94078f0a4b4a5d7b38109734da98ee638e17",
+      "manifestHash": "f5183de975fb3557073b46643127965ce3d7870a237fa475d77b11049500e6ea",
       "permissionsHash": "d78754a18f153f9b1c09f37361586482cfa977ad41df0dd7e02fb1591b29e7e7",
       "runtimeMode": "process",
       "featuresSummary": [
@@ -775,8 +775,8 @@
         "ui.messageRenderer",
         "ui.settings"
       ],
-      "publishedAt": "2026-08-05T15:10:16.665Z",
-      "changelog": "Add suggest-expression tool, mixed-language coaching, expressionSuggestionsEnabled setting; fix analysis failing when pattern list exceeds input bound"
+      "publishedAt": "2026-08-08T09:33:51.599Z",
+      "changelog": "Fix suggest-expression rejecting long or uppercase-field input (bounds 2000/500, case normalization)"
     }
   ],
   "yankedVersions": []
