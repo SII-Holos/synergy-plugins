@@ -16,12 +16,12 @@
       "keywords": [
         "synergy-plugin"
       ],
-      "latestVersion": "1.0.0",
+      "latestVersion": "1.1.0",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-08T03:39:44.098Z",
+      "updatedAt": "2026-08-08T07:27:38.639Z",
       "runtimeMode": "process",
       "tools": [
         "compute_submit",
