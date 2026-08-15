@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-08T09:33:51.599Z",
+  "updatedAt": "2026-08-15T05:24:56.144Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -18,12 +18,12 @@
       "keywords": [
         "synergy-plugin"
       ],
-      "latestVersion": "1.1.0",
+      "latestVersion": "1.1.1",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-08T09:21:30.188Z",
+      "updatedAt": "2026-08-15T05:24:56.144Z",
       "runtimeMode": "process",
       "tools": [
         "compute_submit",
