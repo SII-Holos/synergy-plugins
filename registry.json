@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-18T10:55:11.059Z",
+  "updatedAt": "2026-08-18T13:57:38.068Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -246,7 +246,7 @@
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-18T10:55:11.059Z",
+      "updatedAt": "2026-08-18T13:57:38.068Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [

@@ -31,8 +31,8 @@
         "algorithm": "ed25519",
         "signer": "b389868fbdd796b8ce9a3900f611d8275e973ab484f02309d463fdd8dfbe561f"
       },
-      "integrity": "sha256-990eae227970112cc081130745279e887ed60ae3ce45b189126d5819fdc13290",
-      "manifestHash": "1c7535f0826b2fcdf514b6eb8e2eef399304ed03d94e01cf6de41ed23ffe3350",
+      "integrity": "sha256-58b2cebf99a697cf989ea80db0a269e6b32e761c96dcae09047f2999f430d6e9",
+      "manifestHash": "b7d7771468c46ef4e58226e0c98cf433097013a1d9451b849c46540d305edce2",
       "permissionsHash": "ff9caa602a7f5ddf9bb5336484b5dc65109598482f922d9d83141763f42d8e5c",
       "runtimeMode": "process",
       "featuresSummary": [
@@ -74,7 +74,7 @@
         "ui.navigationItem",
         "ui.icon"
       ],
-      "publishedAt": "2026-08-18T10:55:11.059Z",
+      "publishedAt": "2026-08-18T13:57:38.068Z",
       "changelog": "首个版本：6-max 德州扑克牌桌 + 5 位 AI 对手 + 虚拟筹码持久化"
     }
   ],
