@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 2,
+  "id": "token-poker",
+  "name": "token-poker",
+  "description": "Agent 陪玩的虚拟筹码德州扑克（Earn Tokens 风格）",
+  "repo": "https://github.com/yzxoi/token-poker",
+  "author": {
+    "name": "yzxoi"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "entertainment",
+    "game",
+    "poker",
+    "synergy-plugin"
+  ],
+  "compatibility": {
+    "synergy": ">=3.0.11"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.0/token-poker-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.0/token-poker-0.1.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "b389868fbdd796b8ce9a3900f611d8275e973ab484f02309d463fdd8dfbe561f"
+      },
+      "integrity": "sha256-990eae227970112cc081130745279e887ed60ae3ce45b189126d5819fdc13290",
+      "manifestHash": "1c7535f0826b2fcdf514b6eb8e2eef399304ed03d94e01cf6de41ed23ffe3350",
+      "permissionsHash": "ff9caa602a7f5ddf9bb5336484b5dc65109598482f922d9d83141763f42d8e5c",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 1 specialized agent."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.icon"
+      ],
+      "publishedAt": "2026-08-18T10:55:11.059Z",
+      "changelog": "首个版本：6-max 德州扑克牌桌 + 5 位 AI 对手 + 虚拟筹码持久化"
+    }
+  ],
+  "yankedVersions": []
+}
