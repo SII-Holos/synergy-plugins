@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-15T05:24:56.144Z",
+  "updatedAt": "2026-08-19T12:39:57.000Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -222,6 +222,36 @@
         "ui.icon",
         "ui.navigationItem",
         "ui.settings"
+      ]
+    },
+    {
+      "id": "token-poker",
+      "name": "token-poker",
+      "description": "Agent 陪玩的虚拟筹码德州扑克（Earn Tokens 风格）",
+      "repo": "https://github.com/yzxoi/token-poker",
+      "entry": "plugins/token-poker.json",
+      "author": {
+        "name": "yzxoi"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "entertainment",
+        "game",
+        "poker",
+        "synergy-plugin"
+      ],
+      "latestVersion": "0.1.1",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-19T12:39:57.000Z",
+      "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.icon",
+        "ui.navigationItem"
       ]
     },
     {
