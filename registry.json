@@ -241,12 +241,12 @@
         "poker",
         "synergy-plugin"
       ],
-      "latestVersion": "0.1.0",
+      "latestVersion": "0.1.1",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-19T12:07:20.000Z",
+      "updatedAt": "2026-08-19T12:39:57.000Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [

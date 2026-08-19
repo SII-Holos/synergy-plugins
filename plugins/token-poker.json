@@ -20,19 +20,19 @@
   },
   "versions": [
     {
-      "version": "0.1.0",
+      "version": "0.1.1",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "downloadUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.0/token-poker-0.1.0.synergy-plugin.tgz",
-      "signatureUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.0/token-poker-0.1.0.synergy-plugin.tgz.sig",
+      "downloadUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.1/token-poker-0.1.1.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.1/token-poker-0.1.1.synergy-plugin.tgz.sig",
       "signature": {
         "algorithm": "ed25519",
         "signer": "b389868fbdd796b8ce9a3900f611d8275e973ab484f02309d463fdd8dfbe561f"
       },
-      "integrity": "sha256-c4a4c570ade24b07bf89f894af9f1274eecc91e2dd8e5bb601e6b61dc001e37c",
-      "manifestHash": "4786182567742ac9cc7058528259b955a5685cf7d4f9f90a34bc23bbad5843eb",
+      "integrity": "sha256-84f3951fd619b58da60de17e1d19750e352a1b83e694b74bf3f85fe7546211f4",
+      "manifestHash": "698a814499aa02d937fe766fbd4889e43a5a55ace30b42215cefd49ca7d54847",
       "permissionsHash": "ff9caa602a7f5ddf9bb5336484b5dc65109598482f922d9d83141763f42d8e5c",
       "runtimeMode": "process",
       "featuresSummary": [
@@ -74,8 +74,8 @@
         "ui.navigationItem",
         "ui.icon"
       ],
-      "publishedAt": "2026-08-18T15:14:20.883Z",
-      "changelog": "首个版本：6-max 德州扑克牌桌 + 5 位 AI 对手 + 虚拟筹码持久化"
+      "publishedAt": "2026-08-19T12:39:57.000Z",
+      "changelog": "UI polish release: monochrome table & dark mode, seat pills with fanned hole cards, street-by-street community reveals, ranked showdown settlement, AI action repair, flicker-free event-driven rendering"
     }
   ],
   "yankedVersions": []
