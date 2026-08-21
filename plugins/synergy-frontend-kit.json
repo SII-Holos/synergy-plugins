@@ -482,6 +482,12 @@
       "manifestHash": "5f450641cc8030b734a31c3353563cb74a7d2dd8aa53398b4e04f72a7255cb6a",
       "permissionsHash": "3e632aaf774adcab7958483dfab8351ec0144fd881f7f9b60b6c6783d66065f3",
       "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-21T12:09:07.974Z",
+      "changelog": "## 0.7.0\n\n### Added\n- Bundle impeccable (v4.1.1), the design execution engine from pbakaus/impeccable (Apache-2.0): 23 commands, 59 detector rules, hooks, and multi-agent config. The kit now ships 24 skills.\n- Document the impeccable runtime surface (scripts, network calls, hooks, Node >=22.12) in SECURITY.md.",
       "featuresSummary": [
         {
           "key": "skills",
@@ -510,13 +516,59 @@
           "title": "Run declared setup commands",
           "description": "Can execute commands only through contributions that explicitly require this access."
         }
+      ]
+    },
+    {
+      "version": "0.7.1",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.7.1/synergy-frontend-kit-0.7.1.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.7.1/synergy-frontend-kit-0.7.1.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "b453ec402e17866a2e816cac45c06477ce1ec8877505f45386e56d3f0afbd34a"
+      },
+      "integrity": "sha256-88ba044ba74eaf2c4c163ef50384e3bc701910e563d2742fe21801383f976ccb",
+      "manifestHash": "b90f5c7415d3139cbf2ab431b01acd3a52f29f8eed8d0fb2590750fcf46ed305",
+      "permissionsHash": "3e632aaf774adcab7958483dfab8351ec0144fd881f7f9b60b6c6783d66065f3",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "skills",
+          "title": "Packaged skills",
+          "description": "Provides 25 skills that agents can use when relevant."
+        },
+        {
+          "key": "mcp",
+          "title": "Optional MCP services",
+          "description": "Provides 3 MCP services, enabled only when configured."
+        },
+        {
+          "key": "cli:setup",
+          "title": "setup command",
+          "description": "Initialize frontend tooling in the current project (shadcn/ui, layout.design, Playwright browsers)"
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "shell.execute",
+          "title": "Run declared setup commands",
+          "description": "Can execute commands only through contributions that explicitly require this access."
+        }
       ],
       "tools": [],
       "uiSurfaces": [
         "ui.settings"
       ],
-      "publishedAt": "2026-08-21T12:09:07.974Z",
-      "changelog": "## 0.7.0\n\n### Added\n- Bundle impeccable (v4.1.1), the design execution engine from pbakaus/impeccable (Apache-2.0): 23 commands, 59 detector rules, hooks, and multi-agent config. The kit now ships 24 skills.\n- Document the impeccable runtime surface (scripts, network calls, hooks, Node >=22.12) in SECURITY.md."
+      "publishedAt": "2026-08-21T12:42:32.293Z",
+      "changelog": "Adds the missing interface-review workflow, fixes multi-line skill discovery metadata, normalizes bundled skills for Codex compatibility, locks upstream sources to immutable commits, hardens sync retries, and clarifies frontend rule precedence. The kit now ships 25 validated skills."
     }
   ],
   "yankedVersions": [
