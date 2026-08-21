@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-21T11:54:55.171Z",
+  "updatedAt": "2026-08-21T12:09:07.974Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -70,12 +70,12 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.6.0",
+      "latestVersion": "0.7.0",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-21T11:54:55.171Z",
+      "updatedAt": "2026-08-21T12:09:07.974Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [

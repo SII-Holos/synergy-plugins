@@ -430,6 +430,12 @@
       "manifestHash": "97cd877412d1add1344761bbdda905435f00715a9773bf8e719f4858c51a1bbe",
       "permissionsHash": "3e632aaf774adcab7958483dfab8351ec0144fd881f7f9b60b6c6783d66065f3",
       "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-21T11:54:55.171Z",
+      "changelog": "## 0.6.0\n\n### Added\n- Bundle the official GSAP skill family (8 skills): gsap-core, gsap-timeline, gsap-scrolltrigger, gsap-plugins, gsap-utils, gsap-react, gsap-performance, gsap-frameworks. The kit now ships 23 skills.\n\n### Updated\n- Synced upstream skill bundles (a11y-audit, better-* family) to latest.",
       "featuresSummary": [
         {
           "key": "skills",
@@ -458,13 +464,59 @@
           "title": "Run declared setup commands",
           "description": "Can execute commands only through contributions that explicitly require this access."
         }
+      ]
+    },
+    {
+      "version": "0.7.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.7.0/synergy-frontend-kit-0.7.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-frontend-kit/releases/download/v0.7.0/synergy-frontend-kit-0.7.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "b453ec402e17866a2e816cac45c06477ce1ec8877505f45386e56d3f0afbd34a"
+      },
+      "integrity": "sha256-ac106b25de0b13591fc413cb3d6a2eb23f0924771f9e74b17af95f5e45406b65",
+      "manifestHash": "5f450641cc8030b734a31c3353563cb74a7d2dd8aa53398b4e04f72a7255cb6a",
+      "permissionsHash": "3e632aaf774adcab7958483dfab8351ec0144fd881f7f9b60b6c6783d66065f3",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "skills",
+          "title": "Packaged skills",
+          "description": "Provides 24 skills that agents can use when relevant."
+        },
+        {
+          "key": "mcp",
+          "title": "Optional MCP services",
+          "description": "Provides 3 MCP services, enabled only when configured."
+        },
+        {
+          "key": "cli:setup",
+          "title": "setup command",
+          "description": "Initialize frontend tooling in the current project (shadcn/ui, layout.design, Playwright browsers)"
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "shell.execute",
+          "title": "Run declared setup commands",
+          "description": "Can execute commands only through contributions that explicitly require this access."
+        }
       ],
       "tools": [],
       "uiSurfaces": [
         "ui.settings"
       ],
-      "publishedAt": "2026-08-21T11:54:55.171Z",
-      "changelog": "## 0.6.0\n\n### Added\n- Bundle the official GSAP skill family (8 skills): gsap-core, gsap-timeline, gsap-scrolltrigger, gsap-plugins, gsap-utils, gsap-react, gsap-performance, gsap-frameworks. The kit now ships 23 skills.\n\n### Updated\n- Synced upstream skill bundles (a11y-audit, better-* family) to latest."
+      "publishedAt": "2026-08-21T12:09:07.974Z",
+      "changelog": "## 0.7.0\n\n### Added\n- Bundle impeccable (v4.1.1), the design execution engine from pbakaus/impeccable (Apache-2.0): 23 commands, 59 detector rules, hooks, and multi-agent config. The kit now ships 24 skills.\n- Document the impeccable runtime surface (scripts, network calls, hooks, Node >=22.12) in SECURITY.md."
     }
   ],
   "yankedVersions": [
