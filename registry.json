@@ -1,7 +1,50 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-03T14:52:36.009Z",
+  "updatedAt": "2026-09-03T15:52:46.849Z",
   "plugins": [
+    {
+      "id": "holos-research-scholens",
+      "name": "holos-research-scholens",
+      "description": "Research management backed by Scholens literature — from idea discovery through paper submission, with full state machine tracking, adversarial review, and audit trail. Papers, metadata, and annotations live in a Scholens project; the research pipeline (ideas → experiments → claims → paper) is tracked locally under .research/.",
+      "repo": "https://github.com/EricSanchezok/holos-research-scholens",
+      "entry": "plugins/holos-research-scholens.json",
+      "author": {
+        "name": "EricSanchez",
+        "email": "niexiaohangeric@163.com",
+        "url": "https://github.com/EricSanchezok"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "synergy-plugin"
+      ],
+      "latestVersion": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-09-03T15:52:46.849Z",
+      "runtimeMode": "process",
+      "tools": [
+        "compute_submit",
+        "research_checkpoint_brief",
+        "research_claim",
+        "research_exhibit",
+        "research_experiment",
+        "research_idea",
+        "research_init",
+        "research_journal",
+        "research_monitor",
+        "research_paper",
+        "research_plan",
+        "research_state",
+        "research_submission",
+        "research_timeline"
+      ],
+      "uiSurfaces": [
+        "ui.workbenchPanel"
+      ]
+    },
     {
       "id": "holos-research",
       "name": "holos-research",
