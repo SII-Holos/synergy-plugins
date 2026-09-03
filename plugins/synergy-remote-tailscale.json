@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "id": "synergy-remote",
-  "name": "synergy-remote",
+  "id": "synergy-remote-tailscale",
+  "name": "synergy-remote-tailscale",
   "description": "Secure remote access to Synergy via Tailscale",
   "repo": "https://github.com/EricSanchezok/synergy-remote",
   "homepage": "https://github.com/EricSanchezok/synergy-remote",
@@ -25,14 +25,14 @@
       "compatibility": {
         "synergy": ">=1.1.27"
       },
-      "downloadUrl": "https://github.com/EricSanchezok/synergy-remote/releases/download/v0.1.0/synergy-remote-0.1.0.synergy-plugin.tgz",
-      "signatureUrl": "https://github.com/EricSanchezok/synergy-remote/releases/download/v0.1.0/synergy-remote-0.1.0.synergy-plugin.tgz.sig",
+      "downloadUrl": "https://github.com/EricSanchezok/synergy-remote/releases/download/v0.1.0/synergy-remote-tailscale-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/synergy-remote/releases/download/v0.1.0/synergy-remote-tailscale-0.1.0.synergy-plugin.tgz.sig",
       "signature": {
         "algorithm": "ed25519",
         "signer": "77f644ff48e4f314431d3025689b53210d50e5feb53437bb265594ea5850a084"
       },
-      "integrity": "sha256-e738c3de0a0a89a9a7cf8fe2d367737d3d00fc94ec23d5299d3655ade597f6e2",
-      "manifestHash": "84548f8e75ac4d6b080290f1fb785f0128d123f3b1a68823d6849de75bc444a1",
+      "integrity": "sha256-2dc606adbeff6abda277b52be1bf459871a638b388c1ff0a250369951b6875c9",
+      "manifestHash": "a0740678c4c3d64edc5e997598a0cbf409a7461cf53912e2aacb9ec29551f021",
       "permissionsHash": "d9dcddc7ea44e60f2a256083998af97fe3b84c803370be8516d049e21c266cfe",
       "runtimeMode": "process",
       "featuresSummary": [
@@ -68,14 +68,12 @@
       "uiSurfaces": [
         "ui.settings"
       ],
-      "publishedAt": "2026-08-08T07:51:35.590Z"
+      "publishedAt": "2026-08-08T08:52:49.484Z"
     }
   ],
-  "yankedVersions": [
-    "0.1.0"
-  ],
+  "yankedVersions": [],
   "icon": {
     "type": "registry-svg",
-    "path": "icons/synergy-remote.svg"
+    "path": "icons/synergy-remote-tailscale.svg"
   }
 }

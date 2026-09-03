@@ -3,6 +3,50 @@
   "updatedAt": "2026-09-03T14:52:36.009Z",
   "plugins": [
     {
+      "id": "holos-research",
+      "name": "holos-research",
+      "description": "Structured research management — from idea discovery through paper submission, with full state machine tracking, adversarial review, and audit trail.",
+      "repo": "https://github.com/yzxoi/holos-research",
+      "entry": "plugins/holos-research.json",
+      "author": {
+        "name": "yzxoi",
+        "email": "y@yzxoi.top",
+        "url": "https://github.com/yzxoi"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "synergy-plugin"
+      ],
+      "latestVersion": "1.1.1",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-15T05:24:56.144Z",
+      "runtimeMode": "process",
+      "tools": [
+        "compute_submit",
+        "research_checkpoint_brief",
+        "research_claim",
+        "research_exhibit",
+        "research_experiment",
+        "research_idea",
+        "research_init",
+        "research_journal",
+        "research_monitor",
+        "research_paper",
+        "research_plan",
+        "research_state",
+        "research_submission",
+        "research_timeline",
+        "research_wiki"
+      ],
+      "uiSurfaces": [
+        "ui.workbenchPanel"
+      ]
+    },
+    {
       "id": "synergy-celebration-plugin",
       "name": "synergy-celebration-plugin",
       "description": "Full-screen confetti celebrations when a moment deserves it.",
@@ -62,12 +106,12 @@
         "tailwind",
         "ui"
       ],
-      "latestVersion": "0.5.0",
+      "latestVersion": "0.7.1",
       "apiVersion": "4.0",
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-03T17:14:44.291Z",
+      "updatedAt": "2026-08-21T12:42:32.293Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
@@ -110,17 +154,17 @@
       "uiSurfaces": []
     },
     {
-      "id": "synergy-remote",
-      "name": "synergy-remote",
+      "id": "synergy-remote-tailscale",
+      "name": "synergy-remote-tailscale",
       "description": "Secure remote access to Synergy via Tailscale",
       "repo": "https://github.com/EricSanchezok/synergy-remote",
-      "entry": "plugins/synergy-remote.json",
+      "entry": "plugins/synergy-remote-tailscale.json",
       "author": {
-        "name": "unknown"
+        "name": "EricSanchez"
       },
       "icon": {
         "type": "registry-svg",
-        "path": "icons/synergy-remote.svg"
+        "path": "icons/synergy-remote-tailscale.svg"
       },
       "verified": false,
       "official": false,
@@ -134,11 +178,120 @@
       "compatibility": {
         "synergy": ">=1.1.27"
       },
-      "updatedAt": "2026-08-05T09:23:57.260Z",
+      "updatedAt": "2026-08-08T08:52:49.484Z",
       "runtimeMode": "process",
       "tools": [],
       "uiSurfaces": [
         "ui.settings"
+      ]
+    },
+    {
+      "id": "synergy-remote",
+      "name": "synergy-remote",
+      "description": "Secure remote access to Synergy via Tailscale",
+      "repo": "https://github.com/EricSanchezok/synergy-remote",
+      "entry": "plugins/synergy-remote.json",
+      "author": {
+        "name": "EricSanchez"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-remote.svg"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "remote-access",
+        "synergy-plugin",
+        "tailscale"
+      ],
+      "updatedAt": "2026-08-08T07:51:35.590Z",
+      "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ]
+    },
+    {
+      "id": "synergy-taskboard",
+      "name": "synergy-taskboard",
+      "description": "Kanban task board for humans and agents, inspired by dashi-taskboard (Linear-style workflow)",
+      "repo": "https://github.com/yzxoi/synergy-taskboard",
+      "entry": "plugins/synergy-taskboard.json",
+      "author": {
+        "name": "synergy-agent"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-taskboard.svg"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "kanban",
+        "linear",
+        "project-management",
+        "synergy-plugin",
+        "taskboard",
+        "tasks"
+      ],
+      "latestVersion": "1.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-07T08:12:12.001Z",
+      "runtimeMode": "process",
+      "tools": [
+        "task-comment",
+        "task-create",
+        "task-focus",
+        "task-get",
+        "task-link",
+        "task-list",
+        "task-move",
+        "task-unlink",
+        "task-update"
+      ],
+      "uiSurfaces": [
+        "ui.composerExtension",
+        "ui.icon",
+        "ui.navigationItem",
+        "ui.settings"
+      ]
+    },
+    {
+      "id": "token-poker",
+      "name": "token-poker",
+      "description": "Agent 陪玩的虚拟筹码德州扑克（Earn Tokens 风格）",
+      "repo": "https://github.com/yzxoi/token-poker",
+      "entry": "plugins/token-poker.json",
+      "author": {
+        "name": "yzxoi"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/token-poker.svg"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "entertainment",
+        "game",
+        "poker",
+        "synergy-plugin"
+      ],
+      "latestVersion": "0.1.2",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-08-31T07:13:00.000Z",
+      "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.icon",
+        "ui.navigationItem"
       ]
     },
     {
@@ -164,7 +317,7 @@
       "compatibility": {
         "synergy": ">=3.0.11"
       },
-      "updatedAt": "2026-08-05T15:10:16.665Z",
+      "updatedAt": "2026-08-08T09:33:51.599Z",
       "runtimeMode": "process",
       "tools": [
         "progress",

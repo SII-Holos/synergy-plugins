@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 2,
+  "id": "token-poker",
+  "name": "token-poker",
+  "description": "Agent 陪玩的虚拟筹码德州扑克（Earn Tokens 风格）",
+  "repo": "https://github.com/yzxoi/token-poker",
+  "author": {
+    "name": "yzxoi"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "entertainment",
+    "game",
+    "poker",
+    "synergy-plugin"
+  ],
+  "compatibility": {
+    "synergy": ">=3.0.11"
+  },
+  "versions": [
+    {
+      "version": "0.1.2",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.2/token-poker-0.1.2.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.2/token-poker-0.1.2.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "e773137070c06bfc36bee78e5599a99c477746bfff98ed848e3d6aec6a997972"
+      },
+      "integrity": "sha256-54f5ca2ad99ccedb5530be564a4b40cee555cb4b8c352915f49f5595535580d0",
+      "manifestHash": "f7b613055d225cdf56e2d47f337341b549faca038088be132610ce445a2930c3",
+      "permissionsHash": "ff9caa602a7f5ddf9bb5336484b5dc65109598482f922d9d83141763f42d8e5c",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 1 specialized agent."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.icon"
+      ],
+      "publishedAt": "2026-08-31T07:13:00.000Z",
+      "changelog": "Fix sidebar icon registration-order race (icon registers before the navigation item that references it) and invalid var() fallback in the SVG fill; adds registry icon asset."
+    },
+    {
+      "version": "0.1.1",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.1/token-poker-0.1.1.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/token-poker/releases/download/v0.1.1/token-poker-0.1.1.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "b389868fbdd796b8ce9a3900f611d8275e973ab484f02309d463fdd8dfbe561f"
+      },
+      "integrity": "sha256-84f3951fd619b58da60de17e1d19750e352a1b83e694b74bf3f85fe7546211f4",
+      "manifestHash": "698a814499aa02d937fe766fbd4889e43a5a55ace30b42215cefd49ca7d54847",
+      "permissionsHash": "ff9caa602a7f5ddf9bb5336484b5dc65109598482f922d9d83141763f42d8e5c",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 1 specialized agent."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.icon"
+      ],
+      "publishedAt": "2026-08-19T12:39:57.000Z",
+      "changelog": "UI polish release: monochrome table & dark mode, seat pills with fanned hole cards, street-by-street community reveals, ranked showdown settlement, AI action repair, flicker-free event-driven rendering"
+    }
+  ],
+  "yankedVersions": [],
+  "icon": {
+    "type": "registry-svg",
+    "path": "icons/token-poker.svg"
+  }
+}
