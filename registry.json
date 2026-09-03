@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-31T07:13:00.000Z",
+  "updatedAt": "2026-09-03T14:52:36.009Z",
   "plugins": [
     {
       "id": "holos-research",
@@ -44,6 +44,42 @@
       ],
       "uiSurfaces": [
         "ui.workbenchPanel"
+      ]
+    },
+    {
+      "id": "synergy-celebration-plugin",
+      "name": "synergy-celebration-plugin",
+      "description": "Full-screen confetti celebrations when a moment deserves it.",
+      "repo": "https://github.com/yzxoi/synergy-celebration-plugin",
+      "entry": "plugins/synergy-celebration-plugin.json",
+      "author": {
+        "name": "yzxoi"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-celebration-plugin.svg"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "celebration",
+        "confetti",
+        "joy",
+        "party",
+        "synergy-plugin"
+      ],
+      "latestVersion": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-09-03T14:52:36.009Z",
+      "runtimeMode": "process",
+      "tools": [
+        "celebrate"
+      ],
+      "uiSurfaces": [
+        "ui.messageRenderer"
       ]
     },
     {
