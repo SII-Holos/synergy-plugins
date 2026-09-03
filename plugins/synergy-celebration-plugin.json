@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 2,
+  "id": "synergy-celebration-plugin",
+  "name": "synergy-celebration-plugin",
+  "description": "Full-screen confetti celebrations when a moment deserves it.",
+  "repo": "https://github.com/yzxoi/synergy-celebration-plugin",
+  "homepage": "https://github.com/yzxoi/synergy-celebration-plugin",
+  "author": {
+    "name": "yzxoi"
+  },
+  "icon": {
+    "type": "registry-svg",
+    "path": "icons/synergy-celebration-plugin.svg"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "celebration",
+    "confetti",
+    "joy",
+    "party",
+    "synergy-plugin"
+  ],
+  "compatibility": {
+    "synergy": ">=3.0.11"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/yzxoi/synergy-celebration-plugin/releases/download/v0.1.0/synergy-celebration-plugin-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/yzxoi/synergy-celebration-plugin/releases/download/v0.1.0/synergy-celebration-plugin-0.1.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "e773137070c06bfc36bee78e5599a99c477746bfff98ed848e3d6aec6a997972"
+      },
+      "integrity": "sha256-b54faaa921a2ceb06578ff8310f6711b7ca8853ae9fa1dabe99d1ca65200decd",
+      "manifestHash": "7dbc1821fa88edec251c5e244bb80f96719346d105e95fc5f21e91758faee2df",
+      "permissionsHash": "a84b195d436ddc43b4da27715eae14669e78ff596d65e4ba5788b8263af8bfc6",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "tool:celebrate",
+          "title": "celebrate",
+          "description": "Fire a full-screen confetti celebration when a moment genuinely deserves one. Use as a lightweight joy channel after satisfying progress, a milestone, or a shared win: tests/build/CI all green, a deploy going live, a PR merged, a long task wrapped, a hard bug finally fixed, an experiment finishing on target, or the user expressing clear delight. Do not use for serious failures, security or privacy issues, user frustration, grief, sensitive topics, or dense technical review — and never for moments that need attention instead of celebration. Use at most once per short exchange, and keep helping normally: the burst carries the feeling, it never replaces the actual answer or work."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Conversation guidance",
+          "description": "Adds plugin guidance to conversations when the feature is active."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [],
+      "tools": [
+        "celebrate"
+      ],
+      "uiSurfaces": [
+        "ui.messageRenderer"
+      ],
+      "publishedAt": "2026-09-03T14:52:36.009Z"
+    }
+  ],
+  "yankedVersions": []
+}
