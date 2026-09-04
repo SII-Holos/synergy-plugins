@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 2,
+  "id": "synergy-wallpapers",
+  "name": "synergy-wallpapers",
+  "description": "Dress Synergy's Web UI background with Wallpaper Engine wallpapers (the Windows desktop wallpaper is untouched)",
+  "repo": "https://github.com/TTAWDTT/synergy-plugin-wallpapers",
+  "author": {
+    "name": "TTAWDTT"
+  },
+  "icon": {
+    "type": "registry-svg",
+    "path": "icons/synergy-wallpapers.svg"
+  },
+  "verified": false,
+  "official": false,
+  "keywords": [
+    "appearance",
+    "background",
+    "steam",
+    "synergy-plugin",
+    "wallpaper",
+    "wallpaper engine"
+  ],
+  "compatibility": {
+    "synergy": ">=3.0.11"
+  },
+  "versions": [
+    {
+      "version": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/TTAWDTT/synergy-plugin-wallpapers/releases/download/v0.1.0/synergy-wallpapers-0.1.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/TTAWDTT/synergy-plugin-wallpapers/releases/download/v0.1.0/synergy-wallpapers-0.1.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "966d73fcf4171662bd12a2aa07ac8836518a7ba05c87ab32cb20d179ccb4eb8c"
+      },
+      "integrity": "sha256-0479b14ff662985dc1f3b968f2c36cc760930412461c2a5b71ca6ff2459bda7f",
+      "manifestHash": "4b0ad604723d53f3ed98ae7bcc8268dc77cdbc496ad1e6f8b926997cddd724ac",
+      "permissionsHash": "392a209188cf25d6c428a87035bb9f3d14fa09226d8ff94dc6c29339dce61ff7",
+      "runtimeMode": "process",
+      "featuresSummary": [
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 1 interface extension."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        }
+      ],
+      "tools": [],
+      "uiSurfaces": [
+        "ui.settings"
+      ],
+      "publishedAt": "2026-09-04T12:28:10.458Z",
+      "changelog": "Initial release: Wallpaper Engine discovery (Steam Workshop + bundled projects), loopback media streaming with Range support, in-settings wallpaper picker, and a Web-UI-only background stage."
+    }
+  ],
+  "yankedVersions": []
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-03T15:52:46.849Z",
+  "updatedAt": "2026-09-04T12:28:10.458Z",
   "plugins": [
     {
       "id": "holos-research-scholens",
@@ -300,6 +300,41 @@
         "ui.composerExtension",
         "ui.icon",
         "ui.navigationItem",
+        "ui.settings"
+      ]
+    },
+    {
+      "id": "synergy-wallpapers",
+      "name": "synergy-wallpapers",
+      "description": "Dress Synergy's Web UI background with Wallpaper Engine wallpapers (the Windows desktop wallpaper is untouched)",
+      "repo": "https://github.com/TTAWDTT/synergy-plugin-wallpapers",
+      "entry": "plugins/synergy-wallpapers.json",
+      "author": {
+        "name": "TTAWDTT"
+      },
+      "icon": {
+        "type": "registry-svg",
+        "path": "icons/synergy-wallpapers.svg"
+      },
+      "verified": false,
+      "official": false,
+      "keywords": [
+        "appearance",
+        "background",
+        "steam",
+        "synergy-plugin",
+        "wallpaper",
+        "wallpaper engine"
+      ],
+      "latestVersion": "0.1.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "updatedAt": "2026-09-04T12:28:10.458Z",
+      "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
         "ui.settings"
       ]
     },
