@@ -83,6 +83,54 @@
       "manifestHash": "64a1b50cfe15a39f92da7c9efc0bbc960b00ace3d20f611cc3bef9e2c998e63d",
       "permissionsHash": "bd6ad4557d6a80368d56ccb9d8ca347261e9bfb47a33324fe70918f2a864dd52",
       "runtimeMode": "process",
+      "tools": [],
+      "uiSurfaces": [
+        "ui.slot",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-09-05T08:38:17.554Z",
+      "changelog": "Adds Wallpaper Engine-aware Synergy UI fusion controls, appearance presets, thumbnail color sampling, accessible keyboard-adjustable settings, and removes the duplicate declarative fallback form.",
+      "featuresSummary": [
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 2 interface extensions."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.resources",
+          "title": "Ui resources",
+          "description": "Can use the declared Synergy access ui.resources."
+        }
+      ]
+    },
+    {
+      "version": "0.3.2",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.11"
+      },
+      "downloadUrl": "https://github.com/TTAWDTT/synergy-plugin-wallpapers/releases/download/v0.3.2/synergy-wallpapers-0.3.2.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/TTAWDTT/synergy-plugin-wallpapers/releases/download/v0.3.2/synergy-wallpapers-0.3.2.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "966d73fcf4171662bd12a2aa07ac8836518a7ba05c87ab32cb20d179ccb4eb8c"
+      },
+      "integrity": "sha256-7ef3efe2b72822c19183c5f75c7dbe4fb7d35f1563e5d3655550285df12cdd84",
+      "manifestHash": "a7f7749bdb26118bbb80de8890842dac8b9b590805f169843ddaa04f2ede6ece",
+      "permissionsHash": "bd6ad4557d6a80368d56ccb9d8ca347261e9bfb47a33324fe70918f2a864dd52",
+      "runtimeMode": "process",
       "featuresSummary": [
         {
           "key": "ui",
@@ -112,8 +160,8 @@
         "ui.slot",
         "ui.settings"
       ],
-      "publishedAt": "2026-09-05T08:38:17.554Z",
-      "changelog": "Adds Wallpaper Engine-aware Synergy UI fusion controls, appearance presets, thumbnail color sampling, accessible keyboard-adjustable settings, and removes the duplicate declarative fallback form."
+      "publishedAt": "2026-09-07T01:50:56.468Z",
+      "changelog": "Preserve Wallpaper Engine backgrounds across Synergy session and project scope switches."
     }
   ],
   "yankedVersions": []
