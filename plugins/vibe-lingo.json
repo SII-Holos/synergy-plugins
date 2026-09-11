@@ -18,7 +18,7 @@
     "translation"
   ],
   "compatibility": {
-    "synergy": ">=3.0.11"
+    "synergy": ">=3.0.23"
   },
   "versions": [
     {
@@ -694,6 +694,106 @@
       "manifestHash": "f5183de975fb3557073b46643127965ce3d7870a237fa475d77b11049500e6ea",
       "permissionsHash": "d78754a18f153f9b1c09f37361586482cfa977ad41df0dd7e02fb1591b29e7e7",
       "runtimeMode": "process",
+      "tools": [
+        "record-correction",
+        "suggest-expression",
+        "progress",
+        "translation-history"
+      ],
+      "uiSurfaces": [
+        "ui.navigationItem",
+        "ui.textAction",
+        "ui.messageRenderer",
+        "ui.settings"
+      ],
+      "publishedAt": "2026-08-08T09:33:51.599Z",
+      "changelog": "Fix suggest-expression rejecting long or uppercase-field input (bounds 2000/500, case normalization)",
+      "featuresSummary": [
+        {
+          "key": "tool:record-correction",
+          "title": "record-correction",
+          "description": "Display and record the exact objective corrections and contextual naturalness suggestions selected by the main Agent. Call this as the first visible action only when the VibeLingo coaching contract requires language feedback."
+        },
+        {
+          "key": "tool:suggest-expression",
+          "title": "suggest-expression",
+          "description": "Display how the user's message would naturally be expressed in the configured target language when the user did not write the message in the target language. Call this as the first visible action only when the VibeLingo coaching contract calls for a target-language example. Do not use it for target-language attempts (use plugin__vibe-lingo__record-correction instead), for code, commands, paths, identifiers, pasted text, quotations, or trivial acknowledgements."
+        },
+        {
+          "key": "tool:progress",
+          "title": "progress",
+          "description": "Show the user's evidence-backed VibeLingo learning progress, review status, recurring patterns, and provenance. Use only when the user explicitly asks about language progress, recurring mistakes, reviews, or historical examples."
+        },
+        {
+          "key": "tool:translation-history",
+          "title": "translation-history",
+          "description": "Show saved VibeLingo translation history. Use only when the user explicitly asks about previous translations or translation history."
+        },
+        {
+          "key": "chat.system.transform",
+          "title": "Conversation guidance",
+          "description": "Adds plugin guidance to conversations when the feature is active."
+        },
+        {
+          "key": "agents",
+          "title": "Specialized agents",
+          "description": "Provides 7 specialized agents."
+        },
+        {
+          "key": "ui",
+          "title": "Synergy interface extensions",
+          "description": "Adds 6 interface extensions."
+        }
+      ],
+      "permissionsSummary": [
+        {
+          "key": "session.read",
+          "title": "Session read",
+          "description": "Can use the declared Synergy access session.read."
+        },
+        {
+          "key": "settings.read",
+          "title": "Settings read",
+          "description": "Can use the declared Synergy access settings.read."
+        },
+        {
+          "key": "settings.write",
+          "title": "Settings write",
+          "description": "Can use the declared Synergy access settings.write."
+        },
+        {
+          "key": "ui.hostActions",
+          "title": "Ui hostActions",
+          "description": "Can use the declared Synergy access ui.hostActions."
+        },
+        {
+          "key": "selection.read",
+          "title": "Selection read",
+          "description": "Can use the declared Synergy access selection.read."
+        },
+        {
+          "key": "agent.call",
+          "title": "Agent call",
+          "description": "Can use the declared Synergy access agent.call."
+        }
+      ]
+    },
+    {
+      "version": "0.9.0",
+      "apiVersion": "4.0",
+      "compatibility": {
+        "synergy": ">=3.0.23"
+      },
+      "downloadUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.9.0/vibe-lingo-0.9.0.synergy-plugin.tgz",
+      "signatureUrl": "https://github.com/EricSanchezok/vibe-lingo/releases/download/v0.9.0/vibe-lingo-0.9.0.synergy-plugin.tgz.sig",
+      "signature": {
+        "algorithm": "ed25519",
+        "signer": "0f0f5300ebc43fa4ac914eeac642be7fd49ae5d795b005a6825923b4e1fd4ed1"
+      },
+      "integrity": "sha256-b69f5b6e083c9b619ba4c9d2ff4d2b929758a83d9d2edf4729d2c8c61d62a065",
+      "manifestHash": "0b07794974d8a20cd05dbddb80339a86d2e375cf24a3978b64b624fe8df41c22",
+      "permissionsHash": "ea058a6b9f0cd624a75d8e68838f5da7311ea4c30e7d45b5bdd8129607060ea8",
+      "runtimeMode": "process",
       "featuresSummary": [
         {
           "key": "tool:record-correction",
@@ -775,8 +875,8 @@
         "ui.messageRenderer",
         "ui.settings"
       ],
-      "publishedAt": "2026-08-08T09:33:51.599Z",
-      "changelog": "Fix suggest-expression rejecting long or uppercase-field input (bounds 2000/500, case normalization)"
+      "publishedAt": "2026-09-11T09:23:44.115Z",
+      "changelog": "Migrate the trusted UI to Plugin UI API 5: single-context components, typed operations, owned navigation/overlay services, scoped semantic-token stylesheets, and a one-shot navigation-intent relay for card deep links. compatibility raises to Synergy >=3.0.23."
     }
   ],
   "yankedVersions": []

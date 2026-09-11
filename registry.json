@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-07T01:50:56.468Z",
+  "updatedAt": "2026-09-11T09:23:44.115Z",
   "plugins": [
     {
       "id": "holos-research-scholens",
@@ -391,12 +391,12 @@
         "synergy-plugin",
         "translation"
       ],
-      "latestVersion": "0.8.0",
+      "latestVersion": "0.9.0",
       "apiVersion": "4.0",
       "compatibility": {
-        "synergy": ">=3.0.11"
+        "synergy": ">=3.0.23"
       },
-      "updatedAt": "2026-08-08T09:33:51.599Z",
+      "updatedAt": "2026-09-11T09:23:44.115Z",
       "runtimeMode": "process",
       "tools": [
         "progress",
